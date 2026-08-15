@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import OutcomeBar, { OutcomeLegend } from "@/components/OutcomeBar";
 import Stamp from "@/components/Stamp";
@@ -93,9 +93,20 @@ export default function AskPage() {
   const [nearby, setNearby] = useState<NearbyResult | null>(null);
   const [playbook, setPlaybook] = useState<Playbook | null>(null);
   const [letter, setLetter] = useState<Letter | null>(null);
+  const [letterText, setLetterText] = useState("");
   const [letterBusy, setLetterBusy] = useState(false);
   const [copied, setCopied] = useState(false);
   const [listening, setListening] = useState(false);
+  const letterRef = useRef<HTMLTextAreaElement>(null);
+
+  // The carbon copy grows with its content while staying editable.
+  useEffect(() => {
+    const el = letterRef.current;
+    if (el) {
+      el.style.height = "auto";
+      el.style.height = `${el.scrollHeight}px`;
+    }
+  }, [letterText]);
 
   function dictate() {
     const rec = getSpeechRecognition();
@@ -128,6 +139,7 @@ export default function AskPage() {
         templates: nearby.templates,
       });
       setLetter(l);
+      setLetterText(l.letter);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -136,8 +148,8 @@ export default function AskPage() {
   }
 
   async function copyLetter() {
-    if (!letter) return;
-    await navigator.clipboard.writeText(letter.letter);
+    if (!letterText) return;
+    await navigator.clipboard.writeText(letterText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
@@ -431,7 +443,7 @@ export default function AskPage() {
           </span>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
-              Ready to paste into 311 — fill the [brackets]
+              Edit the [brackets] right here, then copy — ready for 311
             </p>
             <button
               onClick={copyLetter}
@@ -440,9 +452,14 @@ export default function AskPage() {
               {copied ? "✓ copied" : "copy"}
             </button>
           </div>
-          <p className="mt-3 whitespace-pre-wrap font-mono text-[13px] leading-relaxed">
-            {letter.letter}
-          </p>
+          <textarea
+            ref={letterRef}
+            value={letterText}
+            onChange={(e) => setLetterText(e.target.value)}
+            spellCheck={false}
+            aria-label="Your complaint text — edit before copying"
+            className="mt-3 w-full resize-none overflow-hidden rounded border border-dashed border-transparent bg-transparent font-mono text-[13px] leading-relaxed outline-none hover:border-[#d8c68f] focus:border-[#b39c55]"
+          />
           <ul className="mt-3 space-y-1">
             {letter.why.map((w, i) => (
               <li key={i} className="text-[12px] text-ink-2">

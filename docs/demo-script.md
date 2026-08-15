@@ -33,6 +33,8 @@ Go to `/ask`. Click the mold example chip (or 🎙️ speak it), run it.
 
 **If asked "what if the wifi dies?"** — it did, twice, during the build: the portal went into maintenance mid-hackathon and the app kept working from its disk cache. Point at a "served from cache" badge.
 
+**If asked "everyone uses LLMs — what's unique here?"** — five things, rapid-fire: (1) *AI as a compiler* — 537 classification calls annotate 18.9 million rows; each output is reused ~35,000 times. (2) *AI audited by adversarial AI* — every label was re-examined by a second model told to overturn the first; corrections and disagreements are published in the Atlas. (3) *An agent that operates the city's own query language* — Ask the Record writes live SoQL and shows the query as its receipt. (4) *AI hypothesis testing that can say no* — the boomerang claim was measured, falsified, and not shipped. (5) *Generation grounded in observed failure modes* — the letter and playbook counter the specific templates that kill complaints like yours. None of that is a chatbot.
+
 **If asked about the agencies table:** "different agencies end complaints differently — DHS 76% cosmetic, HPD 46% — it's a structural fact about how each works, not a report card on field workers." (Tone rule: the villain is a closure code, never a person.)
 
 ## Submission form draft

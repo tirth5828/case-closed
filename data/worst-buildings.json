@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-15T18:45:28.409Z",
+  "builtAt": "2026-08-15T20:05:48.080Z",
   "since": "2025-08-15T00:00:00",
   "types": [
     "HEAT/HOT WATER",
@@ -145,8 +145,8 @@
       "noAccess": 46
     },
     {
-      "address": "10 EAST   28 STREET",
-      "borough": "MANHATTAN",
+      "address": "4511 3 AVENUE",
+      "borough": "BRONX",
       "noAccess": 45
     },
     {
@@ -155,14 +155,9 @@
       "noAccess": 45
     },
     {
-      "address": "4511 3 AVENUE",
-      "borough": "BRONX",
+      "address": "10 EAST   28 STREET",
+      "borough": "MANHATTAN",
       "noAccess": 45
-    },
-    {
-      "address": "2584 CRESTON AVENUE",
-      "borough": "BRONX",
-      "noAccess": 44
     },
     {
       "address": "1491 MACOMBS ROAD",
@@ -170,13 +165,18 @@
       "noAccess": 44
     },
     {
-      "address": "1075 OCEAN PARKWAY",
-      "borough": "BROOKLYN",
-      "noAccess": 43
+      "address": "2584 CRESTON AVENUE",
+      "borough": "BRONX",
+      "noAccess": 44
     },
     {
       "address": "2588 7 AVENUE",
       "borough": "MANHATTAN",
+      "noAccess": 43
+    },
+    {
+      "address": "1075 OCEAN PARKWAY",
+      "borough": "BROOKLYN",
       "noAccess": 43
     },
     {
@@ -220,8 +220,8 @@
       "noAccess": 38
     },
     {
-      "address": "736 WEST  173 STREET",
-      "borough": "MANHATTAN",
+      "address": "405 EAST   16 STREET",
+      "borough": "BROOKLYN",
       "noAccess": 37
     },
     {
@@ -230,8 +230,8 @@
       "noAccess": 37
     },
     {
-      "address": "405 EAST   16 STREET",
-      "borough": "BROOKLYN",
+      "address": "736 WEST  173 STREET",
+      "borough": "MANHATTAN",
       "noAccess": 37
     },
     {
@@ -265,13 +265,13 @@
       "noAccess": 35
     },
     {
-      "address": "10 RICHMAN PLAZA",
-      "borough": "BRONX",
+      "address": "2760 WEST   33 STREET",
+      "borough": "BROOKLYN",
       "noAccess": 35
     },
     {
-      "address": "2760 WEST   33 STREET",
-      "borough": "BROOKLYN",
+      "address": "10 RICHMAN PLAZA",
+      "borough": "BRONX",
       "noAccess": 35
     },
     {
@@ -280,13 +280,13 @@
       "noAccess": 34
     },
     {
-      "address": "554 TRINITY AVENUE",
-      "borough": "BRONX",
+      "address": "494 SHEFFIELD AVENUE",
+      "borough": "BROOKLYN",
       "noAccess": 34
     },
     {
-      "address": "494 SHEFFIELD AVENUE",
-      "borough": "BROOKLYN",
+      "address": "554 TRINITY AVENUE",
+      "borough": "BRONX",
       "noAccess": 34
     },
     {
@@ -300,8 +300,8 @@
       "noAccess": 33
     },
     {
-      "address": "680 8 AVENUE",
-      "borough": "MANHATTAN",
+      "address": "155 LINDEN BOULEVARD",
+      "borough": "BROOKLYN",
       "noAccess": 33
     },
     {
@@ -310,8 +310,8 @@
       "noAccess": 33
     },
     {
-      "address": "155 LINDEN BOULEVARD",
-      "borough": "BROOKLYN",
+      "address": "680 8 AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 33
     },
     {
@@ -350,11 +350,6 @@
       "noAccess": 32
     },
     {
-      "address": "1 MARBLE HILL AVENUE",
-      "borough": "MANHATTAN",
-      "noAccess": 31
-    },
-    {
       "address": "1550 JESUP AVENUE",
       "borough": "BRONX",
       "noAccess": 31
@@ -362,6 +357,11 @@
     {
       "address": "1390 PROSPECT AVENUE",
       "borough": "BRONX",
+      "noAccess": 31
+    },
+    {
+      "address": "1 MARBLE HILL AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 31
     },
     {
@@ -375,11 +375,6 @@
       "noAccess": 31
     },
     {
-      "address": "8772 20 AVENUE",
-      "borough": "BROOKLYN",
-      "noAccess": 31
-    },
-    {
       "address": "950 JENNINGS STREET",
       "borough": "BRONX",
       "noAccess": 31
@@ -387,6 +382,11 @@
     {
       "address": "1430 AMSTERDAM AVENUE",
       "borough": "MANHATTAN",
+      "noAccess": 31
+    },
+    {
+      "address": "8772 20 AVENUE",
+      "borough": "BROOKLYN",
       "noAccess": 31
     },
     {
@@ -415,13 +415,13 @@
       "noAccess": 30
     },
     {
-      "address": "2600 NETHERLAND AVENUE",
-      "borough": "BRONX",
+      "address": "620 LENOX AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 30
     },
     {
-      "address": "620 LENOX AVENUE",
-      "borough": "MANHATTAN",
+      "address": "2600 NETHERLAND AVENUE",
+      "borough": "BRONX",
       "noAccess": 30
     },
     {
@@ -435,22 +435,22 @@
       "noAccess": 29
     },
     {
-      "address": "600 CONCORD AVENUE",
-      "borough": "BRONX",
-      "noAccess": 29
-    },
-    {
       "address": "147-01 HILLSIDE AVENUE",
       "borough": "QUEENS",
       "noAccess": 29
     },
     {
-      "address": "305 EAST  108 STREET",
+      "address": "211 WEST  146 STREET",
       "borough": "MANHATTAN",
       "noAccess": 29
     },
     {
-      "address": "211 WEST  146 STREET",
+      "address": "600 CONCORD AVENUE",
+      "borough": "BRONX",
+      "noAccess": 29
+    },
+    {
+      "address": "305 EAST  108 STREET",
       "borough": "MANHATTAN",
       "noAccess": 29
     },
@@ -460,13 +460,23 @@
       "noAccess": 29
     },
     {
+      "address": "94-25 57 AVENUE",
+      "borough": "QUEENS",
+      "noAccess": 28
+    },
+    {
+      "address": "25-44 STEINWAY STREET",
+      "borough": "QUEENS",
+      "noAccess": 28
+    },
+    {
       "address": "2010 POWELL AVENUE",
       "borough": "BRONX",
       "noAccess": 28
     },
     {
-      "address": "94-25 57 AVENUE",
-      "borough": "QUEENS",
+      "address": "1465 PARK AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 28
     },
     {
@@ -480,23 +490,13 @@
       "noAccess": 28
     },
     {
-      "address": "647 PRESIDENT STREET",
-      "borough": "BROOKLYN",
-      "noAccess": 28
-    },
-    {
-      "address": "1465 PARK AVENUE",
-      "borough": "MANHATTAN",
-      "noAccess": 28
-    },
-    {
       "address": "3136 GODWIN TERRACE",
       "borough": "BRONX",
       "noAccess": 28
     },
     {
-      "address": "25-44 STEINWAY STREET",
-      "borough": "QUEENS",
+      "address": "647 PRESIDENT STREET",
+      "borough": "BROOKLYN",
       "noAccess": 28
     },
     {
@@ -505,8 +505,8 @@
       "noAccess": 27
     },
     {
-      "address": "34-15 PARSONS BOULEVARD",
-      "borough": "QUEENS",
+      "address": "230 ST JOHNS PLACE",
+      "borough": "BROOKLYN",
       "noAccess": 27
     }
   ]

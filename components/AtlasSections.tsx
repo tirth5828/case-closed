@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Stamp from "./Stamp";
 import { MoreButton } from "./HonestyIndex";
-import type { OutcomeClass } from "@/lib/types";
+import type { OutcomeClass, TemplateAudit } from "@/lib/types";
 
 export interface AtlasEntry {
   text: string;
@@ -11,6 +11,30 @@ export interface AtlasEntry {
   outcome: OutcomeClass;
   n: number;
   types: string[];
+  audit?: TemplateAudit;
+}
+
+function AuditMark({ audit }: { audit?: TemplateAudit }) {
+  if (!audit) return null;
+  if (audit.verdict === "upheld") {
+    return (
+      <span className="font-mono text-[10px] uppercase tracking-wider" style={{ color: "var(--fixed)" }}>
+        ✓ notarized
+      </span>
+    );
+  }
+  if (audit.verdict === "corrected") {
+    return (
+      <span className="font-mono text-[10px] uppercase tracking-wider text-ink-3">
+        corrected on review{audit.original ? ` — was ${audit.original}` : ""}
+      </span>
+    );
+  }
+  return (
+    <span className="font-mono text-[10px] uppercase tracking-wider text-cosmetic" title={audit.note}>
+      contested — auditor read: {audit.dissent}
+    </span>
+  );
 }
 
 export interface AtlasSection {
@@ -86,7 +110,10 @@ export default function AtlasSections({ sections, grand }: { sections: AtlasSect
                 <li key={e.text} className="rounded border border-hairline bg-card p-3">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <p className="text-[14px] font-medium">{e.gloss}</p>
-                    <p className="font-mono text-[12px] text-ink-3">×{e.n.toLocaleString()}</p>
+                    <span className="flex items-baseline gap-3">
+                      <AuditMark audit={e.audit} />
+                      <p className="font-mono text-[12px] text-ink-3">×{e.n.toLocaleString()}</p>
+                    </span>
                   </div>
                   <p className="mt-1.5 text-[13px] leading-snug text-ink-2">&ldquo;{e.text}&rdquo;</p>
                   <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-3">

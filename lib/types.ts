@@ -49,9 +49,20 @@ export interface RawTemplatesFile {
   types: TypeTemplates[];
 }
 
+export interface TemplateAudit {
+  /** upheld = auditor agreed; corrected = auditor overturned and we adopted it;
+      contested = auditor disagreed without confidence, both readings published. */
+  verdict: "upheld" | "corrected" | "contested";
+  /** The original outcome when corrected, or the auditor's dissent when contested. */
+  original?: OutcomeClass;
+  dissent?: OutcomeClass;
+  note?: string;
+}
+
 export interface TemplateLabel {
   outcome: OutcomeClass;
   gloss: string;
+  audit?: TemplateAudit;
 }
 
 /** Map from exact template text -> label. */

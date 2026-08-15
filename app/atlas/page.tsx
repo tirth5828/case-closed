@@ -36,6 +36,7 @@ interface AtlasEntry {
   outcome: OutcomeClass;
   n: number;
   types: string[];
+  audit?: import("@/lib/types").TemplateAudit;
 }
 
 export default function Atlas() {
@@ -59,6 +60,7 @@ export default function Atlas() {
           outcome: label.outcome,
           n: tpl.n,
           types: [t.complaint_type],
+          audit: label.audit,
         });
       }
     }
@@ -84,6 +86,22 @@ export default function Atlas() {
           is the complete vocabulary NYC uses to close a 311 ticket — every template, what it
           really means, and how many New Yorkers received it this year.
         </p>
+        {(() => {
+          const audits = Object.values(labels)
+            .map((l) => l.audit)
+            .filter(Boolean);
+          if (!audits.length) return null;
+          const upheld = audits.filter((a) => a!.verdict === "upheld").length;
+          const correctedN = audits.filter((a) => a!.verdict === "corrected").length;
+          const contestedN = audits.filter((a) => a!.verdict === "contested").length;
+          return (
+            <p className="mt-3 font-mono text-[12px] leading-relaxed text-ink-3">
+              Every label was re-examined by a second, adversarial model instructed to overturn
+              the first: {upheld} upheld · {correctedN} corrected on review · {contestedN}{" "}
+              contested (both readings published below).
+            </p>
+          );
+        })()}
       </header>
 
       <Translator />

@@ -17,12 +17,17 @@ Built at the NYPL **Built for NYC: AI Hackathon**, Aug 15–16 2026.
 2. **Before You Call** (`/ask`) — describe your problem in plain English. Gemini maps it into the city's official complaint taxonomy (a broken radiator is `HEAT/HOT WATER` under HPD — nobody finds that in a dropdown), then NYC Open Data shows what happened to identical complaints near you.
 3. **The Playbook** — the model reads the failure templates for your complaint type and tells you, concretely, how to land in the verified-fixed cohort.
 
-## Why the AI is load-bearing
+## How the AI is used — not a chatbot
 
-Delete the LLM and the project vanishes — twice:
+Five distinct patterns, none of which is "send the user's text to a model and print the reply":
 
-- **Template → outcome classification.** There is no `WHERE` clause for "nobody got inside." The resolution text is heavily templated: 2.56M rows collapse into **232 distinct templates** via server-side `GROUP BY`. Gemini classifies each template once (~6 calls), and the labels join back to annotate millions of rows.
-- **Plain English → the 460-type taxonomy.** The only thing standing between a resident and their own data.
+1. **AI as a compiler.** There is no `WHERE` clause for "nobody got inside." The resolution text is heavily templated: millions of rows collapse into ~537 distinct templates via server-side `GROUP BY`. The model classifies each template **once**, and each label is reused across tens of thousands of rows — ~537 calls annotate **18.9 million closures**. Amortized inference, the opposite of per-request prompting.
+2. **AI audited by adversarial AI, with the record published.** Every label is re-examined by a second model instructed to *overturn* the first. Upheld labels are notarized in the Atlas; confident overturns are adopted and marked "corrected on review"; low-confidence disagreements are published as *contested*, with both readings shown. The disagreement rate is on the page.
+3. **An agent that operates the city's own query language.** "Ask the Record" doesn't answer from model memory: the model writes the SoQL query, we execute it live against NYC Open Data, and **the query itself is displayed as the receipt** — including when the model's first attempt is rejected and it self-corrects.
+4. **AI-assisted hypothesis testing that can say no.** We hypothesized cosmetic closures get re-filed more than verified fixes. We measured it (256k complaints, address-stratified) — it's false, so the app doesn't claim it, and says so on the homepage.
+5. **Generation grounded in observed failure modes.** The playbook, the refile letter, and the community-board brief aren't generic advice: each is generated *against the actual closure templates* that kill complaints like yours, and every claim traces to a number on screen.
+
+Plus the taxonomy mapping (plain English → the city's 460-type filing system — the only thing standing between a resident and their own data).
 
 ## Architecture
 

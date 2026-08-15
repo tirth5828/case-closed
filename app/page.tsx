@@ -118,7 +118,10 @@ export default function Home() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 pb-24">
       {/* ACT 1 — the reveal */}
-      <header className="border-b border-hairline pt-12 pb-10">
+      <header className="relative border-b border-hairline pt-12 pb-10">
+        <span className="watermark print:hidden" aria-hidden="true">
+          Public record
+        </span>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <p className="pt-2 font-mono text-[13px] uppercase tracking-widest text-ink-3">
             NYC 311 · the year since {new Date(honesty.since).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} · {grandTotal.toLocaleString()} complaints, top 15 types

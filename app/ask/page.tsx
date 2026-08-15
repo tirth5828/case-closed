@@ -425,19 +425,22 @@ export default function AskPage() {
 
       {/* The refile letter */}
       {letter && (
-        <section className="reveal mt-6 rounded border border-hairline bg-card p-4">
+        <section className="carbon reveal mt-6 rounded p-4">
+          <span className="copy-ghost" aria-hidden="true">
+            COPY
+          </span>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
               Ready to paste into 311 — fill the [brackets]
             </p>
             <button
               onClick={copyLetter}
-              className="rounded border border-hairline px-3 py-1 font-mono text-[12px] hover:border-ink-3"
+              className="mr-20 cursor-pointer rounded border border-[#d8c68f] bg-paper/60 px-3 py-1 font-mono text-[12px] hover:border-ink-3"
             >
               {copied ? "✓ copied" : "copy"}
             </button>
           </div>
-          <p className="mt-3 whitespace-pre-wrap rounded border border-dashed border-hairline bg-paper p-3 text-[14px] leading-relaxed">
+          <p className="mt-3 whitespace-pre-wrap font-mono text-[13px] leading-relaxed">
             {letter.letter}
           </p>
           <ul className="mt-3 space-y-1">

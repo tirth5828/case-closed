@@ -36,7 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full">
         <div className="mx-auto w-full max-w-5xl px-0 pt-6 sm:px-6 print:max-w-none print:p-0">
           <FileTabs />
-          <div className="sheet flex min-h-screen flex-col print:border-0 print:shadow-none">
+          <div className="file-stack print:!static">
+          <div className="sheet flex min-h-screen flex-col print:transform-none print:border-0 print:shadow-none">
+            <span className="staple print:hidden" aria-hidden="true" />
+            <span className="dogear print:hidden" aria-hidden="true" />
             <div className="flex-1">{children}</div>
             <footer className="flex items-center justify-between gap-4 border-t border-hairline px-6 py-6 print:hidden">
               <p className="max-w-md font-mono text-[11px] leading-relaxed text-ink-3">
@@ -45,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </p>
               <Seal size={92} className="shrink-0 -rotate-6 opacity-80" />
             </footer>
+          </div>
           </div>
         </div>
       </body>

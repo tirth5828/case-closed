@@ -86,10 +86,11 @@ export default function Atlas() {
         </p>
       </header>
 
-      {sections.map((s) => {
+      {sections.map((s, si) => {
         const total = s.items.reduce((x, e) => x + e.n, 0);
         return (
           <section key={s.outcome} className="pt-10">
+            <div className="form-sec mb-3">exhibit {String.fromCharCode(65 + si)}</div>
             <div className="flex flex-wrap items-baseline gap-3">
               <Stamp outcome={s.outcome} flat className="text-[13px]" />
               <span className="font-mono text-[13px] text-ink-3">

@@ -184,6 +184,12 @@ export default function Home() {
           >
             Open your building&apos;s file
           </Link>
+          <Link
+            href="/board"
+            className="rounded border border-ink px-5 py-2.5 font-display font-bold uppercase tracking-wide hover:bg-card"
+          >
+            Take it to your board
+          </Link>
         </div>
       </header>
 

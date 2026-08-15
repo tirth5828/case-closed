@@ -10,13 +10,14 @@
     "pull": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-templates.ts",
     "classify": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/classify-templates.ts",
     "aggregate": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/aggregate.ts",
-    "pipeline": "npm run pull && npm run agencies && npm run classify && npm run aggregate && npm run boroughs && npm run worst && npm run boomerang",
+    "pipeline": "npm run pull && npm run agencies && npm run classify && npm run aggregate && npm run boroughs && npm run worst && npm run boards && npm run boomerang",
     "test": "vitest run",
     "warm": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/warm-demo.ts",
     "boroughs": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-boroughs.ts",
     "boomerang": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/boomerang.ts",
     "worst": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-worst.ts",
-    "agencies": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-agencies.ts"
+    "agencies": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-agencies.ts",
+    "boards": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-boards.ts"
   },
   "dependencies": {
     "next": "16.3.1",

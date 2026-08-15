@@ -110,7 +110,7 @@ export default function Home() {
                 })),
             };
           })
-          .filter((a) => a.total >= 20000)
+          .filter((a) => a.total >= 10000)
           .sort((a, b) => b.cosmeticShare - a.cosmeticShare);
       })()
     : null;
@@ -215,7 +215,7 @@ export default function Home() {
             different ways — a structural fact about how each one works, not a report card on the
             people in the field.
           </p>
-          <AgencyLeague rows={agencies.slice(0, 8)} />
+          <AgencyLeague rows={agencies} />
           {agenciesRaw && (
             <div className="mt-3">
               <ReceiptLink url={agenciesRaw.receiptUrl} />

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import OutcomeBar from "./OutcomeBar";
+import { MoreButton, SortToggle } from "./HonestyIndex";
 import Stamp from "./Stamp";
 import type { Grouped } from "@/lib/honesty";
 import type { OutcomeClass } from "@/lib/types";
@@ -14,13 +15,34 @@ export interface AgencyRow {
   templates: { n: number; gloss: string; outcome: OutcomeClass | "unknown" }[];
 }
 
+type AgencySortKey = "share" | "volume";
+
+const AGENCY_SORTS: { key: AgencySortKey; label: string; fn: (a: AgencyRow, b: AgencyRow) => number }[] = [
+  { key: "share", label: "worst %", fn: (a, b) => b.cosmeticShare - a.cosmeticShare },
+  { key: "volume", label: "volume", fn: (a, b) => b.total - a.total },
+];
+
+const INITIAL_AGENCIES = 6;
+
 /** Expandable agency rows: click a department to read how it ends complaints. */
 export default function AgencyLeague({ rows }: { rows: AgencyRow[] }) {
   const [open, setOpen] = useState<string | null>(null);
+  const [sortKey, setSortKey] = useState<AgencySortKey>("share");
+  const [showAll, setShowAll] = useState(false);
+
+  const sorted = useMemo(
+    () => [...rows].sort(AGENCY_SORTS.find((s) => s.key === sortKey)!.fn),
+    [rows, sortKey],
+  );
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_AGENCIES);
 
   return (
-    <ul className="mt-5 divide-y divide-hairline border-y border-hairline">
-      {rows.map((a) => (
+    <>
+    <div className="mt-4 flex justify-end">
+      <SortToggle options={AGENCY_SORTS} value={sortKey} onChange={setSortKey} />
+    </div>
+    <ul className="mt-2 divide-y divide-hairline border-y border-hairline">
+      {visible.map((a) => (
         <li key={a.agency}>
           <button
             onClick={() => setOpen(open === a.agency ? null : a.agency)}
@@ -52,5 +74,13 @@ export default function AgencyLeague({ rows }: { rows: AgencyRow[] }) {
         </li>
       ))}
     </ul>
+    {rows.length > INITIAL_AGENCIES && (
+      <MoreButton
+        showAll={showAll}
+        onToggle={() => setShowAll(!showAll)}
+        hiddenCount={rows.length - INITIAL_AGENCIES}
+      />
+    )}
+    </>
   );
 }

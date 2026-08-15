@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import OutcomeBar from "./OutcomeBar";
 import Stamp from "./Stamp";
 import ReceiptLink from "./ReceiptLink";
@@ -31,12 +31,85 @@ export interface IndexRow {
   boroughs?: IndexBorough[];
 }
 
+type SortKey = "impact" | "share" | "volume";
+
+const SORTS: { key: SortKey; label: string; fn: (a: IndexRow, b: IndexRow) => number }[] = [
+  { key: "impact", label: "impact", fn: (a, b) => b.cosmeticShare * b.total - a.cosmeticShare * a.total },
+  { key: "share", label: "worst %", fn: (a, b) => b.cosmeticShare - a.cosmeticShare },
+  { key: "volume", label: "volume", fn: (a, b) => b.total - a.total },
+];
+
+export function SortToggle<K extends string>({
+  options,
+  value,
+  onChange,
+}: {
+  options: { key: K; label: string }[];
+  value: K;
+  onChange: (k: K) => void;
+}) {
+  return (
+    <div className="flex items-center gap-1 font-mono text-[11px] text-ink-3">
+      <span className="mr-0.5">sort:</span>
+      {options.map((o) => (
+        <button
+          key={o.key}
+          onClick={() => onChange(o.key)}
+          aria-pressed={value === o.key}
+          className={`cursor-pointer rounded border px-1.5 py-0.5 ${
+            value === o.key
+              ? "border-ink bg-ink text-paper"
+              : "border-hairline text-ink-2 hover:border-ink-3"
+          }`}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export function MoreButton({
+  showAll,
+  onToggle,
+  hiddenCount,
+}: {
+  showAll: boolean;
+  onToggle: () => void;
+  hiddenCount: number;
+}) {
+  return (
+    <div className="mt-2 flex justify-end">
+      <button
+        onClick={onToggle}
+        className="cursor-pointer font-mono text-[12px] text-receipt underline decoration-dotted underline-offset-2 hover:decoration-solid"
+      >
+        {showAll ? "less ↑" : `more (${hiddenCount}) ↓`}
+      </button>
+    </div>
+  );
+}
+
+const INITIAL_ROWS = 8;
+
 export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
   const [openType, setOpenType] = useState<string | null>(null);
+  const [sortKey, setSortKey] = useState<SortKey>("impact");
+  const [showAll, setShowAll] = useState(false);
+
+  const sorted = useMemo(
+    () => [...rows].sort(SORTS.find((s) => s.key === sortKey)!.fn),
+    [rows, sortKey],
+  );
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_ROWS);
 
   return (
-    <div className="mt-6 divide-y divide-hairline border-y border-hairline">
-      {rows.map((row) => {
+    <>
+      <div className="mt-4 flex justify-end">
+        <SortToggle options={SORTS} value={sortKey} onChange={setSortKey} />
+      </div>
+      <div className="mt-2 divide-y divide-hairline border-y border-hairline">
+        {visible.map((row) => {
         const open = openType === row.complaint_type;
         return (
           <div key={row.complaint_type}>
@@ -112,6 +185,14 @@ export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
           </div>
         );
       })}
-    </div>
+      </div>
+      {rows.length > INITIAL_ROWS && (
+        <MoreButton
+          showAll={showAll}
+          onToggle={() => setShowAll(!showAll)}
+          hiddenCount={rows.length - INITIAL_ROWS}
+        />
+      )}
+    </>
   );
 }

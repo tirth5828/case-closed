@@ -37,6 +37,29 @@ interface Playbook {
   steps: string[];
 }
 
+interface Letter {
+  letter: string;
+  why: string[];
+}
+
+interface SpeechRecognitionLike {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  onresult: ((e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
+  onend: (() => void) | null;
+  onerror: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+}
+
+function getSpeechRecognition(): SpeechRecognitionLike | null {
+  if (typeof window === "undefined") return null;
+  const w = window as unknown as Record<string, new () => SpeechRecognitionLike>;
+  const Ctor = w.SpeechRecognition ?? w.webkitSpeechRecognition;
+  return Ctor ? new Ctor() : null;
+}
+
 function toGrouped(r: NearbyResult): Grouped {
   const cosmetic = Math.round(r.cosmeticShare * r.total);
   const verified = Math.round(r.resolvedShare * r.total);
@@ -69,6 +92,55 @@ export default function AskPage() {
   const [ask, setAsk] = useState<AskResult | null>(null);
   const [nearby, setNearby] = useState<NearbyResult | null>(null);
   const [playbook, setPlaybook] = useState<Playbook | null>(null);
+  const [letter, setLetter] = useState<Letter | null>(null);
+  const [letterBusy, setLetterBusy] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [listening, setListening] = useState(false);
+
+  function dictate() {
+    const rec = getSpeechRecognition();
+    if (!rec) {
+      setError("Voice input isn't supported in this browser — Chrome works.");
+      return;
+    }
+    rec.lang = "en-US";
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.onresult = (e) => {
+      const transcript = Array.from({ length: e.results.length }, (_, i) => e.results[i][0].transcript).join("");
+      setProblem(transcript);
+    };
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
+    setListening(true);
+    rec.start();
+  }
+
+  async function draftLetter() {
+    if (!ask || !nearby) return;
+    setLetterBusy(true);
+    setLetter(null);
+    try {
+      const l = await postJson<Letter>("/api/letter", {
+        problem,
+        complaint_type: ask.complaint_type,
+        descriptor: ask.descriptor,
+        templates: nearby.templates,
+      });
+      setLetter(l);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLetterBusy(false);
+    }
+  }
+
+  async function copyLetter() {
+    if (!letter) return;
+    await navigator.clipboard.writeText(letter.letter);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   async function run() {
     if (!problem.trim()) return;
@@ -76,6 +148,7 @@ export default function AskPage() {
     setAsk(null);
     setNearby(null);
     setPlaybook(null);
+    setLetter(null);
     try {
       setPhase("classifying");
       const a = await postJson<AskResult>("/api/ask", { problem });
@@ -170,6 +243,15 @@ export default function AskPage() {
               className="w-20 rounded border border-hairline bg-paper px-3 py-2 font-mono text-[14px] outline-none focus:border-ink-3"
             />
           </div>
+          <button
+            onClick={dictate}
+            disabled={busy || listening}
+            title="Say it out loud instead"
+            aria-label="Dictate your problem"
+            className="rounded border border-hairline bg-paper px-3 py-2 text-[15px] hover:border-ink-3 disabled:opacity-40"
+          >
+            {listening ? "🔴 listening…" : "🎙️"}
+          </button>
           <button
             onClick={run}
             disabled={busy || !problem.trim()}
@@ -287,6 +369,31 @@ export default function AskPage() {
         </section>
       )}
 
+      {/* The most likely ending */}
+      {nearby && nearby.templates.length > 0 && (
+        <section className="reveal mt-6 rounded border border-hairline bg-card p-4">
+          <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
+            Your most likely ending
+          </p>
+          <p className="mt-1 text-[13px] text-ink-2">
+            The sentence the city sends most often to complaints like yours —{" "}
+            {Math.round((nearby.templates[0].n / nearby.total) * 100)}% of them got exactly this:
+          </p>
+          <blockquote className="mt-3 border-l-2 pl-3" style={{ borderColor: "var(--stamp)" }}>
+            <p className="text-[15px] leading-relaxed text-ink">
+              &ldquo;{nearby.templates[0].text}&rdquo;
+            </p>
+          </blockquote>
+          <div className="mt-3 flex items-center gap-3">
+            <Stamp outcome={nearby.templates[0].outcome} />
+            <span className="text-[13px] text-ink-2">
+              {nearby.templates[0].gloss} — unless you change the script. That&apos;s what the
+              playbook below is for.
+            </span>
+          </div>
+        </section>
+      )}
+
       {/* Playbook */}
       {playbook && (
         <section className="reveal mt-6 rounded border-2 border-ink bg-card p-4">
@@ -302,14 +409,50 @@ export default function AskPage() {
               </li>
             ))}
           </ol>
-          <a
-            href="https://portal.311.nyc.gov"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-block rounded bg-ink px-5 py-2 font-display font-bold uppercase tracking-wide text-paper hover:bg-ink-2"
-          >
-            File it for real →
-          </a>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <button
+              onClick={draftLetter}
+              disabled={letterBusy}
+              className="rounded bg-ink px-5 py-2 font-display font-bold uppercase tracking-wide text-paper hover:bg-ink-2 disabled:opacity-40"
+            >
+              {letterBusy ? "Drafting…" : "Draft my complaint text"}
+            </button>
+            <a
+              href="https://portal.311.nyc.gov"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded border border-ink px-5 py-2 font-display font-bold uppercase tracking-wide hover:bg-paper"
+            >
+              File it for real →
+            </a>
+          </div>
+        </section>
+      )}
+
+      {/* The refile letter */}
+      {letter && (
+        <section className="reveal mt-6 rounded border border-hairline bg-card p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
+              Ready to paste into 311 — fill the [brackets]
+            </p>
+            <button
+              onClick={copyLetter}
+              className="rounded border border-hairline px-3 py-1 font-mono text-[12px] hover:border-ink-3"
+            >
+              {copied ? "✓ copied" : "copy"}
+            </button>
+          </div>
+          <p className="mt-3 whitespace-pre-wrap rounded border border-dashed border-hairline bg-paper p-3 text-[14px] leading-relaxed">
+            {letter.letter}
+          </p>
+          <ul className="mt-3 space-y-1">
+            {letter.why.map((w, i) => (
+              <li key={i} className="text-[12px] text-ink-2">
+                ▸ {w}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </main>

@@ -118,10 +118,19 @@ export default function Home() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 pb-24">
       {/* ACT 1 — the reveal */}
-      <header className="border-b border-hairline pt-16 pb-10">
-        <p className="font-mono text-[13px] uppercase tracking-widest text-ink-3">
-          NYC 311 · the year since {new Date(honesty.since).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} · {grandTotal.toLocaleString()} complaints, top 15 types
-        </p>
+      <header className="border-b border-hairline pt-12 pb-10">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <p className="pt-2 font-mono text-[13px] uppercase tracking-widest text-ink-3">
+            NYC 311 · the year since {new Date(honesty.since).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} · {grandTotal.toLocaleString()} complaints, top 15 types
+          </p>
+          <span className="datestamp text-[11px] text-ink-2">
+            received
+            <br />
+            {new Date(honesty.builtAt).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" })}
+            <br />
+            nyc open data
+          </span>
+        </div>
         <h1 className="mt-6 font-display text-5xl font-black uppercase leading-[1.05] sm:text-6xl">
           Almost every one:{" "}
           <span className="stamp stamp-hero text-stamp px-3 align-middle text-4xl sm:text-5xl">Closed</span>
@@ -195,6 +204,7 @@ export default function Home() {
 
       {/* The Honesty Index */}
       <section className="pt-12">
+        <div className="form-sec mb-4">sec. 01 · disposition of complaints</div>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="font-display text-2xl font-black uppercase">The Honesty Index</h2>
@@ -215,6 +225,7 @@ export default function Home() {
 
       {agencies && agencies.length > 0 && (
         <section className="pt-14">
+          <div className="form-sec mb-4">sec. 02 · responding agencies</div>
           <h2 className="font-display text-2xl font-black uppercase">Who actually writes &ldquo;fixed&rdquo;?</h2>
           <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
             The same honesty math, by responding agency. Different agencies end complaints in very
@@ -232,6 +243,7 @@ export default function Home() {
 
       {worst && worst.buildings.length > 0 && (
         <section className="pt-14">
+          <div className="form-sec mb-4">sec. 03 · premises of record</div>
           <h2 className="font-display text-2xl font-black uppercase">Where complaints go to die</h2>
           <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
             The buildings with the most housing complaints closed for <em>no access</em> in the

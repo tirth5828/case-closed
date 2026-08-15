@@ -75,13 +75,7 @@ export default function Atlas() {
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pb-24">
-      <nav className="pt-8">
-        <Link href="/" className="font-mono text-[13px] text-receipt hover:underline">
-          ← the Honesty Index
-        </Link>
-      </nav>
-
-      <header className="border-b border-hairline pt-8 pb-8">
+      <header className="border-b border-hairline pt-10 pb-8">
         <h1 className="font-display text-4xl font-black uppercase leading-tight">
           The Template Atlas
         </h1>

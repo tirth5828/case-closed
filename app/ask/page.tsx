@@ -188,13 +188,7 @@ export default function AskPage() {
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pb-24">
-      <nav className="pt-8">
-        <Link href="/" className="font-mono text-[13px] text-receipt hover:underline">
-          ← the Honesty Index
-        </Link>
-      </nav>
-
-      <header className="pt-8">
+      <header className="pt-10">
         <h1 className="font-display text-4xl font-black uppercase leading-tight">
           Before you call 311
         </h1>

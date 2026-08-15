@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { loadLabels, loadRawTemplates } from "@/lib/data";
 import Stamp from "@/components/Stamp";
+import Translator from "@/components/Translator";
 import { OUTCOME_CLASSES } from "@/lib/types";
 import type { OutcomeClass } from "@/lib/types";
 
@@ -85,6 +85,8 @@ export default function Atlas() {
           really means, and how many New Yorkers received it this year.
         </p>
       </header>
+
+      <Translator />
 
       {sections.map((s, si) => {
         const total = s.items.reduce((x, e) => x + e.n, 0);

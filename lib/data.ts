@@ -67,6 +67,19 @@ export function loadAgencies(): AgenciesRawFile | null {
   }
 }
 
+export interface YearsRawFile {
+  pulledAt: string;
+  years: { year: number; templates: { text: string; n: number }[]; receiptUrl: string }[];
+}
+
+export function loadYears(): YearsRawFile | null {
+  try {
+    return load<YearsRawFile>("years-raw.json");
+  } catch {
+    return null;
+  }
+}
+
 export interface WorstBuildingsFile {
   builtAt: string;
   since: string;

@@ -9,10 +9,11 @@ import {
   loadLabels,
   loadRawTemplates,
   loadWorstBuildings,
+  loadYears,
 } from "@/lib/data";
 import { breakdown, cosmeticShare, regroup, resolvedShare } from "@/lib/honesty";
 import HonestyIndex, { type IndexRow } from "@/components/HonestyIndex";
-import { OutcomeLegend } from "@/components/OutcomeBar";
+import OutcomeBar, { OutcomeLegend } from "@/components/OutcomeBar";
 import AgencyLeague from "@/components/AgencyLeague";
 import ReceiptLink from "@/components/ReceiptLink";
 
@@ -83,6 +84,22 @@ export default function Home() {
 
   const boomerang = loadBoomerang();
   const worst = loadWorstBuildings();
+  const yearsRaw = loadYears();
+  const years = yearsRaw
+    ? yearsRaw.years
+        .filter((y) => y.templates.length > 0)
+        .map((y) => {
+          const b = breakdown(y.templates, labels);
+          return {
+            year: y.year,
+            total: b.total,
+            grouped: regroup(b),
+            cosmeticShare: cosmeticShare(b),
+            resolvedShare: resolvedShare(b),
+            receiptUrl: y.receiptUrl,
+          };
+        })
+    : null;
   const agenciesRaw = loadAgencies();
   const agencies = agenciesRaw
     ? (() => {
@@ -276,6 +293,47 @@ export default function Home() {
           </p>
           <div className="mt-3">
             <ReceiptLink url={worst.receiptUrl} />
+          </div>
+        </section>
+      )}
+
+      {years && years.length >= 2 && (
+        <section className="pt-14">
+          <div className="form-sec mb-4">sec. 04 · the record over time</div>
+          <h2 className="font-display text-2xl font-black uppercase">The Time Machine</h2>
+          <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
+            Every 311 closure since {years[0].year} — {years.reduce((s, y) => s + y.total, 0).toLocaleString()} of
+            them — run through the same honesty math.{" "}
+            {(() => {
+              const first = years[0];
+              const last = years[years.length - 1];
+              const d = (last.cosmeticShare - first.cosmeticShare) * 100;
+              return (
+                <>
+                  Cosmetic closure went from{" "}
+                  <strong>{(first.cosmeticShare * 100).toFixed(0)}% in {first.year}</strong> to{" "}
+                  <strong className="text-cosmetic">{(last.cosmeticShare * 100).toFixed(0)}% in {last.year}</strong>
+                  {Math.abs(d) >= 1 ? ` — ${d > 0 ? "up" : "down"} ${Math.abs(d).toFixed(0)} points.` : " — essentially unchanged."}
+                </>
+              );
+            })()}
+          </p>
+          <ul className="mt-5 space-y-2.5">
+            {years.map((y) => (
+              <li key={y.year} className="grid grid-cols-[3.5rem_1fr_4rem] items-center gap-4">
+                <div>
+                  <p className="font-mono text-[13px] font-semibold">{y.year}</p>
+                  <p className="font-mono text-[10px] text-ink-3">{(y.total / 1e6).toFixed(1)}M</p>
+                </div>
+                <OutcomeBar grouped={y.grouped} height={16} showLabels={false} />
+                <p className="text-right font-mono text-[13px] font-semibold text-cosmetic">
+                  {(y.cosmeticShare * 100).toFixed(0)}%
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-3">
+            <ReceiptLink url={years[years.length - 1].receiptUrl} />
           </div>
         </section>
       )}

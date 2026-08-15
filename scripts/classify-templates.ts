@@ -68,6 +68,14 @@ async function main() {
     texts.push(...agencies.rows.filter((r) => r.n >= 100).map((r) => r.text));
   } catch {}
 
+  // And templates from past years (the Time Machine), which use older wordings.
+  try {
+    const years = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "data", "years-raw.json"), "utf8"),
+    ) as { years: { templates: { text: string; n: number }[] }[] };
+    for (const y of years.years) texts.push(...y.templates.filter((t) => t.n >= 500).map((t) => t.text));
+  } catch {}
+
   const unique = [...new Set(texts)];
   console.log(`${unique.length} unique templates to classify (batches of ${BATCH})...`);
 

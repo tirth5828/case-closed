@@ -1,0 +1,308 @@
+{
+  "builtAt": "2026-08-15T18:04:16.250Z",
+  "since": "2025-08-15T00:00:00",
+  "types": [
+    {
+      "complaint_type": "Illegal Parking",
+      "total": 608641,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 231596,
+          "resolved": 268638,
+          "no_action": 97982,
+          "referred": 4471,
+          "other": 4146,
+          "no_jurisdiction": 1172,
+          "no_access": 357,
+          "in_progress": 4,
+          "unknown": 275
+        },
+        "total": 608641
+      },
+      "cosmeticShare": 0.5513562181975911,
+      "resolvedShare": 0.4413734861765803,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Illegal%20Parking'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Noise - Residential",
+      "total": 436714,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 183207,
+          "resolved": 147091,
+          "no_action": 55647,
+          "no_access": 45002,
+          "referred": 3071,
+          "other": 1905,
+          "no_jurisdiction": 564,
+          "in_progress": 3,
+          "unknown": 224
+        },
+        "total": 436714
+      },
+      "cosmeticShare": 0.6583049776283793,
+      "resolvedShare": 0.3368131088080529,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Noise%20-%20Residential'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "HEAT/HOT WATER",
+      "total": 357403,
+      "breakdown": {
+        "counts": {
+          "duplicate": 109538,
+          "resolved": 132190,
+          "no_access": 39975,
+          "other": 32609,
+          "no_jurisdiction": 23695,
+          "in_progress": 12204,
+          "no_action": 7192
+        },
+        "total": 357403
+      },
+      "cosmeticShare": 0.19826918072875718,
+      "resolvedShare": 0.36986259208792316,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'HEAT%2FHOT%20WATER'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Blocked Driveway",
+      "total": 192440,
+      "breakdown": {
+        "counts": {
+          "resolved": 86507,
+          "condition_gone": 83732,
+          "no_action": 19460,
+          "other": 2042,
+          "referred": 423,
+          "no_access": 92,
+          "no_jurisdiction": 67,
+          "in_progress": 4,
+          "unknown": 113
+        },
+        "total": 192440
+      },
+      "cosmeticShare": 0.5392537933901476,
+      "resolvedShare": 0.4495271253377676,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Blocked%20Driveway'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Noise - Street/Sidewalk",
+      "total": 175030,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 90393,
+          "resolved": 71898,
+          "no_action": 10430,
+          "other": 1090,
+          "no_access": 692,
+          "referred": 267,
+          "no_jurisdiction": 87,
+          "in_progress": 3,
+          "unknown": 170
+        },
+        "total": 175030
+      },
+      "cosmeticShare": 0.5820087984916872,
+      "resolvedShare": 0.41077529566360055,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Noise%20-%20Street%2FSidewalk'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "UNSANITARY CONDITION",
+      "total": 131228,
+      "breakdown": {
+        "counts": {
+          "no_jurisdiction": 33260,
+          "resolved": 33052,
+          "no_action": 31285,
+          "no_access": 20815,
+          "in_progress": 12773,
+          "other": 43
+        },
+        "total": 131228
+      },
+      "cosmeticShare": 0.6504709360807145,
+      "resolvedShare": 0.25186697960801047,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'UNSANITARY%20CONDITION'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Street Condition",
+      "total": 115437,
+      "breakdown": {
+        "counts": {
+          "resolved": 45599,
+          "duplicate": 19819,
+          "referred": 19509,
+          "no_action": 7632,
+          "condition_gone": 10643,
+          "other": 4575,
+          "in_progress": 5097,
+          "no_jurisdiction": 1713,
+          "no_access": 30,
+          "unknown": 820
+        },
+        "total": 115437
+      },
+      "cosmeticShare": 0.3424118783405667,
+      "resolvedShare": 0.39501199788629293,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Street%20Condition'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "PLUMBING",
+      "total": 81766,
+      "breakdown": {
+        "counts": {
+          "no_action": 20949,
+          "no_jurisdiction": 18056,
+          "no_access": 13224,
+          "resolved": 18507,
+          "in_progress": 6164,
+          "duplicate": 4246,
+          "other": 620
+        },
+        "total": 81766
+      },
+      "cosmeticShare": 0.6387618325465352,
+      "resolvedShare": 0.22634102194065994,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'PLUMBING'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Water System",
+      "total": 77766,
+      "breakdown": {
+        "counts": {
+          "duplicate": 24417,
+          "resolved": 25696,
+          "condition_gone": 22984,
+          "no_jurisdiction": 2599,
+          "in_progress": 1099,
+          "other": 437,
+          "no_action": 346,
+          "referred": 6,
+          "unknown": 182
+        },
+        "total": 77766
+      },
+      "cosmeticShare": 0.33350050150451355,
+      "resolvedShare": 0.33042717897281587,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Water%20System'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Abandoned Vehicle",
+      "total": 69913,
+      "breakdown": {
+        "counts": {
+          "resolved": 33105,
+          "no_action": 15177,
+          "condition_gone": 12747,
+          "referred": 5076,
+          "other": 2550,
+          "no_jurisdiction": 1169,
+          "no_access": 44,
+          "unknown": 45
+        },
+        "total": 69913
+      },
+      "cosmeticShare": 0.48936535408293164,
+      "resolvedShare": 0.4735170855205756,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Abandoned%20Vehicle'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Dirty Condition",
+      "total": 67097,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 30059,
+          "resolved": 29906,
+          "referred": 3060,
+          "duplicate": 1981,
+          "no_jurisdiction": 451,
+          "no_action": 78,
+          "other": 13,
+          "in_progress": 1,
+          "unknown": 1548
+        },
+        "total": 67097
+      },
+      "cosmeticShare": 0.5014829277016856,
+      "resolvedShare": 0.44571292308150884,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Dirty%20Condition'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "PAINT/PLASTER",
+      "total": 65497,
+      "breakdown": {
+        "counts": {
+          "resolved": 19213,
+          "no_action": 20919,
+          "no_jurisdiction": 9038,
+          "no_access": 11026,
+          "in_progress": 5201,
+          "other": 100
+        },
+        "total": 65497
+      },
+      "cosmeticShare": 0.6257233155717056,
+      "resolvedShare": 0.2933416797715926,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'PAINT%2FPLASTER'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Snow or Ice",
+      "total": 63938,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 31807,
+          "no_action": 15165,
+          "resolved": 16241,
+          "referred": 389,
+          "duplicate": 148,
+          "no_jurisdiction": 78,
+          "unknown": 110
+        },
+        "total": 63938
+      },
+      "cosmeticShare": 0.7419531421064156,
+      "resolvedShare": 0.2540116988332447,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Snow%20or%20Ice'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Noise - Commercial",
+      "total": 60767,
+      "breakdown": {
+        "counts": {
+          "resolved": 31904,
+          "condition_gone": 21793,
+          "no_action": 5994,
+          "other": 352,
+          "no_access": 461,
+          "referred": 221,
+          "no_jurisdiction": 17,
+          "unknown": 25
+        },
+        "total": 60767
+      },
+      "cosmeticShare": 0.46877417019105766,
+      "resolvedShare": 0.5250218045978903,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Noise%20-%20Commercial'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    },
+    {
+      "complaint_type": "Noise",
+      "total": 59065,
+      "breakdown": {
+        "counts": {
+          "condition_gone": 28115,
+          "duplicate": 13880,
+          "other": 7717,
+          "resolved": 4128,
+          "no_action": 4518,
+          "in_progress": 426,
+          "referred": 8,
+          "unknown": 273
+        },
+        "total": 59065
+      },
+      "cosmeticShare": 0.5526284601709981,
+      "resolvedShare": 0.06988910522305934,
+      "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=resolution_description%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20%3D%20'Noise'&%24group=resolution_description&%24order=n%20DESC&%24limit=500"
+    }
+  ],
+  "hero": "Illegal Parking"
+}

@@ -1,0 +1,934 @@
+{
+  "classifiedAt": "2026-08-15T18:03:43.064Z",
+  "model": "gemini-2.5-flash",
+  "labels": {
+    "The New York City Police Department responded to the complaint and observed no criminal violation upon their arrival. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "condition_gone",
+      "gloss": "No criminal violation observed upon arrival."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined that a violation of law occurred. Police issued a summons in response to the complaint. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "resolved",
+      "gloss": "Violation found, police issued a summons."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined that no criminal violation existed. The condition was corrected without the need to issue a summons or effect an arrest. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. If necessary, your complaint may be referred to your local precinct's special operations units (Quality of Life, etc.). Thank you for your attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "resolved",
+      "gloss": "No violation found, condition was corrected."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined that police action was not necessary. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "no_action",
+      "gloss": "Police determined no action was necessary."
+    },
+    "The New York City Police Department responded to the complaint and with the information available observed no evidence of a criminal violation at that time. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. If necessary, your complaint may be referred to your local precinct's special operations units (Quality of Life, etc.). We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "condition_gone",
+      "gloss": "No evidence of criminal violation observed at that time."
+    },
+    "The Police Department issued a summons in response to the complaint.": {
+      "outcome": "resolved",
+      "gloss": "Police issued a summons."
+    },
+    "The Police Department responded and upon arrival those responsible for the condition were gone.": {
+      "outcome": "condition_gone",
+      "gloss": "Responders arrived, those responsible for condition were gone."
+    },
+    "The Police Department responded to the complaint and took action to fix the condition.": {
+      "outcome": "resolved",
+      "gloss": "Police took action to fix the condition."
+    },
+    "The Police Department responded to the complaint and determined that police action was not necessary.": {
+      "outcome": "no_action",
+      "gloss": "Police determined no action was necessary."
+    },
+    "The Police Department responded to the complaint and with the information available observed no evidence of the violation at that time.": {
+      "outcome": "condition_gone",
+      "gloss": "No evidence of violation observed at that time."
+    },
+    "Your complaint has been received but does not fall under the jurisdiction of the New York City Police Department.  Please contact your local precinct for more information, including which City agency your request was referred to. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "referred",
+      "gloss": "Not NYPD jurisdiction; referred to another agency."
+    },
+    "The Police Department reviewed your complaint and provided additional information below.": {
+      "outcome": "other",
+      "gloss": "Complaint reviewed, additional information provided."
+    },
+    "This complaint does not fall under the Police Department's jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Complaint does not fall under police jurisdiction."
+    },
+    "The New York City Police Department responded to the complaint and a report was prepared as part of their investigation. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "no_action",
+      "gloss": "Police investigated and prepared a report."
+    },
+    "The Police Department responded to the complaint and a report was prepared.": {
+      "outcome": "no_action",
+      "gloss": "Police prepared a report."
+    },
+    "The New York City Police Department responded to the complaint but officers were unable to gain entry into the premises. If the problem persists, please contact 311 to create another complaint and ensure that contact information (e.g., buzzer number, phone number, etc.) is available to assist the responding officers in gaining entry to properly investigate the complaint.  We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "no_access",
+      "gloss": "Officers unable to gain entry to premises."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined another specific tow is required. Please contact the local precinct for more information. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "referred",
+      "gloss": "Another tow required; complainant told to contact precinct."
+    },
+    "Your service request cannot be processed at this time because of insufficient contact information. Please contact 311 to create another complaint with appropriate contact information so responding officers may reach out to you for more details. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "no_action",
+      "gloss": "Complaint closed due to insufficient contact information."
+    },
+    "The Police Department responded to the complaint but officers were unable to gain entry into the premises.": {
+      "outcome": "no_access",
+      "gloss": "Officers unable to gain entry to premises."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined that a violation of law occurred. Police made an arrest in response to the complaint. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "resolved",
+      "gloss": "Violation found, police made an arrest."
+    },
+    "Your request can not be processed at this time because of insufficient contact information. Please create a new Service Request on NYC.gov and provide more detailed contact information.": {
+      "outcome": "no_action",
+      "gloss": "Complaint closed due to insufficient contact information."
+    },
+    "The Police Department made an arrest in response to the complaint.": {
+      "outcome": "resolved",
+      "gloss": "Police made an arrest."
+    },
+    "The New York City Police Department responded to the complaint and their investigation determined that a tow request was not necessary. If the problem persists, please contact 311 to create another complaint.  We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "no_action",
+      "gloss": "Police determined tow request was not necessary."
+    },
+    "The New York City Police Department responded to the complaint and observed no encampment at the noted location. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "condition_gone",
+      "gloss": "No encampment observed at the location."
+    },
+    "The New York City Police Department responded to the complaint and requested a tow truck to remove the noted vehicle. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "resolved",
+      "gloss": "Police requested a tow truck to remove vehicle."
+    },
+    "Your complaint has been received by the New York City Police Department and assigned to a unit at your local precinct. The responding officers will conduct an assessment of the complaint and may contact you for further information, if you left contact information. Our team is committed to resolving this matter promptly, and we appreciate your contribution to maintaining the well-being of our community.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint assigned to precinct unit for assessment."
+    },
+    "The New York City Police Department responded to the complaint and observed an encampment at the noted location. The complaint has been referred to the Department of Homeless Services (DHS) for further action. DHS will inspect the condition and update your service request with more information. Thank you for attention to this matter. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
+      "outcome": "referred",
+      "gloss": "Encampment observed, complaint referred to DHS for action."
+    },
+    "Your complaint has been received by the Police Department and additional information will be available later.": {
+      "outcome": "in_progress",
+      "gloss": "Additional information will be available later."
+    },
+    "This complaint is a duplicate of a building-wide condition already reported by another tenant.  The original complaint is still open, and HPD may only need to confirm that the condition exists by inspecting one apartment.  If we cannot contact the tenant from the original complaint or get access to that apartment, HPD may attempt to contact the person who filed this complaint to verify the correction of the condition or may conduct an inspection of your unit. You can check HPDONLINE to see if a": {
+      "outcome": "duplicate",
+      "gloss": "Complaint is a duplicate of an existing report."
+    },
+    "HPD responded to a complaint of no heat or hot water in the building. An occupant of the building confirmed heat and hot water had been restored when the Inspector attempted to conduct the inspection or contacted you at the phone number associated with the complaint. The complaint has been closed. Please submit a new service request with 311 if the condition still exists.": {
+      "outcome": "resolved",
+      "gloss": "Occupant confirmed heat and hot water restored."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to your apartment or others in the building to inspect for a lack of heat or hot water. The complaint has been closed. If the condition still exists, please file a new complaint.": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access to apartment for inspection."
+    },
+    "The Department of Housing Preservation and Development conducted or attempted to conduct an inspection.  More information about inspection results can be found through HPD's website at www.nyc.gov/hpd by using HPDONLINE (enter your address on the home page) and entering your SR number under the complaint status option.": {
+      "outcome": "other",
+      "gloss": "Inspection conducted or attempted; results available online."
+    },
+    "HPD called the telephone number on file for this complaint.  Someone at that number indicated that the condition was corrected. The complaint has been closed. Please submit a new service request with 311 if the condition still exists.": {
+      "outcome": "resolved",
+      "gloss": "Complainant indicated the condition was corrected."
+    },
+    "The Department of Housing Preservation and Development contacted a tenant in the building and verified that the following conditions were corrected. The complaint has been closed. If the condition still exists, please file a new complaint.": {
+      "outcome": "resolved",
+      "gloss": "Tenant verified conditions were corrected."
+    },
+    "HPD conducted an inspection of this complaint. The conditions observed by the inspector did not violate the housing laws enforced by HPD. The complaint has been closed.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Observed conditions did not violate housing laws enforced by HPD."
+    },
+    "HPD inspected this condition so the complaint has been closed. Violations were issued. The law provides the property owner time to correct the condition(s).  Violation descriptions and the dates for the property owner to correct any violations are available at HPDONLINE.  If the owner has not corrected the condition by the date provided, you may wish to bring a case in housing court seeking the correction of these conditions.To find out more about how to start a housing court case, visit HPD's w": {
+      "outcome": "resolved",
+      "gloss": "HPD inspected and issued violations."
+    },
+    "The following complaint conditions are still open. HPD has already attempted to notify the property owner that the condition exists; the tenant should provide access for the owner to make the repair.  HPD may attempt to contact the tenant by phone to verify the correction of the condition or an HPD Inspector may attempt to conduct an inspection.": {
+      "outcome": "in_progress",
+      "gloss": "Conditions still open; further action or inspection pending."
+    },
+    "HPD responded to a complaint of no heat or hot water. Heat was not required at the time of the inspection because the outside temperature was above 55ÃÂ° F; by law, violations can only be issued if the outside temperature is below 55 degrees. No violations were issued. If the temperature inside of your apartment is below 68 degrees when it is below 55 degrees outside between 6 am and 10pm OR the temperature inside of your apartment is below 62 degrees between 10 pm and 6 am, please file a new co": {
+      "outcome": "no_action",
+      "gloss": "No violation issued; heat not required due to outside temperature."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to your apartment to inspect for a lack of heat or hot water. However, HPD was able to verify that heat or hot water was inadequate by inspecting another apartment and a violation was issued. Information about specific violations is available at www.nyc.gov/hpd.": {
+      "outcome": "resolved",
+      "gloss": "Unable to access apartment, but violation issued after inspecting another."
+    },
+    "HPD attempted to conduct an inspection in response to this complaint, but was unable to complete the inspection. Please submit a new service request with 311 if the condition still exists. For more information on the reason why HPD was unable to inspect, contact HPD at the Tenant Information Messaging Service at 212-863-4951.": {
+      "outcome": "no_action",
+      "gloss": "HPD attempted but was unable to complete inspection."
+    },
+    "The Department of Housing Preservation and Development has closed this complaint administratively. More information can be found through HPD's website at www.nyc.gov/hpd by using HPDONLINE (enter your address on the home page) and entering your SR number under the complaint status option.": {
+      "outcome": "other",
+      "gloss": "Complaint closed administratively; check HPD website for details."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the following conditions. The complaint has been closed. If the condition still exists, please file a new complaint.": {
+      "outcome": "no_access",
+      "gloss": "Complaint closed due to agency unable to gain access for inspection."
+    },
+    "The Department of Housing Preservation and Development inspected the following conditions. Violations were previously issued for these conditions. Information about specific violations is available at www.nyc.gov/hpd.": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected; violations previously issued for reported conditions."
+    },
+    "The Department of Housing Preservation and Development inspected the following conditions. No violations were issued. The complaint has been closed.": {
+      "outcome": "no_action",
+      "gloss": "Agency inspected; no violations found or issued; complaint closed."
+    },
+    "The following complaint conditions are still open. HPD may attempt to contact you to verify the correction of the condition or may conduct an inspection.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint conditions are still open; agency may contact or inspect."
+    },
+    "More than one complaint was received for this building-wide condition.This complaint status is for the initial complaint.HPD responded to a complaint of no heat or hot water in the building. An occupant of the building confirmed heat and hot water had been restored when the Inspector attempted to conduct the inspection or contacted you at the phone number associated with the complaint. The complaint has been closed. Please submit a new service request with 311 if the condition still exists.": {
+      "outcome": "resolved",
+      "gloss": "Occupant confirmed heat/hot water restored; complaint closed."
+    },
+    "The Department of Housing Preservation and Development inspected the following conditions. Violations were issued. Information about specific violations is available at www.nyc.gov/hpd": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected; violations issued for reported conditions."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 718 827 - 1955 (BROOKLYN).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "The Department of Housing Preservation and Development contacted an occupant of the apartment or building and verified that the complaint was addressed.  The complaint has been closed.": {
+      "outcome": "resolved",
+      "gloss": "Occupant verified complaint addressed; agency closed the complaint."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 718 579 - 6777 (BRONX).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "More than one complaint was received for this building-wide condition.This complaint status is for the initial complaint.HPD conducted an inspection of this complaint. The conditions observed by the inspector did not violate the housing laws enforced by HPD. The complaint has been closed.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency inspected; conditions did not violate housing laws enforced by HPD."
+    },
+    "More than one complaint was received for this building-wide condition.This complaint status is for the initial complaint.The Department of Housing Preservation and Development was not able to gain access to your apartment or others in the building to inspect for a lack of heat or hot water. The complaint has been closed. If the condition still exists, please file a new complaint.": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; complaint closed."
+    },
+    "More than one complaint was received for this building-wide condition.This complaint status is for the initial complaint.The Department of Housing Preservation and Development inspected the following conditions. Violations were previously issued for these conditions. Information about specific violations is available at www.nyc.gov/hpd.": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected; violations previously issued for reported conditions."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint. The Inspector left a card at the time of the inspection and a letter was sent from HPD after the inspection attempt to encourage you to call to schedule an inspection. HPD did not receive a timely response from you and the complaint has been closed. Please submit a new service request with 311 if the condition still exists.": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access; complainant did not respond to schedule inspection."
+    },
+    "The Department of Housing Preservation and Development was unable to access the rooms where the following  conditions were reported. No violations were issued. The complaint has been closed.": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to access rooms for inspection; no violations issued."
+    },
+    "The Department of Housing Preservation and Development was unable to access the rooms where the following conditions were reported. No violations were issued. The complaint has been closed.": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to access rooms for inspection; no violations issued."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 718 286 - 0823 (QUEENS).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 212 234 - 7485 (MANHATTAN).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint sometime within the last 10 days. If the conditions still exist and an inspection is required, please contact HPD with your complaint number to schedule an appointment at  718 579 - 6777 (BRONX).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact HPD to schedule."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint sometime within the last 10 days. If the conditions still exist and an inspection is required, please contact HPD with your complaint number to schedule an appointment at  718 827 - 1955 (BROOKLYN).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact HPD to schedule."
+    },
+    "The Department of Housing Preservation and Development conducted an inspection for the following conditions and identified potential lead-based paint conditions. HPD will attempt to contact you to schedule a follow-up inspection to test the paint for lead.": {
+      "outcome": "in_progress",
+      "gloss": "Agency identified potential lead paint; follow-up inspection to be scheduled."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 718 579-6777 (BRONX).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint sometime within the last 10 days. If the conditions still exist and an inspection is required, please contact HPD with your complaint number to schedule an appointment at  718 816 - 2340 (STATEN ISLAND).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact HPD to schedule."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint sometime within the last 10 days. If the conditions still exist and an inspection is required, please contact HPD with your complaint number to schedule an appointment at  718 286 - 0823 (QUEENS).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact HPD to schedule."
+    },
+    "An HPD Inspector was not able to gain access to inspect this complaint sometime within the last 10 days. If the conditions still exist and an inspection is required, please contact HPD with your complaint number to schedule an appointment at  212 234 - 7485 (MANHATTAN).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact HPD to schedule."
+    },
+    "The Department of Housing Preservation and Development was not able to gain access to inspect the conditions. If the conditions still exist and an inspection is required, please contact the borough office with your complaint number at 718 816 - 2340 (STATEN ISLAND).": {
+      "outcome": "no_access",
+      "gloss": "Agency unable to gain access for inspection; contact borough office if needed."
+    },
+    "The Department of Housing Preservation and Development was at the building but did not have enough time to inspect the following conditions. If you have not already been contacted, please call the Department of Housing Preservation and Development at 212-863-8603 with your complaint number to schedule a follow-up inspection.": {
+      "outcome": "in_progress",
+      "gloss": "Agency lacked time to inspect; call to schedule follow-up inspection."
+    },
+    "The Department of Housing Preservation and Development inspected the following conditions. A Section 8 Failure was issued. Both the tenant and the property owner will receive a notice in the mail regarding the details of the Failure and the resulting action by the Agency.": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected; Section 8 Failure issued to tenant and owner."
+    },
+    "The Department of Transportation inspected this complaint and repaired the problem.": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected complaint and repaired the reported problem."
+    },
+    "The Department of Transportation determined that this complaint is a duplicate of a previously filed complaint. The original complaint is being addressed.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint is a duplicate; original complaint is being addressed."
+    },
+    "The Department of Transportation inspected and has requested the Department of Environmental Protection address the issue. The condition will be re-inspected in 60 days.": {
+      "outcome": "referred",
+      "gloss": "Agency referred issue to DEP; condition will be re-inspected."
+    },
+    "The Department of Transportation inspected the condition you reported and found that the condition meets its standards and/or there is a valid permit to conduct work.": {
+      "outcome": "no_action",
+      "gloss": "Agency inspected; condition meets standards or has valid permit."
+    },
+    "The Department of Transportation inspected this complaint and did not find the reported problem.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency inspected; did not find the reported problem."
+    },
+    "The Department of Transportation inspected the condition and issued a Corrective Action Repair (CAR) to the contractor or utility company. The responsible party has a maximum of 30 days to correct the condition. If the condition still exists, a summons will be issued. In some cases, the Department of Transportation will make the repairs and charge the responsible party for the costs.": {
+      "outcome": "resolved",
+      "gloss": "Agency issued Corrective Action Repair; responsible party to fix."
+    },
+    "The Department of Transportation inspected the location for the condition you reported and could not find the problem. It you would like to pursue the complaint, please call 311 or (212) 639-9675 with additional information.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency inspected; could not find the reported problem."
+    },
+    "The Department of Transportation inspected the condition you reported. You can find additional information in the \"Notes to Customer\" field.": {
+      "outcome": "other",
+      "gloss": "Agency inspected; check 'Notes to Customer' for more information."
+    },
+    "The Department of Transportation referred this complaint to the appropriate Maintenance Unit for repair.": {
+      "outcome": "referred",
+      "gloss": "Agency referred complaint to appropriate Maintenance Unit for repair."
+    },
+    "The Department of Transportation referred this complaint to the Inspections Unit for further action.": {
+      "outcome": "referred",
+      "gloss": "Agency referred complaint to Inspections Unit for further action."
+    },
+    "The Department of Transportation inspected the condition and issued a summons to the responsible party. A re-inspection will be done within 10 days. If the condition still exists, a second summons will be issued. In some cases, the Department of Transportation will make the repairs and charge the responsible party for the costs.": {
+      "outcome": "resolved",
+      "gloss": "Agency issued summons to responsible party; re-inspection scheduled."
+    },
+    "The status of this Service Request is currently not available online. Please call 311 for further assistance. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "other",
+      "gloss": "Complaint status not available online; call 311 for assistance."
+    },
+    "The Department of Transportation inspected this complaint and found that the problem was fixed.": {
+      "outcome": "resolved",
+      "gloss": "Condition inspected and found to be fixed."
+    },
+    "The Department of Transportation inspected the condition and made the determination that the street meets resurfacing standards and will be planned for either the next or future resurfacing seasons (2 - 3 years). The Department of Transportation works with Community Boards and elected officials to determine resurfacing priority. For specific scheduling information regarding your street, contact your Community Board.": {
+      "outcome": "in_progress",
+      "gloss": "Street meets resurfacing standards; planned for future seasons (2-3 years)."
+    },
+    "The condition was inspected and determined not to be under Department of Transportation's jurisdiction. The Department of Transportation notified the appropriate responsible party of the complaint.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Condition not under DOT jurisdiction; responsible party notified."
+    },
+    "The Department of Transportation investigated this Service Request and determined this street requires general maintenance. This location has been processed into another system and is expected to be repaired in 30 days.": {
+      "outcome": "in_progress",
+      "gloss": "Street requires maintenance; repair expected within 30 days."
+    },
+    "The Department of Transportation inspected this complaint and referred it to the Arterial Division for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint inspected and referred to Arterial Division for action."
+    },
+    "The Department of Transportation inspected the condition and determined it was in compliance with their standards, not hazardous, or a valid permit exists.": {
+      "outcome": "condition_gone",
+      "gloss": "Condition inspected and found to be in compliance or not hazardous."
+    },
+    "The Department of Transportation inspected the condition you reported. It has been entered into the maintenance system. It will be repaired within 30 days.": {
+      "outcome": "in_progress",
+      "gloss": "Condition inspected, entered into system, repair expected within 30 days."
+    },
+    "The Department of Transportation investigated this request and determined this street requires a reconstruction project. This location is part of an existing project or may be included in a future project. These projects are long term and vary in length.": {
+      "outcome": "in_progress",
+      "gloss": "Street requires reconstruction; included in existing or future long-term project."
+    },
+    "The Department of Transportation inspected the condition, sent notice to responsible party, and temporary repairs were made to make the area safe.": {
+      "outcome": "resolved",
+      "gloss": "Condition inspected, notice sent, temporary repairs made for safety."
+    },
+    "The Department of Transportation will inspect the condition and will determine the next action.": {
+      "outcome": "in_progress",
+      "gloss": "Condition will be inspected to determine next action."
+    },
+    "The Department of Transportation inspected this complaint and referred it to the Bridge Division for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint inspected and referred to Bridge Division for action."
+    },
+    "The condition was inspected and it was in compliance with Department of Transportation standards, not hazardous, or a valid permit exists.": {
+      "outcome": "condition_gone",
+      "gloss": "Condition inspected and found to be in compliance or not hazardous."
+    },
+    "The Department of Transportation inspected the condition and made the determination that the street meets resurfacing standards and will be scheduled for this current resurfacing season (April - November). For specific weekly scheduling information regarding your street, contact your Community Board or visit our website www.NYC.gov/dot.": {
+      "outcome": "in_progress",
+      "gloss": "Street meets resurfacing standards; scheduled for current season."
+    },
+    "The Department of Transportation has completed the request or corrected the condition.": {
+      "outcome": "resolved",
+      "gloss": "Request completed or condition corrected by the agency."
+    },
+    "The Department of Transportation will inspect the complaint location and notify the property owner within 180 days if a defective sidewalk condition exists. The property owner is responsible for maintaining, repairing and installing sidewalks adjoining their property, according to Section 19-152 of the New York City Administrative Code.": {
+      "outcome": "in_progress",
+      "gloss": "Location will be inspected; property owner notified if sidewalk defect found."
+    },
+    "The request submitted did not have sufficient information for the Department of Transportation to respond.": {
+      "outcome": "no_action",
+      "gloss": "Request closed due to insufficient information provided."
+    },
+    "The Department of Transportation inspected the condition you reported and determined that this issue is not within its jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Condition inspected and determined not within agency jurisdiction."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue determined not to be within agency jurisdiction."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the Department of Sanitation.": {
+      "outcome": "referred",
+      "gloss": "Issue not DOT jurisdiction; referred to Department of Sanitation."
+    },
+    "The Department of Transportation inspected the condition and sent notice to responsible party. Temporary repairs were made to make the area safe.": {
+      "outcome": "resolved",
+      "gloss": "Condition inspected, notice sent, temporary repairs made for safety."
+    },
+    "This request required re-assignment to a new DOT unit.": {
+      "outcome": "referred",
+      "gloss": "Request reassigned to a different DOT unit."
+    },
+    "The Department of Transportation inspected the condition you reported and determined that it requires general maintenance. The details have been processed into another system and it is expected to be repaired in a future project.": {
+      "outcome": "in_progress",
+      "gloss": "Condition requires maintenance; repair expected in a future project."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the New York City Police Department.": {
+      "outcome": "referred",
+      "gloss": "Issue not DOT jurisdiction; referred to New York City Police Department."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the Metropolitan Transportation Authority.": {
+      "outcome": "referred",
+      "gloss": "Issue not DOT jurisdiction; referred to Metropolitan Transportation Authority."
+    },
+    "General maintenance and cleaning is on a regular schedule. The next scheduled maintenance and cleaning will correct the condition.": {
+      "outcome": "in_progress",
+      "gloss": "Condition will be corrected by next scheduled maintenance."
+    },
+    "The Department of Transportation inspected the condition and approved your request. Street markings will be painted during this current work season (April - November).": {
+      "outcome": "in_progress",
+      "gloss": "Request approved; street markings will be painted this season."
+    },
+    "The Department of Transportation inspected the condition. Street markings will be painted in future markings seasons or when contracts are awarded.": {
+      "outcome": "in_progress",
+      "gloss": "Street markings will be painted in future seasons or when contracts awarded."
+    },
+    "The Department of Transportation's inspectors could not find the address you reported. If you would like to pursue the complaint, please check the address and call 311 or (212) 639-9675 with updated location information.": {
+      "outcome": "no_action",
+      "gloss": "Inspectors could not find reported address; insufficient information."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the Department of Parks and Recreation.": {
+      "outcome": "referred",
+      "gloss": "Issue not DOT jurisdiction; referred to Department of Parks and Recreation."
+    },
+    "The Department of Transportation inspected this complaint and found that the defect was not accessible. The repair will be rescheduled.": {
+      "outcome": "no_access",
+      "gloss": "Defect inspected but not accessible; repair will be rescheduled."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the Department of Buildings.": {
+      "outcome": "referred",
+      "gloss": "Issue not DOT jurisdiction; referred to Department of Buildings."
+    },
+    "The City inspected the condition you reported and asked the Department of Environmental Protection to address the issue.": {
+      "outcome": "referred",
+      "gloss": "Condition inspected; Department of Environmental Protection asked to address."
+    },
+    "The Department of Transportation will inspect the condition to determine if the location can be added to a curb contract (3-5 years). The property owner will be notified if there are sidewalk defects. Property owners are responsible for repairing and installing sidewalks adjoining their property, according to Section 19-152 of the NYC Administrative Code. Community Boards and elected officials may contribute funding for curb, affecting timeframe for construction.": {
+      "outcome": "in_progress",
+      "gloss": "Condition will be inspected for future curb contract consideration."
+    },
+    "The Department of Transportation inspected the condition you reported and issued a notice to the responsible party to correct the condition.": {
+      "outcome": "resolved",
+      "gloss": "Condition inspected; notice issued to responsible party to correct."
+    },
+    "Upon inspection, the reported location/address was not found, either not correct or invalid, therefore no action was taken.": {
+      "outcome": "no_action",
+      "gloss": "Reported location not found; no action taken."
+    },
+    "The Department of Transportation determined that this issue is not within its jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue determined not to be within agency jurisdiction."
+    },
+    "NYC Parks determined that this issue is not within its jurisdiction. Please file a Service Request with the Fire Department of New York.": {
+      "outcome": "referred",
+      "gloss": "Issue not Parks jurisdiction; complainant advised to file with FDNY."
+    },
+    "The Department of Transportation will inspect the condition and determine if the location will be added to the next or future season's curb construction contract (2 - 3 years). Community Boards and elected officials are consulted to determine curb construction priority and scheduling. For scheduling information regarding a specific curb, contact the local Community Board.": {
+      "outcome": "in_progress",
+      "gloss": "Condition will be inspected for future curb construction contract consideration."
+    },
+    "The Department of Transportation inspected the location more than six months ago and has notified the property owner of any defective sidewalk conditions. The property owner is responsible for maintaining, repairing and installing sidewalks adjoining their property, according to Section 19-152 of the New York City Administrative Code.": {
+      "outcome": "resolved",
+      "gloss": "Location inspected; property owner notified of defective sidewalk conditions."
+    },
+    "The Department of Transportation assigned this complaint to a field crew for inspection and, if warranted, repair.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint assigned to field crew for inspection and potential repair."
+    },
+    "The Department of Transportation does not paint markings at uncontrolled locations. An uncontrolled location is an intersection where there are no traffic signals or no stop signs.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "DOT does not paint markings at uncontrolled intersections."
+    },
+    "The Department of Transportation inspected the condition and issued a notice to the responsible party to correct the condition.": {
+      "outcome": "resolved",
+      "gloss": "DOT inspected and issued a notice to correct the condition."
+    },
+    "The Department of Transportation inspected the condition and temporary repairs were made to make the area safe. Permanent repairs/restoration will be scheduled as part of a project, seasonal work (April - November), or when work is assigned to a contractor.": {
+      "outcome": "resolved",
+      "gloss": "DOT made temporary repairs; permanent repairs are scheduled."
+    },
+    "The Department of Transportation inspected this complaint and will schedule the repair.": {
+      "outcome": "in_progress",
+      "gloss": "DOT inspected and will schedule the repair."
+    },
+    "The Department of Transportation requires 90 days to respond to this type of complaint. Please note your Service Request number for future reference.": {
+      "outcome": "no_action",
+      "gloss": "DOT requires 90 days to respond; no action taken yet."
+    },
+    "UNDER SECTION 2904 OF THE New York City Charter and Section 19-152 of the New York City Administrative Code, the property owner is responsible for maintaining, repairing and installing sidewalks adjoining their properties. The Department of Transportation has inspected the location and issued a violation to the property owner.": {
+      "outcome": "resolved",
+      "gloss": "DOT inspected and issued a violation to the property owner."
+    },
+    "The condition was inspected and determined not to be within the jurisdiction of the Department of Transportation. The Department of Transportation notified the appropriate responsible party of the complaint.": {
+      "outcome": "referred",
+      "gloss": "Not DOT's jurisdiction; referred to the responsible party."
+    },
+    "The Department of Transportation has inspected the location within the last six months and has either notified or will notify the property owner of any defective sidewalk conditions. The property owner is responsible for maintaining, repairing and installing sidewalks adjoining their property, according to Section 19-152 of the New York City Administrative Code.Â": {
+      "outcome": "resolved",
+      "gloss": "DOT inspected and will notify property owner of sidewalk defects."
+    },
+    "NYC Parks determined that this issue is not within its jurisdiction. Please contact the New York Police Department for assistance.": {
+      "outcome": "referred",
+      "gloss": "Not Parks' jurisdiction; contact the Police Department."
+    },
+    "Upon inspection, the reported condition was not found, therefore no action was taken.": {
+      "outcome": "condition_gone",
+      "gloss": "Condition not found upon inspection; no action taken."
+    },
+    "The Department of Transportation (DOT) reviewed your complaint. Please see the Notes to Customer for details. Your service request has been closed.": {
+      "outcome": "other",
+      "gloss": "DOT reviewed the complaint; see notes for details."
+    },
+    "NYC Parks determined that this issue is not within its jurisdiction. Please file a Service Request with the Department of Buildings.": {
+      "outcome": "referred",
+      "gloss": "Not Parks' jurisdiction; file a request with Buildings."
+    },
+    "The Department of Transportation inspected the condition you reported and found that the condition meets DOT standards and/or there is a valid permit to conduct work.": {
+      "outcome": "no_action",
+      "gloss": "Condition meets DOT standards or has a valid permit."
+    },
+    "NYC Parks determined that this issue is not within its jurisdiction. Please contact the Metropolitan Transportation Authority for assistance at www.mta.info.": {
+      "outcome": "referred",
+      "gloss": "Not Parks' jurisdiction; contact the Metropolitan Transportation Authority."
+    },
+    "The Department of Transportation has determined that this issue is not within its jurisdiction. It has been referred to the Department of Design and Construction.": {
+      "outcome": "referred",
+      "gloss": "Not DOT's jurisdiction; referred to Design and Construction."
+    },
+    "The Department of Transportation's work on this complaint is still in progress.": {
+      "outcome": "in_progress",
+      "gloss": "DOT's work on this complaint is still in progress."
+    },
+    "The Department of Transportation (DOT) could not find the problem you reported. If it still exists, please file a new request.": {
+      "outcome": "condition_gone",
+      "gloss": "DOT could not find the reported problem."
+    },
+    "The Department of Transportation contacted the customer and resolved the Service Request or provided the information requested.": {
+      "outcome": "resolved",
+      "gloss": "DOT contacted customer and resolved the service request."
+    },
+    "The Department of Transportation will inspect the condition you reported and will determine the next action.": {
+      "outcome": "in_progress",
+      "gloss": "DOT will inspect and determine next action."
+    },
+    "The Department of Transportation (DOT) completed the request or corrected the condition.": {
+      "outcome": "resolved",
+      "gloss": "DOT completed the request or corrected the condition."
+    },
+    "The condition was inspected and determined not to be under New York City Department of Transportation's jurisdiction. The Department of Transportation notified the New York State Department of Transportation of the complaint.": {
+      "outcome": "referred",
+      "gloss": "Not NYC DOT's jurisdiction; referred to NYS DOT."
+    },
+    "The Department of Transportation (DOT) reviewed the condition you reported. You can find additional information in the \"Notes to Customer\" field.": {
+      "outcome": "other",
+      "gloss": "DOT reviewed the complaint; see notes for additional information."
+    },
+    "The condition has been inspected/investigated, see customer notes for more information.": {
+      "outcome": "other",
+      "gloss": "Condition inspected/investigated; see customer notes for more information."
+    },
+    "The Department of Transportation (DOT) inspectors could not find the condition you reported.  If the condition still exists, please submit a new Service Request by calling 311.": {
+      "outcome": "condition_gone",
+      "gloss": "DOT inspectors could not find the reported condition."
+    },
+    "The Department of Transportation's work on this complaint is still in progress. The excavation and backfill were completed.": {
+      "outcome": "in_progress",
+      "gloss": "DOT's work is still in progress; excavation and backfill completed."
+    },
+    "The condition described in your request is in compliance with Department of Transportation's (DOT) standards.": {
+      "outcome": "no_action",
+      "gloss": "Condition is in compliance with DOT standards."
+    },
+    "The Department of Environmental Protection determined that this complaint is a duplicate of a previously filed complaint. The original complaint is being addressed.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint is a duplicate of a previously filed complaint."
+    },
+    "The Department of Environmental Protection investigated this complaint and shut the running hydrant.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and shut the running hydrant."
+    },
+    "The Department of Environment Protection inspected your complaint but could not find the problem you reported. If the condition persists, please call 311 (or 212-639-9675 if calling from a non-New York City area code) with more detailed information to submit a new complaint.": {
+      "outcome": "condition_gone",
+      "gloss": "DEP inspected but could not find the reported problem."
+    },
+    "The Department of Environmental Protection investigated this complaint and found it to be a temporary condition.": {
+      "outcome": "condition_gone",
+      "gloss": "DEP investigated and found it to be a temporary condition."
+    },
+    "The Department of Environmental Protection resolved this complaint by speaking to the complainant on the phone.": {
+      "outcome": "resolved",
+      "gloss": "DEP resolved the complaint by speaking with the complainant."
+    },
+    "The Department of Environmental Protection investigated this complaint and determined it is an inside condition within the complainant's property.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "DEP determined it is an inside condition within private property."
+    },
+    "The Department of Environmental Protection has investigated this complaint and a leak, not a city issue, has been resolved by homeowner.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated; homeowner resolved a non-city leak."
+    },
+    "The Department of Environmental Protection investigated this complaint and repaired or replaced the hydrant.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and repaired or replaced the hydrant."
+    },
+    "The Department of Environmental Protection has inspected your complaint and determined that further investigation is required. More information will be available once the condition is resolved. Please visit nyc.gov/311 or call 311 at a later time to check the status of your complaint.": {
+      "outcome": "in_progress",
+      "gloss": "DEP inspected; further investigation is required."
+    },
+    "The Department of Environmental Protection investigated this complaint and resolved the leak.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and resolved the leak."
+    },
+    "The Department of Environmental Protection investigated this complaint and made a repair.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and made a repair."
+    },
+    "The Department of Environmental Protection investigated this complaint and installed caps and chains.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and installed caps and chains."
+    },
+    "Please call 311 for further information. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Call 311 for further information."
+    },
+    "The Department of Environmental Protection investigated the issue and found that the water source mentioned was not City water and therefore not under City jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Water source not City water, not under City jurisdiction."
+    },
+    "The Department of Environmental Protection has determined that this issue was previously reported by another customer The original complaint is being addressed. If the condition persists, please call 311 (or 212-639-9675 if calling from a non-New York City area code) to submit a new complaint.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint is a duplicate; original is being addressed."
+    },
+    "The Department of Environmental Protection has investigated this complaint. Upon investigation, a defect was found done.": {
+      "outcome": "resolved",
+      "gloss": "Investigation found the defect was already fixed."
+    },
+    "The Department of Environmental Protection has investigated this complaint and has performed repair work.": {
+      "outcome": "resolved",
+      "gloss": "Agency investigated and performed repair work."
+    },
+    "The Department of Environmental Protection investigated this complaint and found the repairs completed.": {
+      "outcome": "resolved",
+      "gloss": "Investigation found the repairs were completed."
+    },
+    "The Department of Environmental Protection investigated this complaint and found groundwater flooding.": {
+      "outcome": "other",
+      "gloss": "Investigation found groundwater flooding."
+    },
+    "The Department of Environmental Protection investigated this complaint and found the Customer Service Request (CSR) to be void.": {
+      "outcome": "no_action",
+      "gloss": "Customer Service Request was found to be void."
+    },
+    "The Department of Environmental Protection has determined that this issue was previously reported by another customer The original complaint is being addressed. If the condition persists, please call 311 (or 212-639-9675 if calling from a non-New York City area code) with more detailed information to submit a new complaint.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint is a duplicate; original is being addressed."
+    },
+    "The Department of Environmental Protection has investigated this complaint. Surcharge conditions have been confirmed and attributed to grease. Work was performed to relieve the blockage.": {
+      "outcome": "resolved",
+      "gloss": "Blockage confirmed and relieved by agency work."
+    },
+    "The Department of Environmental Protection investigated this complaint and found that a spray cap was in use while the hydrant was running.": {
+      "outcome": "no_action",
+      "gloss": "Investigation found a spray cap in use on a running hydrant."
+    },
+    "The Department of Environmental Protection investigated this complaint and referred it to another agency or utility for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint referred to another agency for further action."
+    },
+    "The Department of Environmental Protection investigated this complaint and referred it to the Department of Transportation for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint referred to Department of Transportation for action."
+    },
+    "The Department of Environmental Protection determined that an inspection is warranted to investigate this complaint.": {
+      "outcome": "in_progress",
+      "gloss": "Inspection warranted to investigate complaint."
+    },
+    "The Department of Environmental Protection has investigated this complaint. Surcharge conditions have been confirmed due to rain intensity or volume.": {
+      "outcome": "other",
+      "gloss": "Surcharge conditions confirmed due to rain intensity."
+    },
+    "The Department of Environmental Protection inspected your complaint and cleaned the catch basin or inlet. If the condition returns, please call 311 (or 212-639-9675 if calling from a non-New York City area code) to submit a new complaint.": {
+      "outcome": "resolved",
+      "gloss": "Agency inspected and cleaned the catch basin."
+    },
+    "The Department of Environmental Protection has investigated this complaint and found that debris was obstructing the catch basin.": {
+      "outcome": "other",
+      "gloss": "Investigation found debris obstructing the catch basin."
+    },
+    "The Department of Environmental Protection investigated this complaint and found there was no sewer back up in the city system at the time of the inspection.": {
+      "outcome": "condition_gone",
+      "gloss": "No sewer backup found in city system during inspection."
+    },
+    "The Department of Environmental Protection has investigated this complaint. Upon investigation, there was no indication of a city sewer issue and there is a suspected sewer backup due to an internal plumbing issue.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "No city sewer issue; suspected internal plumbing problem."
+    },
+    "The Department of Environmental Protection investigated this complaint and sent it to the Bureau of Environmental Compliance for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint sent to Bureau of Environmental Compliance for action."
+    },
+    "The Department of Environmental Protection attempted to investigate this complaint but could not locate the address provided.": {
+      "outcome": "no_action",
+      "gloss": "Agency could not locate the address provided."
+    },
+    "The Department of Sanitation investigated this complaint and found no condition at the location.": {
+      "outcome": "condition_gone",
+      "gloss": "Investigation found no condition at the location."
+    },
+    "The Department of Sanitation cleaned the location.": {
+      "outcome": "resolved",
+      "gloss": "Agency cleaned the location."
+    },
+    "The Department of Sanitation investigated this complaint and issued a Notice of Violation.": {
+      "outcome": "resolved",
+      "gloss": "Investigation led to a Notice of Violation being issued."
+    },
+    "The Department of Sanitation investigated this complaint and found no violation at the location.": {
+      "outcome": "condition_gone",
+      "gloss": "Investigation found no violation at the location."
+    },
+    "The Department of Sanitation investigated this complaint and no DSNY related conditions/violations were observed. Location will be referred to the appropriate agency for further action.": {
+      "outcome": "referred",
+      "gloss": "No DSNY violation found; referred to appropriate agency."
+    },
+    "The Department of Sanitation will address the situation at the location by providing educational outreach about proper sanitation procedures.": {
+      "outcome": "resolved",
+      "gloss": "Agency will provide educational outreach on sanitation procedures."
+    },
+    "The Department of Sanitation removed the items.": {
+      "outcome": "resolved",
+      "gloss": "Agency removed the reported items."
+    },
+    "The Department of Sanitation found an open service request already exists for the same location.": {
+      "outcome": "duplicate",
+      "gloss": "Duplicate complaint; another service request exists."
+    },
+    "The Department of Sanitation has investigated the complaint and addressed the issue. If the problem persists, call 311 to enter a new complaint. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "resolved",
+      "gloss": "Agency investigated and addressed the issue."
+    },
+    "The Department of Sanitation investigated and found this complaint to be out of jurisdiction. The Department of Sanitation reviewed this and found it not to be meeting the criteria for a complaint or service request.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Complaint found to be out of agency jurisdiction."
+    },
+    "The Department of Sanitation (DSNY) found an open Service Request already exists for the same location.   DSNY's system can't accept more than one complaint per address at a time. Your Service Request has been closed. DSNY will address the Service Request that was filed previously.  If you filed that Service Request, you can get the status with your Service Request number at nyc.gov/311 or by calling 311.  If you didn't file it, you can get the status by calling DSNY at (212) 291-1220.": {
+      "outcome": "duplicate",
+      "gloss": "Duplicate complaint; another service request exists and will be addressed."
+    },
+    "The Department of Sanitation collected the requested items.": {
+      "outcome": "resolved",
+      "gloss": "Agency collected the requested items."
+    },
+    "The Department of Sanitation has noted this as a location of concern.": {
+      "outcome": "no_action",
+      "gloss": "Location noted as a concern, no direct action stated."
+    },
+    "The Department of Sanitation has sent this complaint to the appropriate district garage or bureau for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint sent to appropriate district for further action."
+    },
+    "The Department of Sanitation (DSNY) found that the location isn't a vacant lot. DSNY will refer your complaint to a Sanitation District for investigation.": {
+      "outcome": "referred",
+      "gloss": "Location not a vacant lot; referred to Sanitation District."
+    },
+    "The Department of Sanitation (DSNY) inspected the lot and notified the property owner that they must clean it. At the agency's follow-up inspection, they found the lot was clean.": {
+      "outcome": "resolved",
+      "gloss": "Property owner notified to clean lot; follow-up found it clean."
+    },
+    "The lot you reported isn't vacant because it contains an occupied structure. The Department of Sanitation (DSNY) will refer your complaint to their enforcement division for further action.": {
+      "outcome": "referred",
+      "gloss": "Lot not vacant; referred to enforcement division for action."
+    },
+    "N/A": {
+      "outcome": "other",
+      "gloss": "No resolution information provided."
+    },
+    "The Department of Sanitation investigated and found that the bike did not meet the criteria to be classified as derelict.": {
+      "outcome": "no_action",
+      "gloss": "Bike did not meet criteria to be classified as derelict."
+    },
+    "The location does not meet the criteria for Litter Basket placement.": {
+      "outcome": "no_action",
+      "gloss": "Location does not meet criteria for litter basket placement."
+    },
+    "The Department of Sanitation (DSNY) inspected but didn't see a violation of their rules. Your Service Request has been closed.": {
+      "outcome": "condition_gone",
+      "gloss": "Inspection found no violation of agency rules."
+    },
+    "The owner claimed the bicycle was not abandoned.": {
+      "outcome": "no_action",
+      "gloss": "Owner claimed bicycle was not abandoned; no action taken."
+    },
+    "This is a NYC Department of Transporation Bike-Share location. Please report conditions at this location to NYC DOT via 3-1-1.": {
+      "outcome": "referred",
+      "gloss": "Referred to NYC DOT; report conditions to 311 for DOT."
+    },
+    "The Department of Sanitation (DSNY) has sent this complaint to the appropriate district garage or bureau. DSNY will take further action once resources become available.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint sent to district; further action pending resources."
+    },
+    "The Department of Sanitation will note this location for periodic surveillance, which may take place at various times.": {
+      "outcome": "no_action",
+      "gloss": "Location noted for periodic surveillance; no immediate action."
+    },
+    "A Litter Basket was removed from this location due to household and/or commercial waste being placed in and/or alongside the basket.": {
+      "outcome": "resolved",
+      "gloss": "Litter basket removed due to misuse with household/commercial waste."
+    },
+    "The Department of Sanitation inspected the location and had it cleaned.": {
+      "outcome": "resolved",
+      "gloss": "Location inspected and cleaned by Department of Sanitation."
+    },
+    "The Department of Sanitation (DSNY) closed your Service Request. The condition doesn't meet their criteria for a complaint or Service Request.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Condition does not meet DSNY complaint criteria."
+    },
+    "The personnel involved in the incident were counseled and reminded of the proper procedures to follow.": {
+      "outcome": "resolved",
+      "gloss": "Personnel counseled and reminded of proper procedures."
+    },
+    "The Department of Sanitation (DSNY) couldn't find the condition. Please file a new Service Request with more details about the location.": {
+      "outcome": "condition_gone",
+      "gloss": "DSNY couldn't find condition; file new request with more details."
+    },
+    "Your report was submitted and will be used to monitor snow conditions around the City. The Department of Sanitation has a winter storm operation currently underway and cannot respond to individual requests at this time. No further status will be available about your report.": {
+      "outcome": "no_action",
+      "gloss": "Report used for monitoring; DSNY cannot respond to individual requests."
+    },
+    "The Department of Sanitation investigated this complaint and salted the area.": {
+      "outcome": "resolved",
+      "gloss": "DSNY investigated complaint and salted the area."
+    },
+    "The Department of Sanitation plowed the area.": {
+      "outcome": "resolved",
+      "gloss": "DSNY plowed the area."
+    },
+    "The Department of Sanitation investigated this complaint and sanded the area.": {
+      "outcome": "resolved",
+      "gloss": "DSNY investigated complaint and sanded the area."
+    },
+    "The Department of Environmental Protection (DEP) didn't observe a violation of the NYC Air or Noise Code at the time of inspection and couldn't issue a summons.  If the problem still exists, please go to nyc.gov/311 or call 311 to file a new Service Request. If you're outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "condition_gone",
+      "gloss": "DEP observed no violation at inspection; no summons issued."
+    },
+    "The Department of Environmental Protection researched this complaint and determined that it could be closed.": {
+      "outcome": "other",
+      "gloss": "DEP researched complaint and determined it could be closed."
+    },
+    "The Department of Environmental Protection (DEP) sent the dog owner a warning letter. It includes recommendations on how to reduce their dog's barking. DEP also sent you a letter to acknowledge your complaint.   DEP expects it may take about six weeks for the changes they recommend to take effect.   If the excessive dog barking continues after that time, please file a new Service Request.": {
+      "outcome": "resolved",
+      "gloss": "DEP sent dog owner a warning letter with recommendations."
+    },
+    "The Department of Environmental Protection requires contact with the complainant to investigate this complaint. A message was left for the complainant at the phone number provided.": {
+      "outcome": "no_action",
+      "gloss": "DEP requires complainant contact; message left."
+    },
+    "The Department of Environmental Protection (DEP) closed your Service Request because it didn't include your full name and address. DEP needs this information to respond to the complaint.  If the excessive barking continues, please file a new Service Request with your full name and address.": {
+      "outcome": "no_action",
+      "gloss": "Closed due to missing full name and address for DEP response."
+    },
+    "The Department of Environmental Protection (DEP) observed a violation of the NYC Air or Noise Code during the inspection. DEP issued a summons.": {
+      "outcome": "resolved",
+      "gloss": "DEP observed violation and issued a summons."
+    },
+    "The Department of Environmental Protection (DEP) closed your Service Request because it didn't include enough dog owner location information to respond to the complaint.  If the excessive dog barking continues, please file a new Service Request. You must include an NYC address for the dog's owner so DEP can send them a letter.": {
+      "outcome": "no_action",
+      "gloss": "Closed due to missing dog owner location information."
+    },
+    "The Department of Environmental Protection requires contact with the complainant to investigate this complaint. The complaint was closed because attempts made to contact the complainant by phone and/or letter received no response.": {
+      "outcome": "no_action",
+      "gloss": "Closed; complainant contact required but no response received."
+    },
+    "The Department of Environmental Protection sent a letter to the complainant and/or respondent and the letter was returned as undeliverable.": {
+      "outcome": "no_action",
+      "gloss": "Letter sent by DEP returned as undeliverable."
+    },
+    "The Department of Environmental Protection closed or canceled this complaint at the complainant's request.": {
+      "outcome": "resolved",
+      "gloss": "Complaint closed at complainant's request."
+    },
+    "The Department of Environmental Protection attempted to contact the complainant by phone, but the phone number provided was incorrect. If the problem still exists, please call 311 and file a new complaint with the correct phone number. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Attempted complainant contact; phone number provided was incorrect."
+    },
+    "The Department of Environmental Protection will keep the location under observation for idling commercial vehicles.Â Summonses will be issued when warranted.": {
+      "outcome": "no_action",
+      "gloss": "Location under observation for idling vehicles; summonses issued when warranted."
+    },
+    "The Department of Environmental Protection (DEP) sent the dog owner a warning letter. It includes recommendations on how to reduce their dog's barking. DEP also sent you a letter to acknowledge your complaint. DEP expects it may take about six weeks for the changes they recommend to take effect. If the excessive dog barking continues after that time, please file a new Service Request.": {
+      "outcome": "resolved",
+      "gloss": "DEP sent dog owner a warning letter with recommendations."
+    },
+    "The Department of Environmental Protection only received one complaint for this location.  However, we did keep the area under observation for possible reoccurrence of air or noise pollution infractions.": {
+      "outcome": "no_action",
+      "gloss": "Only one complaint received; area kept under observation."
+    },
+    "The Department of Environmental Protection (DEP) closed your Service Request because it didn't include your full name and address. DEP needs this information to respond to the complaint.  If the excessive dog barking continues, please file a new Service Request and include your full name and address.": {
+      "outcome": "no_action",
+      "gloss": "Closed due to missing full name and address for DEP response."
+    },
+    "The Department of Environmental Protection determined that this complaint is not under its jurisdiction and referred it to the New York Police Department for further action.": {
+      "outcome": "referred",
+      "gloss": "Not DEP jurisdiction; referred to New York Police Department."
+    },
+    "The Department of Environmental Protection requires an appointment to inspect this complaint type.  Complainant information was not provided and an appointment could not be scheduled.  The complaint has been closed. If the problem still exists, please call 311 and file a new complaint including your contact information.": {
+      "outcome": "no_action",
+      "gloss": "Closed; complainant info missing, appointment for inspection not scheduled."
+    },
+    "The Department of Environmental Protection attempted to investigate this complaint but the address was incorrect. If the problem still exists, please call 311 and file a new complaint with the correct address. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Attempted investigation; address provided was incorrect."
+    },
+    "The Department of Environmental Protection conducted an inspection and determined that \"No Horn Honking\" or \"No Idling\" signs are not warranted. If the problem still exists, please call 311 and file a new complaint. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Inspection determined 'No Horn Honking' or 'No Idling' signs not warranted."
+    }
+  }
+}

@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pull": "tsx --env-file-if-exists=.env.local scripts/pull-templates.ts",
-    "classify": "tsx --env-file-if-exists=.env.local scripts/classify-templates.ts",
-    "aggregate": "tsx --env-file-if-exists=.env.local scripts/aggregate.ts",
+    "pull": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/pull-templates.ts",
+    "classify": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/classify-templates.ts",
+    "aggregate": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/aggregate.ts",
     "pipeline": "npm run pull && npm run classify && npm run aggregate",
     "test": "vitest run"
   },

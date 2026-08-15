@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pull": "tsx --env-file-if-exists=.env.local scripts/pull-templates.ts",
+    "classify": "tsx --env-file-if-exists=.env.local scripts/classify-templates.ts",
+    "aggregate": "tsx --env-file-if-exists=.env.local scripts/aggregate.ts",
+    "pipeline": "npm run pull && npm run classify && npm run aggregate",
+    "test": "vitest run"
   },
   "dependencies": {
     "next": "16.3.1",
@@ -21,6 +26,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }

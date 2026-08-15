@@ -19,9 +19,9 @@ export default function OutcomeBar({
   const { verified, cosmetic, neutral, total } = grouped;
   if (total === 0) return null;
   const segs = [
-    { key: "fixed", n: verified, color: "var(--fixed)", label: "verified fixed" },
-    { key: "cosmetic", n: cosmetic, color: "var(--cosmetic)", label: "cosmetic closure" },
-    { key: "neutral", n: neutral, color: "var(--neutral)", label: "duplicate / pending / unclear" },
+    { key: "fixed", n: verified, color: "var(--fixed)", ink: "#ffffff", label: "verified fixed" },
+    { key: "cosmetic", n: cosmetic, color: "var(--cosmetic)", ink: "#ffffff", label: "cosmetic closure" },
+    { key: "neutral", n: neutral, color: "var(--neutral)", ink: "var(--ink)", label: "duplicate / pending / unclear" },
   ].filter((s) => s.n > 0);
 
   return (
@@ -40,7 +40,10 @@ export default function OutcomeBar({
             title={`${s.label}: ${s.n.toLocaleString()} (${pct.toFixed(1)}%)`}
           >
             {showLabels && pct >= 12 && (
-              <span className="font-mono text-[11px] font-medium text-white select-none">
+              <span
+                className="font-mono text-[11px] font-medium select-none"
+                style={{ color: s.ink }}
+              >
                 {pct.toFixed(0)}%
               </span>
             )}

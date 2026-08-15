@@ -62,7 +62,7 @@ export default function Home() {
         </p>
         <h1 className="mt-6 font-display text-5xl font-black uppercase leading-[1.05] sm:text-6xl">
           Almost every one:{" "}
-          <span className="stamp text-stamp px-3 align-middle text-4xl sm:text-5xl">Closed</span>
+          <span className="stamp stamp-hero text-stamp px-3 align-middle text-4xl sm:text-5xl">Closed</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2">
           But <em>closed</em> is a status code, not an outcome. We read the closure text the city

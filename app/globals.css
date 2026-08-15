@@ -62,6 +62,37 @@ body {
   transform: none;
 }
 
+/* The hero stamp slams down once on load — the page's single motion moment. */
+@keyframes stamp-slam {
+  0% {
+    opacity: 0;
+    transform: scale(2.4) rotate(-9deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.94) rotate(-1.5deg);
+  }
+  75% {
+    transform: scale(1.04) rotate(-2.2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+.stamp-hero {
+  opacity: 0;
+  animation: stamp-slam 0.5s cubic-bezier(0.6, 0, 0.4, 1) 0.45s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-hero {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

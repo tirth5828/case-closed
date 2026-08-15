@@ -54,6 +54,13 @@ async function postJson<T>(url: string, body: unknown): Promise<T> {
   return data as T;
 }
 
+const EXAMPLES = [
+  "My radiator's been cold for two weeks and the landlord won't call back",
+  "A truck parks on our crosswalk every single night",
+  "The apartment upstairs blasts music until 3am",
+  "There's mold spreading on my bathroom ceiling",
+];
+
 export default function AskPage() {
   const [problem, setProblem] = useState("");
   const [zip, setZip] = useState("");
@@ -133,10 +140,21 @@ export default function AskPage() {
           id="problem"
           value={problem}
           onChange={(e) => setProblem(e.target.value)}
-          placeholder="My radiator has been cold for two weeks and the landlord won't call back."
+          placeholder="Say it like you'd say it to a neighbor — we'll turn it into the city's language."
           rows={3}
           className="mt-2 w-full resize-none rounded border border-hairline bg-paper p-3 text-[15px] outline-none focus:border-ink-3"
         />
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {EXAMPLES.map((ex) => (
+            <button
+              key={ex}
+              onClick={() => setProblem(ex)}
+              className="cursor-pointer rounded-full border border-hairline bg-paper px-2.5 py-1 text-[12px] text-ink-2 hover:border-ink-3 hover:text-ink"
+            >
+              &ldquo;{ex}&rdquo;
+            </button>
+          ))}
+        </div>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <div>
             <label htmlFor="zip" className="sr-only">
@@ -146,10 +164,10 @@ export default function AskPage() {
               id="zip"
               value={zip}
               onChange={(e) => setZip(e.target.value)}
-              placeholder="ZIP (optional)"
+              placeholder="ZIP"
               inputMode="numeric"
               maxLength={5}
-              className="w-32 rounded border border-hairline bg-paper px-3 py-2 font-mono text-[14px] outline-none focus:border-ink-3"
+              className="w-20 rounded border border-hairline bg-paper px-3 py-2 font-mono text-[14px] outline-none focus:border-ink-3"
             />
           </div>
           <button
@@ -176,7 +194,7 @@ export default function AskPage() {
 
       {/* Classification */}
       {ask && (
-        <section className="mt-6 rounded border border-hairline bg-card p-4">
+        <section className="reveal mt-6 rounded border border-hairline bg-card p-4">
           <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
             How the city files this
           </p>
@@ -203,25 +221,47 @@ export default function AskPage() {
 
       {/* Outcomes */}
       {nearby && (
-        <section className="mt-6 rounded border border-hairline bg-card p-4">
+        <section className="reveal mt-6 rounded border border-hairline bg-card p-4">
           <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
             What happened to {nearby.total.toLocaleString()} {nearby.scope}
           </p>
-          <div className="mt-4">
+
+          <div className="mt-4 flex flex-wrap gap-x-10 gap-y-3">
+            <div>
+              <p className="font-display text-5xl font-black" style={{ color: "var(--fixed)" }}>
+                {(nearby.resolvedShare * 100).toFixed(0)}%
+              </p>
+              <p className="mt-0.5 text-[13px] text-ink-2">verifiably fixed</p>
+            </div>
+            <div>
+              <p className="font-display text-5xl font-black text-cosmetic">
+                {(nearby.cosmeticShare * 100).toFixed(0)}%
+              </p>
+              <p className="mt-0.5 text-[13px] text-ink-2">
+                closed cosmetically — the ticket ended,
+                <br />
+                the problem wasn&apos;t verified to
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-5">
             <OutcomeBar grouped={toGrouped(nearby)} height={30} />
           </div>
           <div className="mt-3">
             <OutcomeLegend />
           </div>
-          <p className="mt-4 text-[15px]">
-            <strong style={{ color: "var(--fixed)" }}>
-              {(nearby.resolvedShare * 100).toFixed(0)}% verifiably fixed.
-            </strong>{" "}
-            <strong className="text-cosmetic">
-              {(nearby.cosmeticShare * 100).toFixed(0)}% closed cosmetically
-            </strong>{" "}
-            — the ticket ended, the problem wasn&apos;t verified to.
-          </p>
+          {(nearby.breakdown.counts["duplicate"] ?? 0) / nearby.total > 0.2 && (
+            <p className="mt-3 rounded border border-dashed border-hairline bg-paper p-2.5 text-[13px] text-ink-2">
+              And{" "}
+              <strong className="text-ink">
+                {Math.round(((nearby.breakdown.counts["duplicate"] ?? 0) / nearby.total) * 100)}%
+                never counted at all
+              </strong>{" "}
+              — closed as duplicates of a neighbor&apos;s report, so the file shows one complaint
+              where a whole building was cold.
+            </p>
+          )}
 
           <ul className="mt-4 space-y-2.5 border-t border-dashed border-hairline pt-4">
             {nearby.templates.slice(0, 6).map((t) => (
@@ -230,7 +270,14 @@ export default function AskPage() {
                   <Stamp outcome={t.outcome} />
                   <p className="mt-1 font-mono text-[11px] text-ink-3">×{t.n.toLocaleString()}</p>
                 </div>
-                <p className="pt-0.5 text-[13px] text-ink-2">{t.gloss}</p>
+                <details className="pt-0.5">
+                  <summary className="cursor-pointer list-none text-[13px] text-ink-2 hover:text-ink [&::-webkit-details-marker]:hidden">
+                    {t.gloss} <span className="font-mono text-[11px] text-ink-3">· read the city&apos;s words</span>
+                  </summary>
+                  <p className="mt-1.5 border-l-2 border-hairline pl-2.5 text-[12px] leading-snug text-ink-2">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                </details>
               </li>
             ))}
           </ul>
@@ -242,7 +289,7 @@ export default function AskPage() {
 
       {/* Playbook */}
       {playbook && (
-        <section className="mt-6 rounded border-2 border-ink bg-card p-4">
+        <section className="reveal mt-6 rounded border-2 border-ink bg-card p-4">
           <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
             Your playbook — beat the closure codes
           </p>

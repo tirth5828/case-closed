@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
-import { loadHonesty, loadLabels, loadRawTemplates } from "@/lib/data";
-import { regroup } from "@/lib/honesty";
+import { loadBoroughs, loadHonesty, loadLabels, loadRawTemplates } from "@/lib/data";
+import { breakdown, cosmeticShare, regroup } from "@/lib/honesty";
 import HonestyIndex, { type IndexRow } from "@/components/HonestyIndex";
 import { OutcomeLegend } from "@/components/OutcomeBar";
 
@@ -29,11 +29,29 @@ export default function Home() {
   const honesty = loadHonesty();
   const { labels } = loadLabels();
   const raw = loadRawTemplates();
+  const boroughsRaw = loadBoroughs();
+
+  const boroughsFor = (complaintType: string) => {
+    const entry = boroughsRaw?.types.find((b) => b.complaint_type === complaintType);
+    if (!entry) return undefined;
+    const byBorough = new Map<string, { text: string; n: number }[]>();
+    for (const r of entry.rows) {
+      if (!byBorough.has(r.borough)) byBorough.set(r.borough, []);
+      byBorough.get(r.borough)!.push({ text: r.text, n: r.n });
+    }
+    return [...byBorough.entries()]
+      .map(([name, templates]) => {
+        const b = breakdown(templates, labels);
+        return { name, grouped: regroup(b), cosmeticShare: cosmeticShare(b) };
+      })
+      .sort((a, b) => b.cosmeticShare - a.cosmeticShare);
+  };
 
   const rows: IndexRow[] = honesty.types
     .map((t) => {
       const rawType = raw.types.find((r) => r.complaint_type === t.complaint_type);
       return {
+        boroughs: boroughsFor(t.complaint_type),
         complaint_type: t.complaint_type,
         total: t.total,
         grouped: regroup(t.breakdown),

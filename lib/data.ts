@@ -19,3 +19,18 @@ export function loadLabels(): TemplatesFile {
 export function loadHonesty(): HonestyFile {
   return load<HonestyFile>("honesty.json");
 }
+
+export interface BoroughsRawFile {
+  pulledAt: string;
+  since: string;
+  types: { complaint_type: string; rows: { borough: string; text: string; n: number }[]; receiptUrl: string }[];
+}
+
+/** Borough drill-down data is optional — null until `npm run boroughs` has run. */
+export function loadBoroughs(): BoroughsRawFile | null {
+  try {
+    return load<BoroughsRawFile>("boroughs-raw.json");
+  } catch {
+    return null;
+  }
+}

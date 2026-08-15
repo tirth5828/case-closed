@@ -14,6 +14,12 @@ export interface IndexTemplate {
   gloss: string;
 }
 
+export interface IndexBorough {
+  name: string;
+  grouped: Grouped;
+  cosmeticShare: number;
+}
+
 export interface IndexRow {
   complaint_type: string;
   total: number;
@@ -21,6 +27,8 @@ export interface IndexRow {
   cosmeticShare: number;
   receiptUrl: string;
   templates: IndexTemplate[];
+  /** Optional — present once the borough pipeline has run. */
+  boroughs?: IndexBorough[];
 }
 
 export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
@@ -72,6 +80,30 @@ export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
                     </li>
                   ))}
                 </ul>
+                {row.boroughs && row.boroughs.length > 0 && (
+                  <div className="mt-5 border-t border-dashed border-hairline pt-4">
+                    <p className="mb-3 text-[13px] text-ink-2">
+                      The gap isn&apos;t evenly distributed — same complaint, five different
+                      cities:
+                    </p>
+                    <ul className="space-y-2">
+                      {row.boroughs.map((b) => (
+                        <li
+                          key={b.name}
+                          className="grid grid-cols-[7.5rem_1fr_3.5rem] items-center gap-3 sm:grid-cols-[9rem_1fr_4rem]"
+                        >
+                          <p className="font-mono text-[11px] uppercase tracking-wide text-ink-2">
+                            {b.name}
+                          </p>
+                          <OutcomeBar grouped={b.grouped} height={14} showLabels={false} />
+                          <p className="text-right font-mono text-[12px] font-semibold text-cosmetic">
+                            {(b.cosmeticShare * 100).toFixed(0)}%
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <div className="mt-4">
                   <ReceiptLink url={row.receiptUrl} />
                 </div>

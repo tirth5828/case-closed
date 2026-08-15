@@ -12,7 +12,8 @@ import {
 } from "@/lib/data";
 import { breakdown, cosmeticShare, regroup, resolvedShare } from "@/lib/honesty";
 import HonestyIndex, { type IndexRow } from "@/components/HonestyIndex";
-import OutcomeBar, { OutcomeLegend } from "@/components/OutcomeBar";
+import { OutcomeLegend } from "@/components/OutcomeBar";
+import AgencyLeague from "@/components/AgencyLeague";
 import ReceiptLink from "@/components/ReceiptLink";
 
 export const dynamic = "force-dynamic";
@@ -99,6 +100,14 @@ export default function Home() {
               grouped: regroup(b),
               cosmeticShare: cosmeticShare(b),
               resolvedShare: resolvedShare(b),
+              templates: templates
+                .sort((x, y) => y.n - x.n)
+                .slice(0, 6)
+                .map((t) => ({
+                  n: t.n,
+                  gloss: labels[t.text]?.gloss ?? "unclassified closure text",
+                  outcome: labels[t.text]?.outcome ?? ("unknown" as const),
+                })),
             };
           })
           .filter((a) => a.total >= 20000)
@@ -206,23 +215,7 @@ export default function Home() {
             different ways — a structural fact about how each one works, not a report card on the
             people in the field.
           </p>
-          <ul className="mt-5 space-y-2.5">
-            {agencies.slice(0, 8).map((a) => (
-              <li
-                key={a.agency}
-                className="grid grid-cols-[minmax(6rem,8rem)_1fr_4rem] items-center gap-4"
-              >
-                <div>
-                  <p className="font-mono text-[13px] font-semibold">{a.agency}</p>
-                  <p className="font-mono text-[11px] text-ink-3">{a.total.toLocaleString()}</p>
-                </div>
-                <OutcomeBar grouped={a.grouped} height={16} showLabels={false} />
-                <p className="text-right font-mono text-[13px] font-semibold text-cosmetic">
-                  {(a.cosmeticShare * 100).toFixed(0)}%
-                </p>
-              </li>
-            ))}
-          </ul>
+          <AgencyLeague rows={agencies.slice(0, 8)} />
           {agenciesRaw && (
             <div className="mt-3">
               <ReceiptLink url={agenciesRaw.receiptUrl} />
@@ -242,7 +235,12 @@ export default function Home() {
             {worst.buildings.slice(0, 5).map((b, i) => (
               <li key={b.address} className="flex items-baseline gap-3">
                 <span className="font-mono text-[13px] text-ink-3">{i + 1}.</span>
-                <span className="font-mono text-[14px] font-semibold">{b.address}</span>
+                <Link
+                  href={`/building?address=${encodeURIComponent(b.address)}`}
+                  className="font-mono text-[14px] font-semibold underline decoration-dotted underline-offset-2 hover:text-receipt hover:decoration-solid"
+                >
+                  {b.address}
+                </Link>
                 <span className="text-[12px] text-ink-3">{b.borough}</span>
                 <span className="ml-auto font-mono text-[13px] font-semibold text-cosmetic">
                   ×{b.noAccess.toLocaleString()} no-access closures

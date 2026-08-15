@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import OutcomeBar, { OutcomeLegend } from "@/components/OutcomeBar";
 import Stamp from "@/components/Stamp";
@@ -22,13 +23,23 @@ interface BuildingResult {
 }
 
 export default function BuildingPage() {
+  return (
+    <Suspense>
+      <BuildingLookup />
+    </Suspense>
+  );
+}
+
+function BuildingLookup() {
   const [address, setAddress] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<BuildingResult | null>(null);
+  const searchParams = useSearchParams();
+  const autoRan = useRef(false);
 
-  async function run() {
-    if (!address.trim()) return;
+  const run = useCallback(async (addr: string) => {
+    if (!addr.trim()) return;
     setBusy(true);
     setError(null);
     setResult(null);
@@ -36,7 +47,7 @@ export default function BuildingPage() {
       const res = await fetch("/api/building", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ address }),
+        body: JSON.stringify({ address: addr }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `lookup failed (${res.status})`);
@@ -46,7 +57,17 @@ export default function BuildingPage() {
     } finally {
       setBusy(false);
     }
-  }
+  }, []);
+
+  // Arriving from a leaderboard link (?address=...) opens the file immediately.
+  useEffect(() => {
+    const fromUrl = searchParams.get("address");
+    if (fromUrl && !autoRan.current) {
+      autoRan.current = true;
+      setAddress(fromUrl);
+      void run(fromUrl);
+    }
+  }, [searchParams, run]);
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pb-24">
@@ -75,12 +96,12 @@ export default function BuildingPage() {
             id="address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && run()}
+            onKeyDown={(e) => e.key === "Enter" && run(address)}
             placeholder="100 GOLD STREET"
             className="min-w-64 flex-1 rounded border border-hairline bg-paper px-3 py-2 font-mono text-[15px] uppercase outline-none focus:border-ink-3"
           />
           <button
-            onClick={run}
+            onClick={() => run(address)}
             disabled={busy || !address.trim()}
             className="rounded bg-ink px-5 py-2 font-display font-bold uppercase tracking-wide text-paper hover:bg-ink-2 disabled:cursor-not-allowed disabled:opacity-40"
           >

@@ -11,7 +11,8 @@
     "classify": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/classify-templates.ts",
     "aggregate": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/aggregate.ts",
     "pipeline": "npm run pull && npm run classify && npm run aggregate",
-    "test": "vitest run"
+    "test": "vitest run",
+    "warm": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/warm-demo.ts"
   },
   "dependencies": {
     "next": "16.3.1",

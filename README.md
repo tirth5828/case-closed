@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Case Closed?
 
-## Getting Started
+**NYC closes almost every 311 complaint. "Closed" is a status code, not an outcome.**
 
-First, run the development server:
+In the last 12 months, New Yorkers filed 2.56 million complaints across the city's 15 highest-volume 311 categories. Nearly every one is marked **closed** — but the free-text resolution description the city attaches to each ticket tells a different story: *"unable to gain access to the location"*, *"observed no criminal violation upon their arrival"*, *"does not fall under the jurisdiction of this agency."* Every one of those is a closed ticket **and** an unfixed problem, and nothing on any city portal distinguishes the two.
+
+**Case Closed? reads that text and builds the first honest map of what actually happens after New Yorkers ask their city for help.**
+
+> **52% — 1,320,035 complaints — were closed without the problem being verified fixed.**
+> (Derived live from NYC Open Data; every number in the app expands to the exact query that produced it.)
+
+Built at the NYPL **Built for NYC: AI Hackathon**, Aug 15–16 2026.
+
+## The three acts
+
+1. **The Honesty Index** (`/`) — complaint types ranked by what "closed" really meant: verified fixed vs. cosmetic closure (no access, gone on arrival, wrong desk, no action) vs. duplicates/pending. Click any row to read the city's actual closure language, stamped and translated. A chart that has never existed, because the data for it was locked in free text.
+2. **Before You Call** (`/ask`) — describe your problem in plain English. Gemini maps it into the city's official complaint taxonomy (a broken radiator is `HEAT/HOT WATER` under HPD — nobody finds that in a dropdown), then NYC Open Data shows what happened to identical complaints near you.
+3. **The Playbook** — the model reads the failure templates for your complaint type and tells you, concretely, how to land in the verified-fixed cohort.
+
+## Why the AI is load-bearing
+
+Delete the LLM and the project vanishes — twice:
+
+- **Template → outcome classification.** There is no `WHERE` clause for "nobody got inside." The resolution text is heavily templated: 2.56M rows collapse into **232 distinct templates** via server-side `GROUP BY`. Gemini classifies each template once (~6 calls), and the labels join back to annotate millions of rows.
+- **Plain English → the 460-type taxonomy.** The only thing standing between a resident and their own data.
+
+## Architecture
+
+- **Next.js (App Router)** — pages + API routes; all keys server-side.
+- **Offline pipeline** (`npm run pipeline`): `pull` (Socrata SoQL group-bys) → `classify` (Gemini, structured output) → `aggregate` (honesty stats; the demo's hero complaint type is picked empirically, not assumed).
+- **Live on stage:** taxonomy mapping and playbook run against Gemini in real time; nearby-complaint queries hit Socrata live with a zero-row fallback chain (descriptor+ZIP → type+ZIP → citywide), so a blank screen is impossible.
+- **Every Socrata response is cached to disk** and served on network failure with a "served from cache" badge. This was battle-tested involuntarily: the NYC Open Data portal went down mid-build and the demo kept working.
+- **Receipts everywhere:** every statistic expands to the literal `data.cityofnewyork.us` URL that produced it.
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # add GEMINI_API_KEY (free: aistudio.google.com/apikey)
+npm run pipeline             # pull -> classify -> aggregate (rerun anytime for fresh data)
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`SOCRATA_APP_TOKEN` is optional but recommended (avoids anonymous rate limits).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[NYC Open Data — 311 Service Requests from 2010 to Present](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) (`erm2-nwe9`), refreshed daily. All aggregation happens server-side in Socrata via SoQL; the app never downloads raw rows.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A note on tone: the villain here is a closure code that hides outcomes — not 311, and not city workers. "Closed without site access" is a data-transparency gap, and this project's whole purpose is to close it.

@@ -12,6 +12,25 @@ interface AskResult {
   complaint_type: string;
   descriptor: string;
   reasoning: string;
+  photo_details: string;
+}
+
+interface Photo {
+  mimeType: string;
+  data: string;
+  previewUrl: string;
+}
+
+/** Downscale to <=1024px JPEG so the payload stays small on mobile data. */
+async function fileToPhoto(file: File): Promise<Photo> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, 1024 / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+  return { mimeType: "image/jpeg", data: dataUrl.split(",")[1], previewUrl: dataUrl };
 }
 
 interface NearbyTemplate {
@@ -97,7 +116,9 @@ export default function AskPage() {
   const [letterBusy, setLetterBusy] = useState(false);
   const [copied, setCopied] = useState(false);
   const [listening, setListening] = useState(false);
+  const [photo, setPhoto] = useState<Photo | null>(null);
   const letterRef = useRef<HTMLTextAreaElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   // The carbon copy grows with its content while staying editable.
   useEffect(() => {
@@ -137,6 +158,7 @@ export default function AskPage() {
         complaint_type: ask.complaint_type,
         descriptor: ask.descriptor,
         templates: nearby.templates,
+        photo_details: ask.photo_details || undefined,
       });
       setLetter(l);
       setLetterText(l.letter);
@@ -163,7 +185,10 @@ export default function AskPage() {
     setLetter(null);
     try {
       setPhase("classifying");
-      const a = await postJson<AskResult>("/api/ask", { problem });
+      const a = await postJson<AskResult>("/api/ask", {
+        problem,
+        image: photo ? { mimeType: photo.mimeType, data: photo.data } : undefined,
+      });
       setAsk(a);
       if (a.complaint_type === "OTHER") {
         setPhase("done");
@@ -258,6 +283,50 @@ export default function AskPage() {
           >
             {listening ? "🔴 listening…" : "🎙️"}
           </button>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            className="hidden"
+            onChange={async (e) => {
+              const f = e.target.files?.[0];
+              if (!f) return;
+              try {
+                setPhoto(await fileToPhoto(f));
+              } catch {
+                setError("Couldn't read that image — try a JPEG or PNG.");
+              }
+              e.target.value = "";
+            }}
+          />
+          {photo ? (
+            <span className="relative inline-block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.previewUrl}
+                alt="Attached evidence"
+                className="h-10 w-10 rounded border border-hairline object-cover"
+              />
+              <button
+                onClick={() => setPhoto(null)}
+                aria-label="Remove photo"
+                className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full border border-hairline bg-paper font-mono text-[11px] leading-none hover:border-ink-3"
+              >
+                ×
+              </button>
+            </span>
+          ) : (
+            <button
+              onClick={() => fileRef.current?.click()}
+              disabled={busy}
+              title="Attach a photo — the AI reads it for evidence"
+              aria-label="Attach a photo of the problem"
+              className="rounded border border-hairline bg-paper px-3 py-2 text-[15px] hover:border-ink-3 disabled:opacity-40"
+            >
+              📷
+            </button>
+          )}
           <button
             onClick={run}
             disabled={busy || !problem.trim()}
@@ -302,6 +371,14 @@ export default function AskPage() {
                 {ask.descriptor && <span className="font-normal text-ink-2"> — {ask.descriptor}</span>}
               </p>
               <p className="mt-1 text-[13px] text-ink-2">{ask.reasoning}</p>
+              {ask.photo_details && (
+                <p className="mt-2 rounded border border-dashed border-hairline bg-paper p-2.5 text-[13px] text-ink-2">
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-ink-3">
+                    What the photo adds ·{" "}
+                  </span>
+                  {ask.photo_details}
+                </p>
+              )}
             </>
           )}
         </section>

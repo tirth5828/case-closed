@@ -43,6 +43,9 @@ body {
   background: var(--desk);
   color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  /* The folder/under-sheet decorations deliberately poke past the sheet;
+     never let them create horizontal scroll. */
+  overflow-x: clip;
 }
 
 /* The case file is a physical stack: manila folder, a sheet beneath, and
@@ -123,8 +126,10 @@ body {
   box-shadow: 0 1px 1px rgba(11, 11, 11, 0.25);
 }
 
-/* Faint diagonal watermark behind the hero. */
+/* Faint diagonal watermark behind the hero. Hidden on small screens: at
+   phone width its overhang would force horizontal scroll. */
 .watermark {
+  display: none;
   position: absolute;
   top: 90px;
   right: -30px;
@@ -148,6 +153,12 @@ body {
   border: 1px solid #e3d5a6;
   position: relative;
 }
+@media (min-width: 900px) {
+  .watermark {
+    display: block;
+  }
+}
+
 .carbon .copy-ghost {
   position: absolute;
   top: 10px;
@@ -193,7 +204,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 12px;
-  padding: 7px 14px 5px;
+  padding: 7px 8px 5px;
   border: 1px solid var(--baseline);
   border-bottom: none;
   border-radius: 6px 6px 0 0;
@@ -211,6 +222,13 @@ body {
   color: var(--ink);
   padding-top: 9px;
   z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .tab {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 }
 
 /* Box stamp for dates and dispositions: RECEIVED / AUG 16 2026. */

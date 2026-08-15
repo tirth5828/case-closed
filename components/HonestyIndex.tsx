@@ -116,7 +116,7 @@ export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
             <button
               onClick={() => setOpenType(open ? null : row.complaint_type)}
               aria-expanded={open}
-              className="grid w-full cursor-pointer grid-cols-[minmax(9rem,14rem)_1fr_4.5rem] items-center gap-4 py-3 text-left hover:bg-card sm:grid-cols-[14rem_1fr_5.5rem]"
+              className="grid w-full cursor-pointer grid-cols-[minmax(6.5rem,9rem)_1fr_3.5rem] items-center gap-3 py-3 text-left hover:bg-card sm:grid-cols-[14rem_1fr_5.5rem] sm:gap-4"
             >
               <div className="min-w-0">
                 <p className="truncate text-[14px] font-medium">{row.complaint_type}</p>

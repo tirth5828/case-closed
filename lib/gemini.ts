@@ -2,11 +2,18 @@ const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 export const DEFAULT_MODEL = "gemini-2.5-flash";
 
+export interface InlineImage {
+  mimeType: string;
+  /** base64, no data: prefix */
+  data: string;
+}
+
 interface GeminiOptions {
   model?: string;
   /** JSON Schema for structured output. When set, the response is parsed JSON. */
   responseSchema?: object;
   temperature?: number;
+  images?: InlineImage[];
 }
 
 export async function generate(prompt: string, opts: GeminiOptions = {}): Promise<string> {
@@ -14,8 +21,15 @@ export async function generate(prompt: string, opts: GeminiOptions = {}): Promis
   if (!key) throw new Error("GEMINI_API_KEY is not set (put it in .env.local)");
   const model = opts.model ?? DEFAULT_MODEL;
 
+  const parts: object[] = [
+    ...(opts.images ?? []).map((img) => ({
+      inline_data: { mime_type: img.mimeType, data: img.data },
+    })),
+    { text: prompt },
+  ];
+
   const body: Record<string, unknown> = {
-    contents: [{ parts: [{ text: prompt }] }],
+    contents: [{ parts }],
     generationConfig: {
       temperature: opts.temperature ?? 0.2,
       ...(opts.responseSchema
@@ -39,7 +53,11 @@ export async function generate(prompt: string, opts: GeminiOptions = {}): Promis
   return text;
 }
 
-export async function generateJson<T>(prompt: string, responseSchema: object, opts: Omit<GeminiOptions, "responseSchema"> = {}): Promise<T> {
+export async function generateJson<T>(
+  prompt: string,
+  responseSchema: object,
+  opts: Omit<GeminiOptions, "responseSchema"> = {},
+): Promise<T> {
   const text = await generate(prompt, { ...opts, responseSchema });
   return JSON.parse(text) as T;
 }

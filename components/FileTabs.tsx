@@ -16,7 +16,7 @@ const TABS = [
 export default function FileTabs() {
   const pathname = usePathname();
   return (
-    <nav className="flex items-end gap-1 px-4 sm:px-10 print:hidden" aria-label="Case file sections">
+    <nav className="flex flex-wrap items-end gap-1 px-3 sm:px-10 print:hidden" aria-label="Case file sections">
       {TABS.map((t) => (
         <Link
           key={t.href}

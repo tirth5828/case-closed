@@ -12,11 +12,12 @@ interface TemplateSummary {
  * the specific failure modes observed in the closure data.
  */
 export async function POST(request: Request) {
-  const { problem, complaint_type, descriptor, templates } = (await request.json()) as {
+  const { problem, complaint_type, descriptor, templates, photo_details } = (await request.json()) as {
     problem?: string;
     complaint_type?: string;
     descriptor?: string;
     templates?: TemplateSummary[];
+    photo_details?: string;
   };
   if (!problem || !complaint_type) {
     return Response.json({ error: "problem and complaint_type required" }, { status: 400 });
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
 
 Their problem, in their words: "${problem.slice(0, 400)}"
 Official filing: ${complaint_type}${descriptor ? ` — ${descriptor}` : ""}.
+${photo_details ? `Evidence visible in their photo (weave these specifics into the letter, and mention a photo is attached to the complaint): ${photo_details.slice(0, 400)}` : ""}
 
 These are the ways complaints like theirs actually die (from the city's own closure records):
 ${failures || "- no failure data available"}

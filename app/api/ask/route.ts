@@ -1,4 +1,5 @@
 import { generateJson } from "@/lib/gemini";
+import type { InlineImage } from "@/lib/gemini";
 import { loadRawTemplates } from "@/lib/data";
 
 /**
@@ -8,9 +9,12 @@ import { loadRawTemplates } from "@/lib/data";
  * finds in a dropdown.
  */
 export async function POST(request: Request) {
-  const { problem } = (await request.json()) as { problem?: string };
+  const { problem, image } = (await request.json()) as { problem?: string; image?: InlineImage };
   if (!problem?.trim()) {
     return Response.json({ error: "Describe your problem first." }, { status: 400 });
+  }
+  if (image && (!/^image\/(jpeg|png|webp)$/.test(image.mimeType) || image.data.length > 2_000_000)) {
+    return Response.json({ error: "Photo must be a JPEG/PNG/WebP under ~1.5MB." }, { status: 400 });
   }
 
   const raw = loadRawTemplates();
@@ -29,17 +33,23 @@ export async function POST(request: Request) {
         description: "One of the listed descriptors for the chosen type, or empty string if none fits",
       },
       reasoning: { type: "string", description: "One sentence: why this classification, in plain English" },
+      photo_details: {
+        type: "string",
+        description:
+          "Only if a photo is attached: 1-2 sentences of concrete, complaint-relevant evidence visible in it (identifying details, extent, location clues). Empty string otherwise. Never describe people.",
+      },
     },
-    required: ["complaint_type", "descriptor", "reasoning"],
+    required: ["complaint_type", "descriptor", "reasoning", "photo_details"],
   };
 
-  const prompt = `A New Yorker describes a problem in their own words. Map it into NYC 311's official complaint taxonomy so they can find what happened to identical complaints.
+  const prompt = `A New Yorker describes a problem in their own words${image ? ", with a photo attached" : ""}. Map it into NYC 311's official complaint taxonomy so they can find what happened to identical complaints.
 
 Available complaint types and their official descriptors:
 ${taxonomy.map((t) => `- ${t.complaint_type}: [${t.descriptors.join(" | ")}]`).join("\n")}
 
 If nothing fits, use complaint_type "OTHER" with empty descriptor.
 Only choose a descriptor from the chosen type's own list; use "" if unsure.
+${image ? "From the photo, extract concrete evidence that would strengthen the complaint: identifying details (vehicle type/plate, signage, extent of damage or mold, exact placement). Describe conditions and objects only — never people." : ""}
 
 Their problem: "${problem.trim().slice(0, 500)}"`;
 
@@ -48,13 +58,14 @@ Their problem: "${problem.trim().slice(0, 500)}"`;
       complaint_type: string;
       descriptor: string;
       reasoning: string;
-    }>(prompt, schema);
+      photo_details: string;
+    }>(prompt, schema, image ? { images: [image] } : {});
 
     // Guard against hallucinated descriptors: must be in the real list.
     const type = taxonomy.find((t) => t.complaint_type === result.complaint_type);
     const descriptor = type?.descriptors.includes(result.descriptor) ? result.descriptor : "";
 
-    return Response.json({ ...result, descriptor });
+    return Response.json({ ...result, descriptor, photo_details: image ? result.photo_details : "" });
   } catch (e) {
     return Response.json(
       { error: `Classification failed: ${e instanceof Error ? e.message : String(e)}` },

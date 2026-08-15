@@ -39,6 +39,8 @@ export interface TypeTemplates {
   complaint_type: string;
   total: number;
   templates: TemplateCount[];
+  /** Top descriptors for this type (e.g. "ENTIRE BUILDING" for HEAT/HOT WATER). */
+  descriptors: TemplateCount[];
 }
 
 export interface RawTemplatesFile {

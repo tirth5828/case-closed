@@ -56,6 +56,23 @@ export function honestyForType(
   };
 }
 
+export interface Grouped {
+  verified: number;
+  cosmetic: number;
+  neutral: number;
+  total: number;
+}
+
+/**
+ * Collapse a breakdown into the three segments the chart shows:
+ * verified fixed / cosmetic closure / neutral (duplicates, pending, unknown).
+ */
+export function regroup(b: OutcomeBreakdown): Grouped {
+  const cosmetic = COSMETIC_CLASSES.reduce((s, c) => s + (b.counts[c] ?? 0), 0);
+  const verified = b.counts["resolved"] ?? 0;
+  return { verified, cosmetic, neutral: b.total - verified - cosmetic, total: b.total };
+}
+
 /**
  * Hero = the complaint type whose story is most damning: the absolute number
  * of cosmetically-closed complaints (share x volume).

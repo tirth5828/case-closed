@@ -68,7 +68,7 @@ describe("pickHero", () => {
 describe("honestyForType", () => {
   it("carries the receipt URL through", () => {
     const t = honestyForType(
-      { complaint_type: "X", total: 10, templates: [{ text: "fixed it", n: 10 }] },
+      { complaint_type: "X", total: 10, templates: [{ text: "fixed it", n: 10 }], descriptors: [] },
       labels,
       "https://example.com/receipt",
     );

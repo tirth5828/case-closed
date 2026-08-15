@@ -36,7 +36,19 @@ async function main() {
     const templates = res.rows
       .filter((r) => r.resolution_description && r.resolution_description.trim().length > 0)
       .map((r) => ({ text: r.resolution_description!.trim(), n: Number(r.n) }));
-    types.push({ complaint_type: t.complaint_type, total: Number(t.n), templates });
+
+    const desc = await query<{ descriptor?: string; n: string }>({
+      $select: "descriptor, count(unique_key) as n",
+      $where: `created_date > '${SINCE}' AND complaint_type = '${t.complaint_type.replace(/'/g, "''")}'`,
+      $group: "descriptor",
+      $order: "n DESC",
+      $limit: "25",
+    });
+    const descriptors = desc.rows
+      .filter((r) => r.descriptor && r.descriptor.trim().length > 0)
+      .map((r) => ({ text: r.descriptor!.trim(), n: Number(r.n) }));
+
+    types.push({ complaint_type: t.complaint_type, total: Number(t.n), templates, descriptors });
     console.log(
       `  ${t.complaint_type}: ${Number(t.n).toLocaleString()} complaints -> ${templates.length} templates${res.fromCache ? " (cache)" : ""}`,
     );

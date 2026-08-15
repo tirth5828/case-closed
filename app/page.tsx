@@ -103,6 +103,11 @@ export default function Home() {
           <OutcomeLegend />
         </div>
         <HonestyIndex rows={rows} />
+        <p className="mt-4 text-[13px]">
+          <Link href="/atlas" className="font-mono text-receipt hover:underline">
+            Browse the full Template Atlas — every sentence the city closes with →
+          </Link>
+        </p>
       </section>
 
       <footer className="mt-16 border-t border-hairline pt-6 text-[13px] leading-relaxed text-ink-2">

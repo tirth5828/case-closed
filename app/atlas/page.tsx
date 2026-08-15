@@ -1,5 +1,5 @@
 import { loadLabels, loadRawTemplates } from "@/lib/data";
-import Stamp from "@/components/Stamp";
+import AtlasSections from "@/components/AtlasSections";
 import Translator from "@/components/Translator";
 import { OUTCOME_CLASSES } from "@/lib/types";
 import type { OutcomeClass } from "@/lib/types";
@@ -88,38 +88,14 @@ export default function Atlas() {
 
       <Translator />
 
-      {sections.map((s, si) => {
-        const total = s.items.reduce((x, e) => x + e.n, 0);
-        return (
-          <section key={s.outcome} className="pt-10">
-            <div className="form-sec mb-3">exhibit {String.fromCharCode(65 + si)}</div>
-            <div className="flex flex-wrap items-baseline gap-3">
-              <Stamp outcome={s.outcome} flat className="text-[13px]" />
-              <span className="font-mono text-[13px] text-ink-3">
-                {s.items.length} templates · {total.toLocaleString()} complaints ·{" "}
-                {((total / grand) * 100).toFixed(1)}% of all outcomes
-              </span>
-            </div>
-            <p className="mt-2 text-[14px] text-ink-2">{SECTION_INTRO[s.outcome]}</p>
-            <ul className="mt-4 space-y-3">
-              {s.items.map((e) => (
-                <li key={e.text} className="rounded border border-hairline bg-card p-3">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <p className="text-[14px] font-medium">{e.gloss}</p>
-                    <p className="font-mono text-[12px] text-ink-3">×{e.n.toLocaleString()}</p>
-                  </div>
-                  <p className="mt-1.5 text-[13px] leading-snug text-ink-2">
-                    &ldquo;{e.text}&rdquo;
-                  </p>
-                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-3">
-                    {e.types.join(" · ")}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
+      <AtlasSections
+        grand={grand}
+        sections={sections.map((s) => ({
+          outcome: s.outcome,
+          intro: SECTION_INTRO[s.outcome] ?? "",
+          items: s.items,
+        }))}
+      />
 
       <footer className="mt-16 border-t border-hairline pt-6 text-[13px] text-ink-2">
         <p>

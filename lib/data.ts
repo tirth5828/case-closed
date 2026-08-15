@@ -40,6 +40,7 @@ export interface BoomerangFile {
   complaint_type: string;
   cohort: { start: string; end: string; windowDays: number };
   receiptUrl: string;
+  strata: Record<string, Record<string, { n: number; refiled: number; rate: number }>>;
   buckets: Record<string, { n: number; refiled: number; rate: number; medianDaysToClose: number | null }>;
 }
 

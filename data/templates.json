@@ -1,5 +1,5 @@
 {
-  "classifiedAt": "2026-08-15T18:03:43.064Z",
+  "classifiedAt": "2026-08-15T18:45:07.716Z",
   "model": "gemini-2.5-flash",
   "labels": {
     "The New York City Police Department responded to the complaint and observed no criminal violation upon their arrival. If the problem persists, please contact 311 to create another complaint. If possible, provide contact information so responding officers may reach out to you for more details. We count on New Yorkers like yourself to maintain a safe City, so please let us know if you see other conditions that require our attention.": {
@@ -929,6 +929,922 @@
     "The Department of Environmental Protection conducted an inspection and determined that \"No Horn Honking\" or \"No Idling\" signs are not warranted. If the problem still exists, please call 311 and file a new complaint. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
       "outcome": "no_action",
       "gloss": "Inspection determined 'No Horn Honking' or 'No Idling' signs not warranted."
+    },
+    "Service Request status for this request is available on the Department of Transportationâs website. Please click the âLearn Moreâ link below.": {
+      "outcome": "referred",
+      "gloss": "Status referred to DOT website; no direct resolution provided."
+    },
+    "The Department of Buildings investigated this complaint and determined that no further action was necessary.": {
+      "outcome": "no_action",
+      "gloss": "Investigation found no action necessary; complaint closed."
+    },
+    "The Department of Buildings reviewed this complaint and closed it. If the problem still exists, please call 311 and file a new complaint. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Complaint reviewed and closed; no action taken. File new complaint if problem persists."
+    },
+    "NYC Parks has completed the requested work order and corrected the problem.": {
+      "outcome": "resolved",
+      "gloss": "Parks completed work order and corrected the reported problem."
+    },
+    "Service Request status for this request is available on the Department of Transportation's website. Please click the \"Learn More\" link below.": {
+      "outcome": "referred",
+      "gloss": "Status referred to DOT website; no direct resolution provided."
+    },
+    "The Department of Environmental Protection (DEP) mailed you the free lead test kit you requested. The kit includes instructions for collecting a water sample and contact information for DEP's Lead Program Unit if you have any questions. Please use the included pre-paid label to mail the sample to the lab for analysis. It may take the lab up to 30 days to complete their analysis and mail you the test results. This Service Request is closed and no further status will be available from 311.": {
+      "outcome": "resolved",
+      "gloss": "DEP mailed requested lead test kit; analysis pending lab results."
+    },
+    "NYC Parks performed the work necessary to correct the condition.": {
+      "outcome": "resolved",
+      "gloss": "Parks performed necessary work to correct the reported condition."
+    },
+    "The Department of Buildings attempted to investigate this complaint twice but could not gain access to the location. If the problem still exists, please call 311 and file a new complaint with additional access information. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_access",
+      "gloss": "Buildings attempted investigation twice but could not gain access."
+    },
+    "NYC Parks visited the site and inspected the condition. No work is necessary at this time.": {
+      "outcome": "no_action",
+      "gloss": "Parks inspected site; determined no work necessary at this time."
+    },
+    "The Taxi and Limousine Commission (TLC) has received your complaint. Within 30 days, the TLC representative who will be handling your case will contact you.": {
+      "outcome": "in_progress",
+      "gloss": "TLC received complaint; representative will contact complainant within 30 days."
+    },
+    "The Department of Homeless Services (DHS) visited the location but could not find the person that you reported. If they are still there, please submit a new service request with more details. Include the specific location and a detailed description of the person.": {
+      "outcome": "condition_gone",
+      "gloss": "DHS visited location but could not find reported person."
+    },
+    "The NYC Health Department has responded to your service request. For inspection results, please call (212) 676-1600 or email infobfscs@health.nyc.gov to request an inspection report. This service request has been closed.": {
+      "outcome": "referred",
+      "gloss": "Health Department responded; contact them directly for inspection results."
+    },
+    "The Department of Buildings investigated this complaint and issued an Office of Administrative Trials and Hearings (OATH) summons.": {
+      "outcome": "resolved",
+      "gloss": "Buildings investigated and issued an OATH summons."
+    },
+    "The NYC Health Department has responded to your service request.  Restaurant inspection information can be found online at www.nyc.gov/health/abceats. This service request has been closed.": {
+      "outcome": "referred",
+      "gloss": "Health Department responded; restaurant inspection info available online."
+    },
+    "The mobile outreach response team went to the location provided but could not find the individual that you reported.": {
+      "outcome": "condition_gone",
+      "gloss": "Outreach team visited location but could not find reported individual."
+    },
+    "NYC Parks created a work order for the tree condition.  Please note that addressing this work can take up to a year or more depending on the higher priority work identified during this period and resources available to address this work.    NYC Parks work priority categories range from Category A through D, with A being the most critical and time-sensitive. We will complete all work in Category A first and address work in lower priority categories in accordance with available resources. For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.   Alternatively, you may choose complete the work yourself by hiring an independent contractor. The contractor must complete a Tree Work Permit application on the NYC Parks website at nyc.gov/parks/trees.": {
+      "outcome": "in_progress",
+      "gloss": "Parks created work order for tree condition; work is pending."
+    },
+    "Your Service Request has been submitted to the Department of Buildings.  Please check back later for status.": {
+      "outcome": "in_progress",
+      "gloss": "Service request submitted to Buildings; check back later for status."
+    },
+    "This service request was closed because the Department of Health and Mental Hygiene received an earlier complaint about the same location.  You can find inspection results for this address by going to the online Rat Portal at www.nyc.gov/rats.": {
+      "outcome": "duplicate",
+      "gloss": "Closed as duplicate; earlier complaint exists for same location."
+    },
+    "NYC Parks reviewed this request and will visit the location to investigate the condition.  Under NYC Parksâ Tree Risk Management Program, all trees under the agency's jurisdiction are assessed for risk, and work is prioritized to address the conditions with the highest risk first.  For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.   To learn more about the trees in your neighborhood, visit the NYC Tree Map at nyc.gov/parks/treemap.": {
+      "outcome": "in_progress",
+      "gloss": "Parks reviewed request, will investigate condition and prioritize work."
+    },
+    "The Department of Homeless Services (DHS) outreach team attempted to engage the individuals at the reported location. DHS is coordinating with their agency partners. They will determine the best course of action. Your service request has been closed.": {
+      "outcome": "in_progress",
+      "gloss": "DHS outreach attempted engagement; coordinating with partners to determine action."
+    },
+    "The Department of Health and Mental Hygiene found violations on the property you reported. Follow-up inspections will be scheduled.": {
+      "outcome": "resolved",
+      "gloss": "Health Department found violations; follow-up inspections scheduled."
+    },
+    "The Department of Sanitation does NOT have jurisdiction over vehicles (abandoned or otherwise) that have license plates affixed to them. Your request will be referred to the NYPD for further action.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "DSNY lacks jurisdiction over plated vehicles; referred to NYPD."
+    },
+    "The owner claimed the vehicle.Â Your request is now closed and no further action will be taken.": {
+      "outcome": "no_action",
+      "gloss": "Owner claimed vehicle; no further action taken."
+    },
+    "The City has removed the graffiti from this property.": {
+      "outcome": "resolved",
+      "gloss": "City removed graffiti from the property."
+    },
+    "See notes for information.": {
+      "outcome": "other",
+      "gloss": "Refer to notes for information; outcome not specified in text."
+    },
+    "NYC Parks created a work order for the tree condition and expects to address the issue within 120 days from the date of the tree assessment, barring any weather-related requests.   NYC Parks work priority categories range from Category A through D, with A being the most critical and time-sensitive. We will complete all work in Category A first and address work in lower priority categories in accordance with available resources. For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.": {
+      "outcome": "in_progress",
+      "gloss": "Parks created work order for tree; expects to address within 120 days."
+    },
+    "The vehicle you reported exceeds the monetary value eligible for collection as junk. The Department of Sanitation has forwarded the request to the NYPD for further action.": {
+      "outcome": "referred",
+      "gloss": "Vehicle exceeds junk value; DSNY forwarded request to NYPD."
+    },
+    "The Police Department visited the location and no Encampment was found.": {
+      "outcome": "condition_gone",
+      "gloss": "Police visited location; no encampment found."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) closed your complaint. It was closed because you didn't submit a completed complaint form or requested documents within 30 days of DCWP's request.": {
+      "outcome": "no_action",
+      "gloss": "Complaint closed because complainant did not submit required documents."
+    },
+    "The Department of Health and Mental Hygiene inspected the property you reported and did not find any violations at the time of the inspection. The property passed inspection.": {
+      "outcome": "condition_gone",
+      "gloss": "Health Department inspected property; no violations found at that time."
+    },
+    "NYC Parks visited the location but could not find the tree condition you reported.": {
+      "outcome": "condition_gone",
+      "gloss": "Parks visited location but could not find reported tree condition."
+    },
+    "The Police Department visited the location and has referred the complaint to the Department of Homeless Services (DHS) for further action. DHS will inspect the condition and update your Service Request with more information.": {
+      "outcome": "referred",
+      "gloss": "Police referred complaint to DHS for further action and inspection."
+    },
+    "DSNY already has a request to investigate this reportedly abandoned vehicle and cannot open multiple service requests for the same vehicle at once. Your request is being closed while we action the prior report.": {
+      "outcome": "duplicate",
+      "gloss": "Closed as duplicate; DSNY already investigating prior report."
+    },
+    "The owner or manager of the property was sent an advisory to correct the condition. If the condition persists, please call 311 or go online to www.nyc.gov/311 and submit another complaint.": {
+      "outcome": "no_action",
+      "gloss": "Advisory sent to owner/manager; no direct action taken on condition."
+    },
+    "The Department of Buildings attempted to investigate this complaint but could not gain access to the location. Please schedule an appointment for a follow up inspection by contacting the appropriate unit at Department of Buildings. You can find contact information at https://www1.nyc.gov/site/buildings/dob/contact-us.page": {
+      "outcome": "no_access",
+      "gloss": "Buildings attempted investigation but could not gain access."
+    },
+    "The Department of Sanitation has removed illegal postings from the location. The Department will issue a Notice of Violation to the responsible party once it is identified.": {
+      "outcome": "resolved",
+      "gloss": "DSNY removed illegal postings; will issue violation to responsible party."
+    },
+    "Upon inspection the reported condition was not found, and, therefore, no action was taken.": {
+      "outcome": "condition_gone",
+      "gloss": "Inspection found no reported condition; no action taken."
+    },
+    "The Department of Buildings determined that the conditions described in this complaint were addressed under another service request number. Click on \"Learn More\" in the \"Did You Know\" section below for more information.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint conditions addressed under another service request."
+    },
+    "The Taxi and Limousine Commission (TLC) reviewed your complaint. The driver or owner pled guilty to a violation and paid a fine. TLC has sent you a written confirmation of this outcome.": {
+      "outcome": "resolved",
+      "gloss": "TLC reviewed complaint; driver/owner pled guilty, paid fine."
+    },
+    "A hearing was scheduled at the OATH/Taxi and Limousine Tribunal.": {
+      "outcome": "in_progress",
+      "gloss": "A hearing was scheduled at OATH/TLC Tribunal."
+    },
+    "The person has refused services from the mobile outreach response team.": {
+      "outcome": "no_action",
+      "gloss": "Services refused by individual."
+    },
+    "A letter was sent to the owner or manager of the property you reported instructing them to correct the condition. If the condition persists, please call 311 or go online to www.nyc.gov/311 and submit another complaint.": {
+      "outcome": "no_action",
+      "gloss": "Owner instructed to correct condition; no direct agency action."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) finished reviewing your complaint. DCWP will contact you directly to report its status.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint reviewed; status to be reported directly."
+    },
+    "A sidewalk dismissal inspection (work done by owner) has been scheduled. Department of Transportation is in direct contact with the responsible party.": {
+      "outcome": "in_progress",
+      "gloss": "Sidewalk inspection scheduled; agency in contact with owner."
+    },
+    "The mobile outreach response team offered services to the individual, but the individual did not accept assistance.": {
+      "outcome": "no_action",
+      "gloss": "Services offered but not accepted by individual."
+    },
+    "NYC Parks has reviewed the reported condition and corrected the problem.": {
+      "outcome": "resolved",
+      "gloss": "NYC Parks reviewed and corrected the reported problem."
+    },
+    "The Department of Health and Mental Hygiene has sent official written notification to the Owner/Landlord warning them of potential violations and instructing them to correct the situation. If the situation persists 21 days after your initial complaint, please make a new complaint.": {
+      "outcome": "no_action",
+      "gloss": "Owner warned of violations; no direct agency action taken."
+    },
+    "The Department of Homeless Services (DHS) visited the location but could not find the condition you reported. If it still exists, please submit a new service request with more details. Include the specific location and a detailed description of the condition.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency visited location but could not find reported condition."
+    },
+    "The Department of Health and Mental Hygiene tried to inspect the property you reported but could not access the site. If you have information that will help the inspector access the site, please go online to nyc.gov/311 or call 311 and refile your complaint with contact information.": {
+      "outcome": "no_access",
+      "gloss": "Agency tried to inspect but could not access the site."
+    },
+    "The Service Request submitted did not have sufficient location or complaint information for NYC Parks to respond.  Please submit a new Service Request with adequate site details, including a full street address and descriptive location information.": {
+      "outcome": "no_action",
+      "gloss": "Insufficient information provided; agency could not respond."
+    },
+    "The City inspected the property for cleaning, but no graffiti was found.": {
+      "outcome": "condition_gone",
+      "gloss": "Property inspected for cleaning; no graffiti found."
+    },
+    "No action was taken because NYC Parks determined that the issue is out of its jurisdiction. The condition may be on private property or in an area serviced by another organization.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "No action taken; issue is outside agency jurisdiction."
+    },
+    "Under NYC Parksâ Tree Risk Management Program, work is prioritized to address the conditions with the highest risk first.  NYC Parks determined that the issue will be addressed in the next pruning cycle through the routine block pruning program.  For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.   To learn more about the trees in your neighborhood, visit the NYC Tree Map at nyc.gov/parks/treemap.": {
+      "outcome": "in_progress",
+      "gloss": "Issue will be addressed in next routine pruning cycle."
+    },
+    "The Department of Buildings has made a second attempt to conduct an inspection of this premises and was denied access. No further attempts will be made.": {
+      "outcome": "no_access",
+      "gloss": "Second inspection attempt denied access; no further attempts."
+    },
+    "NYC Parks couldn't respond to your complaint because they had to devote resources to other critical services at the time. The agency will use your complaint for future planning.": {
+      "outcome": "no_action",
+      "gloss": "Agency couldn't respond due to other critical services."
+    },
+    "An inspection is currently in progress to determine whether the reported condition requires further action.": {
+      "outcome": "in_progress",
+      "gloss": "Inspection currently in progress to determine further action."
+    },
+    "The Department of Environmental Protection investigated this complaint and determined that no further action is required.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated; determined no further action required."
+    },
+    "The Department of Sanitation (DSNY) investigated your report and found that the street was swept during the scheduled street sweeping hours. There wonât be any more updates through 311. Vehicles parked illegally during the posted street sweeping schedule should be reported to the New York City Police Department (NYPD). Visit NYC311 Online at nyc.gov/311 to file an Illegal parking complaint.": {
+      "outcome": "condition_gone",
+      "gloss": "Street was swept during scheduled hours."
+    },
+    "The Department of Sanitation (DSNY) investigated your report. DSNY uses a split body truck to collect your trash and composting on your recycling day. Large items cannot always fit in these types of trucks. Please set out large items on your non-recycling day.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated; provided instructions for large item collection."
+    },
+    "The Department of Health and Mental Hygiene has determined that the reported incident is isolated.  The establishment will be inspected according to its normal schedule for sanitary inspections.": {
+      "outcome": "no_action",
+      "gloss": "Incident isolated; establishment inspected on normal schedule."
+    },
+    "The NYC Health Department has investigated your complaint. You can get the status by calling 311 or (646) 632-6101 on weekdays between 9 AM and 5 PM. This service request has been closed.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint investigated; status available by phone."
+    },
+    "The NYC Health Department (DOHMH) found a service request already exists for the same location. This request has been closed. DOHMH is addressing the original request.": {
+      "outcome": "duplicate",
+      "gloss": "Duplicate complaint; original request is being addressed."
+    },
+    "The Department of Sanitation (DSNY) visited the business. They didn't find the condition you reported. Your Service Request has been closed.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency visited business but did not find reported condition."
+    },
+    "NYC Parks inspected and determined this site does not rate high enough to be repaired by NYC Parks at this time.   We understand conditions may become worse over time. In three years, you may submit a service request via 311, the Parks website, or NYC Tree Map for a new inspection.   You can repair the sidewalk yourself by hiring an independent contractor. The contractor must complete a Tree Work Permit application on the NYC Parks website.": {
+      "outcome": "no_action",
+      "gloss": "Site not high enough priority for agency repair at this time."
+    },
+    "The Department of Buildings attempted to investigate this complaint but could not locate the premises. If the problem still exists, please call 311 and file a new complaint with additional information about how to locate the building. If you are outside of New York City, please call (212) NEW-YORK (212-639-9675).": {
+      "outcome": "no_action",
+      "gloss": "Agency attempted investigation but could not locate premises."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) provided information about your complaint. You can find it in the Notes to Customer section of your NYC311 Service Request.  If you didn't get the information, call DCWP Consumer Services at (212) 487-4110. You must provide your NYC311 Service Request number.": {
+      "outcome": "other",
+      "gloss": "Information provided about complaint; check service request notes."
+    },
+    "Based on the nature of this issue, the Department of Homeless Services (DHS) worked with the New York City Police Department (NYPD) and determined that the best course of action was to transfer this issue to the NYPD. Your service request has been closed.": {
+      "outcome": "referred",
+      "gloss": "Issue transferred to NYPD for further action."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) Enforcement Division is reviewing your NYC311 Service Request.   If the Enforcement Division needs to conduct an inspection, it may take 35 days to complete.  Please wait 35 days from the date of this update before calling DCWP for status.  You can get status by calling DCWP Consumer Services at (212) 487-4110. You must provide your NYC311 Service Request number.": {
+      "outcome": "in_progress",
+      "gloss": "Enforcement division reviewing complaint; inspection may be scheduled."
+    },
+    "The vehicle you reported has been removed by the Department of Sanitation.": {
+      "outcome": "resolved",
+      "gloss": "Reported vehicle has been removed by Sanitation."
+    },
+    "The Department of Buildings has attempted to conduct an inspection of this premises and was denied access. A second attempt will be made.": {
+      "outcome": "in_progress",
+      "gloss": "Inspection denied access; second attempt will be made."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) closed your NYC311 Service Request.   DCWP couldn't take action on your complaint because it didn't include important details, such as your contact information or the business's name or location.  If you would like to pursue this complaint, you can file a new NYC311 Service Request. Please provide more information about the complaint so DCWP can help you.": {
+      "outcome": "no_action",
+      "gloss": "No action taken due to missing complaint details."
+    },
+    "The graffiti on this property has been scheduled to be removed by the City.": {
+      "outcome": "in_progress",
+      "gloss": "Graffiti removal has been scheduled by the City."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Department of Sanitation (DSNY). NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; referred to DSNY."
+    },
+    "This service request was closed because the Department of Health and Mental Hygiene received an earlier complaint about the same location.  For information about the resolution of that complaint, call (646) 632-6104.": {
+      "outcome": "duplicate",
+      "gloss": "Duplicate complaint; earlier request being addressed."
+    },
+    "NYC Parks didn't take action because the issue you reported is out of their jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "No action taken; issue is outside agency jurisdiction."
+    },
+    "No action was taken because the agency determined the condition reported was within acceptable parameters for park/city use.": {
+      "outcome": "no_action",
+      "gloss": "No action taken; condition within acceptable parameters."
+    },
+    "The Department of Transportation has approved the sidewalk re-inspection request. The property owner will be notified by mail within 120 days with the date of re-inspection.": {
+      "outcome": "in_progress",
+      "gloss": "Sidewalk re-inspection approved; owner to be notified."
+    },
+    "The Department of Health and Mental Hygiene has received and processed your complaint. All restaurants and mobile food vendors are inspected annually. Restaurant inspection results can be found on WWW.NYC.GOV or a copy of the inspection can be requested from 311.": {
+      "outcome": "no_action",
+      "gloss": "Complaint processed; establishment inspected annually per schedule."
+    },
+    "The agency was unable to respond to this complaint because they allocated resources to other critical services at the time. All complaints are used for future enforcement planning.": {
+      "outcome": "no_action",
+      "gloss": "Agency unable to respond due to critical service allocation."
+    },
+    "The contractor has reported that the requested work has been completed.": {
+      "outcome": "resolved",
+      "gloss": "Contractor reported that the requested work is completed."
+    },
+    "The Department of Buildings reviewed this complaint and determined that no further action was necessary.": {
+      "outcome": "no_action",
+      "gloss": "Complaint reviewed, no further action deemed necessary."
+    },
+    "Based on the information you provided, the Department of Homeless Services has referred this request to the New York City Police Department.": {
+      "outcome": "referred",
+      "gloss": "Complaint referred to the New York City Police Department."
+    },
+    "The Department of Transportation (DOT) issued a summons to the restaurant.": {
+      "outcome": "resolved",
+      "gloss": "DOT issued a summons to the restaurant."
+    },
+    "An inspection of the property was conducted and no violations were found.": {
+      "outcome": "condition_gone",
+      "gloss": "Inspection found no violations at the property."
+    },
+    "The Department of Buildings investigated this complaint and removed the stop work order.": {
+      "outcome": "resolved",
+      "gloss": "Investigation completed, stop work order removed."
+    },
+    "NYC Parks inspected the requested repair site. This site meets the criteria for repair under the Trees & Sidewalks Program. The timeframe for repair work depends on available funding for the program, the severity of damage, and the other sidewalk requests in the surrounding district.": {
+      "outcome": "in_progress",
+      "gloss": "Site inspected, repair work pending funding and scheduling."
+    },
+    "The individual accepted assistance from the mobile outreach response team.": {
+      "outcome": "resolved",
+      "gloss": "Individual accepted assistance from outreach team."
+    },
+    "A Litter Basket was placed at the location.": {
+      "outcome": "resolved",
+      "gloss": "Litter basket placed at the location."
+    },
+    "The Sheriffâs Office inspected the business. It passed inspection and appeared to be operating within the law. If you have any new concerns or information to share, please file a new service request (SR). Include this SRâs number in your new request. Thank you for reporting your concerns and helping to keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "condition_gone",
+      "gloss": "Business inspected, found operating within the law."
+    },
+    "The Department of Sanitation (DSNY) tagged the vehicle to confirm it was abandoned. When DSNY returned, the vehicle wasn't in the same exact location. This indicated that the vehicle wasn't abandoned. DSNY closed your Service Request. No further action will be taken.": {
+      "outcome": "condition_gone",
+      "gloss": "Vehicle moved, not found abandoned upon re-inspection."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) is reviewing your complaint. DCWP may contact you directly if it needs additional information.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint is currently under review by DCWP."
+    },
+    "The Health Departmentâs Office of Environmental Investigations has determined this case was an isolated incident. The Departmentâs Bureau of Food Safety and Community Sanitation will review to see if a sanitary inspection is necessary. All food establishments are inspected annually. You can get results of all food safety inspections by going online to www.nyc.gov/health/restaurants.": {
+      "outcome": "in_progress",
+      "gloss": "Case determined isolated; further review for inspection pending."
+    },
+    "The Department of Education completed the work and corrected the condition.": {
+      "outcome": "resolved",
+      "gloss": "Work completed, condition corrected by Department of Education."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) Enforcement Division inspected the business.  To get inspection results, visit nyc.gov/dcwp. If you have any questions, call DCWP Consumer Services at (212) 487-4110. You must provide your NYC311 Service Request number.": {
+      "outcome": "resolved",
+      "gloss": "Business inspected by DCWP Enforcement Division."
+    },
+    "The Department of Transportation is unable to schedule a sidewalk dismissal inspection because there is no record of a permit to make a sidewalk repair. Owner must obtain a permit of record. Once a permit is obtained, the owner must call 3-1-1 to make another request for sidewalk dismissal - work done by owner.": {
+      "outcome": "no_action",
+      "gloss": "Unable to inspect; no permit record for sidewalk repair."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) sent you a complaint form.  To help you, DCWP must get the completed form and any requested documents within 30 days.  You can send requested information by email, fax, or mail. Contact information is on the complaint form.  You may also be able to submit requested information at nyc.gov/dcwp. You must enter your NYC311 Service Request number.  If you didn't receive the complaint form within 15 days from the date you filed your Service Request, call DCWP Consumer Services at (212) 487-4110. You must provide your NYC311 Service Request number.  DCWP will contact you about 30 days after getting your completed form and documents.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint form sent; DCWP awaiting complainant's response."
+    },
+    "NYC Parks inspected the tree and assigned it to priority category C. The agency works on trees based on priority. They categorize tree conditions from A (highest priority) to D (lowest priority).  There isnât a set timeframe for work in category C. If the condition gets worse, please file a new request. Parks will reinspect the tree and update the priority level if needed. You can track the status of the work through the Tree Work Hub at nyc.gov/parks/treework.  If you prefer not to wait, you can hire a qualified tree care contractor. You'd need to pay for the work yourself and get a Tree Work Permit. You can apply for the free permit at nyc.gov/parks/trees.  Are you interested in caring for street trees in your neighborhood? You can get trained and certified by Trees New York to prune low-hanging branches. To learn about the free Citizen Pruner program, visit treesny.org/citizen-pruners-stewardship.": {
+      "outcome": "in_progress",
+      "gloss": "Tree inspected, assigned priority C; work timeframe uncertain."
+    },
+    "The Department of Transportation inspected the condition and opened a repair order. Repairs of this type are corrected within 180 (120 Biz) days from the date of inspection.": {
+      "outcome": "in_progress",
+      "gloss": "Condition inspected, repair order opened; work scheduled."
+    },
+    "NYC Parks inspected the condition and determined that no work was needed.": {
+      "outcome": "no_action",
+      "gloss": "Condition inspected, no work deemed necessary."
+    },
+    "The person has accepted services (housing, mental health, etc.) from the mobile outreach response team.": {
+      "outcome": "resolved",
+      "gloss": "Person accepted services from outreach team."
+    },
+    "The Department of Health and Mental Hygiene closed this complaint and referred it to another agency because it was not within its jurisdiction.": {
+      "outcome": "referred",
+      "gloss": "Complaint referred to another agency; not within DOHMH jurisdiction."
+    },
+    "The Department of Buildings investigated this complaint and issued a partial stop work order violation.": {
+      "outcome": "resolved",
+      "gloss": "Investigation led to a partial stop work order violation."
+    },
+    "An inspection of the property was conducted and it passed with minor violations found.": {
+      "outcome": "resolved",
+      "gloss": "Property inspected, passed with minor violations found."
+    },
+    "The reported condition was inspected and a summons has been issued.": {
+      "outcome": "resolved",
+      "gloss": "Condition inspected, a summons has been issued."
+    },
+    "The City will notify the property owner within 5 days that the City will clean the graffiti unless the property owner responds within 35 days; the property owner may choose to keep the graffiti, clean the property him/herself or request a 15 day extension.": {
+      "outcome": "in_progress",
+      "gloss": "Owner notified about graffiti; action pending owner's response."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  Unfortunately, DCWP doesn't know of any agency that can act on the complaint and can't provide further assistance.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within DCWP jurisdiction; no other agency identified."
+    },
+    "The Sheriffâs Office inspected the business. They found illegal cannabis and cannabis-related products. The Sheriff issued a sealing order and padlocked the business. If it has reopened or the padlock has been removed, please file a new service request (SR). Include this SRâs number in your new request. Thank you for reporting your concerns and helping to keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "resolved",
+      "gloss": "Business inspected, illegal products found, sealed and padlocked."
+    },
+    "The Department of Sanitation (DSNY) will only remove abandoned motor vehicles (no boats) without license plates from private property.Â  If a motor vehicle is left abandoned on your property, you may ask the DSNY to remove it. Vehicles owned by the property owner are not eligible for this service. The property owner must complete a waiver and email it to customerservice@dsny.nyc.gov.Â  Access to the property is required and there will be a fee for removal.": {
+      "outcome": "no_action",
+      "gloss": "DSNY explained policy for private property vehicle removal; no action taken."
+    },
+    "The Taxi and Limousine (TLC) reviewed your complaint. The conduct described in your report is not a violation of TLC rules. TLC has sent you a written confirmation of this outcome.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Reported conduct not a violation of TLC rules."
+    },
+    "This request has been referred to Parks Enforcement Patrol and will be monitored in upcoming patrols.": {
+      "outcome": "referred",
+      "gloss": "Request referred to Parks Enforcement Patrol for monitoring."
+    },
+    "The Department of Environmental Protection inspected your complaint and referred it to the Department of Transportation for further action. If the problem persists, please call 311 (or 212-639-9675 if calling from a non-New York City area code) to submit a new complaint.": {
+      "outcome": "referred",
+      "gloss": "Complaint inspected by DEP, referred to DOT for action."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the New York City Housing Authority for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed by DOB, referred to NYCHA for action."
+    },
+    "NYC Parks does not perform tree work for phone or cable service. Please contact the appropriate service provider.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "NYC Parks does not handle tree work for utility services."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the Department of Transportation for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed by DOB, referred to DOT for action."
+    },
+    "The Department of Sanitation (DSNY) gave the business a violation.": {
+      "outcome": "resolved",
+      "gloss": "DSNY issued a violation to the business."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the Department of Environmental Protection for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed by DOB, referred to DEP for action."
+    },
+    "The Department of Environmental Protection investigated this complaint and resolved the issue during a field inspection.": {
+      "outcome": "resolved",
+      "gloss": "DEP investigated and resolved the issue during inspection."
+    },
+    "The Taxi and Limousine Commission was unable to identify the driver or car service company named in your complaint.": {
+      "outcome": "no_action",
+      "gloss": "TLC unable to identify driver or company from complaint."
+    },
+    "A representative from the Taxi and Limousine Commission (TLC) called and left a message for you and emailed you but has not been able to get in touch with you to confirm the details of your complaint. As a result, the TLC has closed your complaint. If you would like to have your complaint reopened, please call (718) 391-5617.": {
+      "outcome": "no_action",
+      "gloss": "TLC closed complaint due to inability to contact complainant."
+    },
+    "The Office of the Sheriff inspected the location and did not find any illegal cannabis products. They did find and seize other unsafe or illegal products. Thank you for reporting your concerns and helping keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "resolved",
+      "gloss": "Location inspected, other illegal products seized."
+    },
+    "The Department of Environmental Protection (DEP) investigated this request and completed a search of the catch basin.": {
+      "outcome": "other",
+      "gloss": "Investigation completed, but no specific outcome stated."
+    },
+    "The Department of Homeless Services did not have enough information to act on your request.": {
+      "outcome": "no_action",
+      "gloss": "Complaint closed due to insufficient information provided."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the New York Police Department (NYPD) for assistance. NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "referred",
+      "gloss": "Issue not agency's jurisdiction; referred to NYPD."
+    },
+    "NYC Parks couldnât respond to your complaint because they didn't have enough information about the condition or location.  If the problem still exists and you would like to pursue this complaint, please submit a new Service Request with a more detailed description of the condition and/or location.": {
+      "outcome": "no_action",
+      "gloss": "Complaint closed due to insufficient information; resubmit with details."
+    },
+    "The Department of Health and Mental Hygiene conducted an inspection of the property you reported. No evidence of standing water was found on the premises.": {
+      "outcome": "condition_gone",
+      "gloss": "Inspection found no evidence of reported condition."
+    },
+    "The Department of Health and Mental Hygiene could not locate the address provided. Please go online to nyc.gov/311 or call 311 and file another request and provide the complete street address of the builiding. If your complaint was about a vacant lot, abandoned building ,street, or in a sewer, provide the nearest street address or intersection.": {
+      "outcome": "no_action",
+      "gloss": "Agency could not locate address; resubmit with complete address."
+    },
+    "The Department of Sanitation (DSNY) tagged the vehicle to confirm it was abandoned. The owner then claimed the vehicle. DSNY closed your Service Request. No further action will be taken.": {
+      "outcome": "condition_gone",
+      "gloss": "Abandoned vehicle claimed by owner; no further action taken."
+    },
+    "The Department of Buildings has inspected this location and found a compliance deficiency resulting in a Full Stop Work Order.": {
+      "outcome": "resolved",
+      "gloss": "Inspection found deficiency; Full Stop Work Order issued."
+    },
+    "The Taxi and Limousine Commission has issued a notice to the driver, asking the driver to plead guilty to an appropriate charge. If a hearing is needed, you will be notified by mail or email of your hearing date.": {
+      "outcome": "in_progress",
+      "gloss": "Notice issued to driver; process ongoing, hearing may be scheduled."
+    },
+    "The Sheriffâs Office inspected the business. They found illegal cannabis and cannabis-related products. The Sheriff issued a cease and desist order. This means that the business was ordered to stop selling the products. If you see it selling illegal products again, please file a new service request (SR). Include this SRâs number in your new request. Thank you for reporting your concerns and helping to keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "resolved",
+      "gloss": "Inspection found illegal products; cease and desist order issued."
+    },
+    "Thank you for your report. The Department of Health and Mental Hygiene will use the information that you provided to help track and control mosquito populations throughout the City. No further information will be available from 311 on your report.": {
+      "outcome": "no_action",
+      "gloss": "Information used for tracking; no specific action on complaint."
+    },
+    "The Department of Buildings has investigated this complaint and found evidence of conditions that present an imminent danger duing occupancy of a portion of the property. A partial vacate order has been issued.": {
+      "outcome": "resolved",
+      "gloss": "Investigation found danger; partial vacate order issued."
+    },
+    "NYC Parks created a work order for the tree condition. Please note that addressing this work can take up to a year or more depending on the higher priority work identified during this period and resources available to address this work.    NYC Parks work priority categories range from Category A through D, with A being the most critical and time-sensitive. We will complete all work in Category A first and address work in lower priority categories in accordance with available resources. For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.   Alternatively, you may choose complete the work yourself by hiring an independent contractor. The contractor must complete a Tree Work Permit application on the NYC Parks website at nyc.gov/parks/trees.": {
+      "outcome": "in_progress",
+      "gloss": "Work order created for tree condition; work pending, may take long."
+    },
+    "NYC Parks created a work order for the tree condition and expects to address the issue within 28 days from the date of the tree assessment, barring any weather-related requests.   NYC Parks work priority categories range from Category A through D, with A being the most critical and time-sensitive. We will complete all work in Category A first and address work in lower priority categories in accordance with available resources. For more information about the Tree Risk Management Program, visit the NYC Urban Forest page on the NYC Parks website at nyc.gov/parks/trees.": {
+      "outcome": "in_progress",
+      "gloss": "Work order created for tree condition; work expected within 28 days."
+    },
+    "This Service Request is not within the Department of Sanitationâs jurisdiction and/or was found to be unsubstantiated.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Not agency's jurisdiction; condition unsubstantiated."
+    },
+    "Based on the information provided by the customer, the Taxi and Limousine Commission has determined that a hearing is not necessary or not possible.": {
+      "outcome": "no_action",
+      "gloss": "Hearing determined not necessary or possible; no further action."
+    },
+    "Work to correct the reported condition is under review for a future capital project.": {
+      "outcome": "in_progress",
+      "gloss": "Work to correct condition under review for future project."
+    },
+    "The Department of Sanitation (DSNY) cleaned the location.": {
+      "outcome": "resolved",
+      "gloss": "Location cleaned by Department of Sanitation."
+    },
+    "The Taxi and Limousine Commission was unable to identify the driver or medallion owner in relation to your complaint.": {
+      "outcome": "no_action",
+      "gloss": "Unable to identify driver or owner; no action taken."
+    },
+    "The Department of Environmental Protection investigated the complaint and issued a violation or order.": {
+      "outcome": "resolved",
+      "gloss": "Investigation found violation; violation or order issued."
+    },
+    "NYC Parks reviewed your complaint and determined that the issue needs to be handled by the Department of Transportation (DOT). Please report it to DOT by contacting 311.": {
+      "outcome": "referred",
+      "gloss": "Issue referred to Department of Transportation; report to DOT."
+    },
+    "NYC Parks or another agency performed work to make the site safe and passable. Any debris remaining at the site will be removed as soon as possible. This process may be delayed after a storm.": {
+      "outcome": "resolved",
+      "gloss": "Site made safe and passable; remaining debris to be removed."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Department of Health and Mental Hygiene (DOHMH). NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "referred",
+      "gloss": "Issue not agency's jurisdiction; referred to DOHMH."
+    },
+    "The Taxi and Limousine Commission (TLC) called and left a message for you. They needed to confirm the details of your complaint. When you did not respond within 14 days, your complaint was closed. If you still want to pursue this complaint, you can open a new Service Request with a daytime phone number included.": {
+      "outcome": "no_action",
+      "gloss": "Complainant did not respond to agency contact; complaint closed."
+    },
+    "The Department of Homeless Services has reviewed your Service Request and determined that the issue is not within its jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency's jurisdiction."
+    },
+    "The Department of Health and Mental Hygiene has investigated the complaint and no violations were cited.": {
+      "outcome": "condition_gone",
+      "gloss": "Investigation found no violations cited."
+    },
+    "In an effort to more fully and efficiently service each city block, NYC Parks is shifting their street tree planting program to a neighborhood approach.  If the site that you requested meets the criteria for planting, NYC Parks will plant a tree through their new Neighborhood Tree Planting Program.   NYC Parks is no longer accepting new tree planting requests. Each neighborhood will be surveyed, inspected, and planted sequentially. NYC Parks foresters will be conducting tree removal, stump removal, and planting block by block and closing all unplantable tree beds. The most heat-vulnerable neighborhoods will be prioritized first.  To learn more about this program, visit nyc.gov/parks/street-tree-planting.  To learn more about the trees in your neighborhood, visit the NYC Tree Map at nyc.gov/parks/treemap.": {
+      "outcome": "no_action",
+      "gloss": "New tree planting requests no longer accepted; program changed."
+    },
+    "NYC Parks inspected the condition and determined that the issue is out of their jurisdiction.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Inspection found issue out of agency's jurisdiction."
+    },
+    "The Department of Sanitation observed illegal postings at the location. The Department will issue a Summons to the responsible party once it is identified.": {
+      "outcome": "in_progress",
+      "gloss": "Illegal postings observed; summons to be issued when party identified."
+    },
+    "The Department of Buildings has made an attempt execute an access warrant at this property that resulted in no access. Another attempt will be made.": {
+      "outcome": "no_access",
+      "gloss": "Attempted access with warrant failed; no access gained."
+    },
+    "The Department of Health and Mental Hygiene (DOHMH) actioned and closed your service request. No further updates will be available.": {
+      "outcome": "other",
+      "gloss": "Agency \"actioned\" and closed request; no further updates available."
+    },
+    "The Department of Transportation (DOT) inspected but did not see a violation of their rules.": {
+      "outcome": "condition_gone",
+      "gloss": "Inspection found no violation of rules."
+    },
+    "NYC Parks inspected and determined that the site is ineligible for the Trees and Sidewalks Program because of one or more of the following reasons:  - The property adjacent to the sidewalk is not in Tax Class 1 - The property adjacent to the sidewalk is not owner-occupied - The property adjacent to the sidewalk contains a place of business  You can repair the sidewalk yourself by hiring an independent contractor. The contractor must complete a Tree Work Permit application on the NYC Parks website.": {
+      "outcome": "no_action",
+      "gloss": "Site ineligible for program; no agency action."
+    },
+    "The Department of Environmental Protection determined that this complaint is a duplicate to another service request.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint closed as a duplicate of another request."
+    },
+    "The Taxi and Limousine Commission reviewed your complaint. The driver or owner pled guilty to a violation and paid a fine. TLC has sent you a written confirmation of this outcome.": {
+      "outcome": "resolved",
+      "gloss": "Driver or owner pled guilty to violation and paid fine."
+    },
+    "After performing a thorough search, the Department of Transportation was unable to find the lost item. If the item is turned in later, you will be contacted.": {
+      "outcome": "no_action",
+      "gloss": "Thorough search performed; lost item not found."
+    },
+    "NYC DEP investigated and determined the infrastructure required cleaning, which was completed at the time pf the inspection.": {
+      "outcome": "resolved",
+      "gloss": "Infrastructure cleaning completed during inspection."
+    },
+    "The Department of Health and Mental Hygiene has investigated the Service Request. No Health Code violations or health hazards were noted. No further action is needed.": {
+      "outcome": "condition_gone",
+      "gloss": "Investigation found no health code violations or hazards."
+    },
+    "NYC Parks inspected and determined the issue was out of its jurisdiction. The condition may be on private property or in an area serviced by another organization.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Inspection found issue out of agency's jurisdiction."
+    },
+    "The Service Request submitted did not have sufficient location or complaint information for NYC Parks to respond. Please submit a new Service Request with adequate site details, including a full street address and descriptive location information.": {
+      "outcome": "no_action",
+      "gloss": "Insufficient location or complaint information; resubmit with details."
+    },
+    "Due to technical issues or other circumstances, the Department of Homeless Services has determined that this request should now be administratively closed.": {
+      "outcome": "other",
+      "gloss": "Request administratively closed due to technical issues or other circumstances."
+    },
+    "The Department of Sanitation (DSNY) didn't see litter in the area you reported.  If the location is still dirty, please file a new request. Before you refile, make sure to confirm the exact area on the highway you see the litter.": {
+      "outcome": "condition_gone",
+      "gloss": "No litter observed at reported location; refile if condition persists."
+    },
+    "The Department of Transportation contacted the customer and resolved the service request or provided the information requested.": {
+      "outcome": "resolved",
+      "gloss": "Agency contacted customer and resolved the service request."
+    },
+    "An inspection of the property was conducted and the owner was issued a summons. Follow-up inspections will be scheduled.": {
+      "outcome": "resolved",
+      "gloss": "Property inspected, owner issued summons; follow-up inspections scheduled."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Department of Transportation (DOT). NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; referred to Department of Transportation."
+    },
+    "The Department of Environmental Protection sent a report to the complainant.": {
+      "outcome": "other",
+      "gloss": "Agency sent a report to the complainant."
+    },
+    "The Department of Sanitation periodically conducted surveillance at the location and during those times no violations were observed.": {
+      "outcome": "condition_gone",
+      "gloss": "Surveillance conducted, no violations observed at the location."
+    },
+    "The New York City Economic Development Corporation determined that the helicopter tour operator was operating within the limits of the New York City Helicopter Sightseeing Plan which establishes specific over water routing for tour flights.": {
+      "outcome": "no_action",
+      "gloss": "Helicopter operator found to be operating within established plan limits."
+    },
+    "The Department of Buildings reviewed this complaint and assigned it to the Boiler Division for further action.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint reviewed and assigned for further action."
+    },
+    "The Department of Health and Mental Hygiene has investigated the complaint and no violations were issued.": {
+      "outcome": "no_action",
+      "gloss": "Complaint investigated, no violations issued."
+    },
+    "NYC Parks attempted to inspect the reported condition but could not find the location. Please file a new Service Request with adequate site details, including a full street address and descriptive location information.": {
+      "outcome": "no_action",
+      "gloss": "Agency could not find location; insufficient details provided."
+    },
+    "The Sheriffâs Office closed your service request (SR). They couldnât find the business you reported. Please check the location. If the problem still exists, please file a new SR with more details about the location. Include this SRâs number in your new request. Thank you for reporting your concerns and helping to keep your community safe.": {
+      "outcome": "no_action",
+      "gloss": "Agency could not find business; insufficient details provided."
+    },
+    "Work to correct the reported condition has been deferred because of seasonal considerations and will be corrected as soon as possible.": {
+      "outcome": "in_progress",
+      "gloss": "Work deferred due to seasonal considerations; will be corrected soon."
+    },
+    "The Department of Sanitation (DSNY) spoke with the business about proper procedures and best practices.": {
+      "outcome": "no_action",
+      "gloss": "Agency spoke with business about proper procedures."
+    },
+    "The Department of Environmental Protection investigated this complaint and found that no asbestos was disturbed.": {
+      "outcome": "no_action",
+      "gloss": "Complaint investigated, no asbestos disturbance found."
+    },
+    "The Department of Environmental Protection requires contact with the complainant to investigate this complaint. A message was left for the complainant at the phone number provided but received no response.": {
+      "outcome": "no_action",
+      "gloss": "Agency could not investigate; complainant did not respond."
+    },
+    "The Department of Health and Mental Hygiene regulates restaurants and other establishments that mostly sell food which is prepared on the premises. New York State Agriculture and Markets regulates those establishments that mostly sell pre-packaged food, including supermarkets, bodegas, green markets, fish and meat markets, and delis. This Service Request was referred to the New York State Agriculture and Markets.": {
+      "outcome": "referred",
+      "gloss": "Service request referred to New York State Agriculture and Markets."
+    },
+    "The cleaning crew was not able to access the graffiti.": {
+      "outcome": "no_access",
+      "gloss": "Cleaning crew unable to access the graffiti."
+    },
+    "NYC Parks determined that another entity needs to handle the condition. They have notified the appropriate resource.": {
+      "outcome": "referred",
+      "gloss": "Condition referred to another appropriate entity for handling."
+    },
+    "A DOB violation was issued for failing to comply with an existing Stop Work Order.": {
+      "outcome": "resolved",
+      "gloss": "DOB violation issued for failing to comply with Stop Work Order."
+    },
+    "The Department of Transportation (DOT) did not find the reported condition.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency did not find the reported condition."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the New York State Office of the Attorney General. Call (800) 771-7755 or visit ag.ny.gov.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; referred to NYS Attorney General."
+    },
+    "The Department of Buildings investigated this complaint and prepared a violation but were unable to issue it.": {
+      "outcome": "no_action",
+      "gloss": "Violation prepared but agency unable to issue it."
+    },
+    "The Department of Health and Mental Hygiene has investigated the complaint. No Health Code violations or health hazards noted. No further action needed.": {
+      "outcome": "no_action",
+      "gloss": "Complaint investigated, no violations or health hazards noted."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the New York State Department of Agriculture and Markets. Call (800) 554-4501 or visit agriculture.ny.gov.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; referred to NYS Agriculture and Markets."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Department of Buildings (DOB). NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; referred to Department of Buildings."
+    },
+    "The Department of Environmental Protection performed an odor survey and found no odors.": {
+      "outcome": "condition_gone",
+      "gloss": "Odor survey performed, no odors found."
+    },
+    "The Department of Transportation reviewed its records and could not find a violation for your sidewalk. The City can only repair sidewalks which have received a violation. If you are the owner and you would like to make your sidewalk eligible for City Repair, call 311 or visit www.nyc.gov/311 online to report the damage on your sidewalk.": {
+      "outcome": "no_action",
+      "gloss": "No sidewalk violation found in records; no city repair action."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the Department of Consumer Affairs for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed and referred to Department of Consumer Affairs."
+    },
+    "The Department of Environmental Protection investigated this complaint and resolved the street flooding.": {
+      "outcome": "resolved",
+      "gloss": "Agency investigated and resolved the street flooding."
+    },
+    "The E-Scooter was removed.": {
+      "outcome": "resolved",
+      "gloss": "The E-Scooter was removed."
+    },
+    "The Department of Environmental Protection inspected your complaint and determined that the catch basin is now functioning properly.  If the condition returns, please call 311 (or 212-639-9675 if calling from a non-New York City area code) to submit a new complaint.": {
+      "outcome": "resolved",
+      "gloss": "Catch basin inspected and determined to be functioning properly."
+    },
+    "The Department of Environmental Protection investigated the complaint and sent a letter of potability and/or a water quality report.": {
+      "outcome": "other",
+      "gloss": "Agency investigated and sent a water quality report."
+    },
+    "The Department of Environmental Protection (DEP) found asbestos during the inspection. DEP issued a violation.": {
+      "outcome": "resolved",
+      "gloss": "Asbestos found during inspection; DEP issued a violation."
+    },
+    "The New York City Economic Development Corporation received your complaint. You did not provide enough information for the agency to be able to act on your request. Â In the future if you could note the date, time and place of the sighting and the direction the helicopter was travelling, as well as whether it was hovering or not, it would help in our review.Â  We can thenÂ  associate your complaint with a specific flight track from Port Authority or FAA records.": {
+      "outcome": "no_action",
+      "gloss": "Insufficient information provided for agency to act on request."
+    },
+    "The Department of Transportation has denied the sidewalk re-inspection request. The request to re-inspect is past the 75 day original notification period. The property owners are responsible for maintaining, repairing and installing sidewalks adjoining their properties.": {
+      "outcome": "no_action",
+      "gloss": "Sidewalk re-inspection request denied; past notification period."
+    },
+    "The Department of Homeless Services (DHS) has reviewed your service request and determined that the issue is not within DHS jurisdiction. If the location is private property, please contact the New York City Police Department. If the location is outside the five boroughs, please contact your local police department. Your service request has been closed.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Issue not within agency jurisdiction; service request closed."
+    },
+    "The Sheriffâs office closed your service request (SR). They couldnât access the business you reported. This location requires further investigation. If you have any new information, please file a new service request (SR). Include this SRâs number in your request. Thank you for reporting your concerns and helping keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "no_access",
+      "gloss": "Agency could not access business; further investigation required."
+    },
+    "The Department of Sanitation (DSNY) removed the items.": {
+      "outcome": "resolved",
+      "gloss": "Agency removed the reported items."
+    },
+    "The Department of Sanitation (DSNY) closed your Service Request. DSNY determined the vehicle isn't eligible for removal. DSNY doesn't have jurisdiction over vehicles showing signs of active ownership. They also can't remove vehicles that would cause DSNY to damage property to remove them.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Vehicle not eligible for removal; agency lacks jurisdiction."
+    },
+    "The Department of Environmental Protection investigated this complaint and determined that no repair is needed.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated and determined no repair was needed."
+    },
+    "The Department of Sanitation (DSNY) found an open Service Request already exists for the same location.  DSNY's system can't accept more than one complaint per address at a time. Your Service Request has been closed. DSNY will address the original request.  If you filed the original request, you can get the status with your Service Request number at nyc.gov/311 or by calling 311.  If you didn't file it, you can get the status by calling DSNY at (212) 291-1220.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint closed as a duplicate of an existing service request."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.   You should contact the New York State Education Department's Office of the Professions. Call (800) 442-8106 or visit op.nysed.gov.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency determined issue was outside its jurisdiction; referred to state education department."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Department of Motor Vehicles. Call (800) 698-2931 or (518) 486-9786. You can also visit dmv.ny.gov.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency determined issue was outside its jurisdiction; referred to Department of Motor Vehicles."
+    },
+    "NYC Parks inspected the tree bed. They took action to address rats and the conditions that attract them.": {
+      "outcome": "resolved",
+      "gloss": "Parks inspected tree bed and took action to address rats."
+    },
+    "The Department of Buildings has made an attempt execute an access warrant at this property and was denied access. Another attempt will be made.": {
+      "outcome": "no_access",
+      "gloss": "Agency attempted access with warrant but was denied; another attempt scheduled."
+    },
+    "The Taxi and Limousine Commission (TLC) has determined that this complaint is a duplicate of another complaint on file. TLC has closed this complaint and is proceeding with the other complaint.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint closed as a duplicate of another complaint on file."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the New York Police Department for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed and referred to the New York Police Department."
+    },
+    "The Department of Buildings reviewed this complaint and assigned it to the Special Operations Team for further action.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint reviewed and assigned to Special Operations Team for further action."
+    },
+    "The Department of Sanitation (DSNY) didn't see a violation of their rules or a condition they could resolve. DSNY will refer your complaint to another agency.  This Service Request has been closed.": {
+      "outcome": "referred",
+      "gloss": "Agency found no violation, will refer complaint to another agency."
+    },
+    "The Department of Buildings reviewed this complaint and referred it to the Department of Housing Preservation and Development for further action.": {
+      "outcome": "referred",
+      "gloss": "Complaint reviewed and referred to Housing Preservation and Development."
+    },
+    "The Department of Environmental Protection investigated this complaint and determined that the information provided by the complainant was incomplete or incorrect.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated but information provided was incomplete or incorrect."
+    },
+    "The Department of Environmental Protection (DEP) investigated this complaint. There is an active asbestos abatement project on file at the location. Because the work is in compliance with all of DEP's rules and regulations, no summons was issued.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated and found active asbestos work in compliance; no summons issued."
+    },
+    "The Department of Transportation repaired the bike rack condition.": {
+      "outcome": "resolved",
+      "gloss": "Department of Transportation repaired the bike rack condition."
+    },
+    "The Department of Buildings reviewed this complaint and assigned it to the Construction Division for further action.": {
+      "outcome": "in_progress",
+      "gloss": "Complaint reviewed and assigned to Construction Division for further action."
+    },
+    "The Department of Health and Mental Hygiene regulates restaurants and other establishments that mostly sell food which is prepared on the premises. This establishment is outside of our jurisdiction so the request was referred to the New York State Agriculture and Markets. New York State Agriculture and Markets regulates those establishments that mostly sell pre-packaged food, including supermarkets, bodegas, green markets, fish and meat markets, and delis.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency determined issue was outside its jurisdiction; referred to state agriculture."
+    },
+    "The Sheriffâs Office closed your service request (SR). They made several attempts to inspect the business, but the business has been closed. If you have any new information, please file a new service request (SR). Include this SRâs number in your request. Thank you for reporting your concerns and helping keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "no_access",
+      "gloss": "Sheriff's Office attempted inspection but business was closed."
+    },
+    "The reported condition was inspected and a work order has been filed to correct it.": {
+      "outcome": "in_progress",
+      "gloss": "Condition inspected; work order filed to correct it."
+    },
+    "The Department of Education inspected the site and was not able to locate the reported condition. If the condition persists please file a new service request with more details.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency inspected site but could not locate the reported condition."
+    },
+    "NYC Parks determined that this issue is not within its jurisdiction. Please file a Service Request with the Department of Transportation.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Parks determined issue was outside its jurisdiction; referred to Department of Transportation."
+    },
+    "Your NYC311 Service Request was closed because it's a duplicate of a complaint you already reported.  For information about the original complaint, contact the Department of Consumer and Worker Protection (DCWP).  You can check the status of your complaint at nyc.gov/dcwp or call DCWP Consumer Services at (212) 487-4110. You must provide your original NYC311 Service Request number.": {
+      "outcome": "duplicate",
+      "gloss": "Complaint closed as a duplicate of a previously reported complaint."
+    },
+    "The Department of Environmental Protection requires contact with the complainant to investigate this complaint. A letter was sent after phone messages received no response.": {
+      "outcome": "no_action",
+      "gloss": "Agency required complainant contact but received no response."
+    },
+    "The Department of Health and Mental Hygiene investigated the complaint and did not find any Health Code violations or health hazards. No further action is necessary.": {
+      "outcome": "no_action",
+      "gloss": "Agency investigated and found no health code violations; no further action."
+    },
+    "The Department of Transportation (DOT) does not handle this type of complaint. Please file a new request with the New York City Police Department (NYPD).": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency does not handle this complaint type; referred to NYPD."
+    },
+    "The Department of Transportation (DOT) repaired the bench described in your request.": {
+      "outcome": "resolved",
+      "gloss": "Department of Transportation repaired the bench."
+    },
+    "The Department of Consumer and Worker Protection (DCWP) determined this issue isn't within its jurisdiction.  You should contact the Human Resources Administration (HRA). NYC311 can help you file a complaint or contact the agency for further assistance.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency determined issue was outside its jurisdiction; referred to HRA."
+    },
+    "The Sheriffâs Office inspected the business. They found that it is licensed and operating legally. If you have any new concerns or information to share, please file a new service request (SR). Include this SRâs number in your new request. Thank you for reporting your concerns and helping to keep your community safe. The Sheriffâs Office is always here to help.": {
+      "outcome": "no_action",
+      "gloss": "Sheriff's Office inspected business and found it licensed and operating legally."
+    },
+    "The Department of Transportation (DOT) found that the issue you reported is a New York City Police Department (NYPD) issue.  Please file a new service request with the NYPD.": {
+      "outcome": "no_jurisdiction",
+      "gloss": "Agency found issue was NYPD's responsibility; referred to NYPD."
+    },
+    "The Office of Technology and Innovation reviewed and determined that this issue was not found.": {
+      "outcome": "condition_gone",
+      "gloss": "Agency reviewed and determined the reported issue was not found."
     }
   }
 }

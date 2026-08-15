@@ -1,0 +1,83 @@
+{
+  "builtAt": "2026-08-15T18:49:44.412Z",
+  "complaint_type": "HEAT/HOT WATER",
+  "cohort": {
+    "start": "2025-11-01T00:00:00",
+    "end": "2026-02-01T00:00:00",
+    "windowDays": 30
+  },
+  "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=unique_key%2C%20incident_address%2C%20created_date%2C%20closed_date%2C%20resolution_description&%24where=complaint_type%20%3D%20'HEAT%2FHOT%20WATER'%20AND%20created_date%20%3E%3D%20'2025-11-01T00%3A00%3A00'%20AND%20created_date%20%3C%20'2026-03-05T00%3A00%3A00'&%24order=unique_key&%24limit=50000&%24offset=0",
+  "strata": {
+    "large(10+)": {
+      "neutral": {
+        "n": 69320,
+        "refiled": 66489,
+        "rate": 0.9591604154645124
+      },
+      "cosmetic": {
+        "n": 18499,
+        "refiled": 17468,
+        "rate": 0.9442672576896048
+      },
+      "resolved": {
+        "n": 47276,
+        "refiled": 44694,
+        "rate": 0.9453845503003638
+      }
+    },
+    "medium(3-9)": {
+      "resolved": {
+        "n": 17283,
+        "refiled": 10993,
+        "rate": 0.6360585546490771
+      },
+      "neutral": {
+        "n": 8179,
+        "refiled": 4809,
+        "rate": 0.5879691893874557
+      },
+      "cosmetic": {
+        "n": 11315,
+        "refiled": 7485,
+        "rate": 0.6615112682280159
+      }
+    },
+    "small(1-2)": {
+      "resolved": {
+        "n": 8941,
+        "refiled": 1065,
+        "rate": 0.11911419304328374
+      },
+      "cosmetic": {
+        "n": 7602,
+        "refiled": 930,
+        "rate": 0.122336227308603
+      },
+      "neutral": {
+        "n": 851,
+        "refiled": 14,
+        "rate": 0.01645123384253819
+      }
+    }
+  },
+  "buckets": {
+    "neutral": {
+      "n": 78350,
+      "refiled": 71312,
+      "rate": 0.9101723037651563,
+      "medianDaysToClose": 1.4138310185185186
+    },
+    "resolved": {
+      "n": 73500,
+      "refiled": 56752,
+      "rate": 0.7721360544217687,
+      "medianDaysToClose": 1.9217939814814815
+    },
+    "cosmetic": {
+      "n": 37416,
+      "refiled": 25883,
+      "rate": 0.6917628821894377,
+      "medianDaysToClose": 2.3884606481481483
+    }
+  }
+}

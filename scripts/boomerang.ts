@@ -77,9 +77,18 @@ async function main() {
   for (const list of filingsByAddress.values()) list.sort((a, b) => a - b);
 
   // Cohort = complaints CREATED in the cohort window that are closed with a known outcome.
+  // Stratified by address filing volume: at a big chronic building the refile
+  // probability is ~1 regardless of any single closure's quality, so the honest
+  // comparison lives at low-volume addresses.
   const cohortEnd = new Date(COHORT_END).getTime();
   const windowMs = WINDOW_DAYS * 24 * 3600 * 1000;
   const stats: Record<string, { n: number; refiled: number; daysToClose: number[] }> = {};
+  const strata: Record<string, Record<string, { n: number; refiled: number }>> = {};
+
+  const sizeOf = (addr: string): string => {
+    const c = filingsByAddress.get(addr)!.length;
+    return c <= 2 ? "small(1-2)" : c <= 9 ? "medium(3-9)" : "large(10+)";
+  };
 
   for (const r of rows) {
     const addr = r.incident_address?.trim();
@@ -98,6 +107,12 @@ async function main() {
     const later = filingsByAddress.get(addr)!;
     const refiled = later.some((t) => t > closed && t <= closed + windowMs);
     if (refiled) stats[bucket].refiled++;
+
+    const size = sizeOf(addr);
+    strata[size] ??= {};
+    strata[size][bucket] ??= { n: 0, refiled: 0 };
+    strata[size][bucket].n++;
+    if (refiled) strata[size][bucket].refiled++;
   }
 
   const out = {
@@ -105,6 +120,18 @@ async function main() {
     complaint_type: TYPE,
     cohort: { start: COHORT_START, end: COHORT_END, windowDays: WINDOW_DAYS },
     receiptUrl,
+    // Refile rates stratified by how often the address filed overall. Finding:
+    // closure outcome does NOT predict refiling (hypothesis tested and
+    // rejected); address volume does. At large chronic buildings, ~94% of ALL
+    // closures — including verified fixes — are followed by another complaint.
+    strata: Object.fromEntries(
+      Object.entries(strata).map(([size, buckets]) => [
+        size,
+        Object.fromEntries(
+          Object.entries(buckets).map(([k, v]) => [k, { n: v.n, refiled: v.refiled, rate: v.refiled / v.n }]),
+        ),
+      ]),
+    ),
     buckets: Object.fromEntries(
       Object.entries(stats).map(([k, v]) => [
         k,
@@ -124,6 +151,14 @@ async function main() {
     console.log(
       `  ${k.padEnd(9)} n=${v.n.toLocaleString().padStart(8)}  refiled=${(v.rate * 100).toFixed(1)}%  median days to close=${v.medianDaysToClose?.toFixed(1)}`,
     );
+  }
+  console.log("\nStratified by address filing volume:");
+  for (const [size, buckets] of Object.entries(strata)) {
+    for (const [k, v] of Object.entries(buckets)) {
+      console.log(
+        `  ${size.padEnd(12)} ${k.padEnd(9)} n=${v.n.toLocaleString().padStart(8)}  refiled=${((v.refiled / v.n) * 100).toFixed(1)}%`,
+      );
+    }
   }
   console.log(`Wrote ${OUT}`);
 }

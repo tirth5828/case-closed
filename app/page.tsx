@@ -130,29 +130,38 @@ export default function Home() {
           were closed without the problem being verified fixed: nobody got inside, the condition was
           gone on arrival, or it was somebody else&apos;s desk.
         </p>
-        {boomerang && boomerang.buckets["cosmetic"] && boomerang.buckets["resolved"] && (
-          <div className="mt-6 max-w-2xl rounded border-l-4 bg-card p-4" style={{ borderColor: "var(--cosmetic)" }}>
-            <p className="text-[15px] leading-relaxed">
-              And the closures don&apos;t stick.{" "}
-              <strong className="text-cosmetic">
-                {(boomerang.buckets["cosmetic"].rate * 100).toFixed(0)}% of cosmetically-closed
-                heat complaints were re-filed from the same address within{" "}
-                {boomerang.cohort.windowDays} days
-              </strong>{" "}
-              — versus {(boomerang.buckets["resolved"].rate * 100).toFixed(0)}% after a verified
-              fix. A cosmetic closure isn&apos;t a resolved problem; it&apos;s a postponed one.
-            </p>
-            <p className="mt-1.5 font-mono text-[11px] text-ink-3">
-              {(boomerang.buckets["cosmetic"].n + boomerang.buckets["resolved"].n + (boomerang.buckets["neutral"]?.n ?? 0)).toLocaleString()}{" "}
-              heat complaints, {new Date(boomerang.cohort.start).toLocaleDateString("en-US", { month: "short", year: "numeric" })}–{new Date(boomerang.cohort.end).toLocaleDateString("en-US", { month: "short", year: "numeric" })} · median days to close:{" "}
-              {boomerang.buckets["cosmetic"].medianDaysToClose?.toFixed(0)} (cosmetic) vs{" "}
-              {boomerang.buckets["resolved"].medianDaysToClose?.toFixed(0)} (fixed)
-            </p>
-            <div className="mt-2">
-              <ReceiptLink url={boomerang.receiptUrl} />
-            </div>
-          </div>
-        )}
+        {boomerang?.strata?.["large(10+)"] &&
+          (() => {
+            const large = boomerang.strata["large(10+)"];
+            const totalN = Object.values(large).reduce((s, v) => s + v.n, 0);
+            const totalRefiled = Object.values(large).reduce((s, v) => s + v.refiled, 0);
+            const resolvedRate = large["resolved"]?.rate;
+            if (!totalN || resolvedRate === undefined) return null;
+            return (
+              <div className="mt-6 max-w-2xl rounded border-l-4 bg-card p-4" style={{ borderColor: "var(--cosmetic)" }}>
+                <p className="text-[15px] leading-relaxed">
+                  The ticket closes. The building doesn&apos;t. At addresses with ten or more heat
+                  complaints last winter,{" "}
+                  <strong className="text-cosmetic">
+                    {((totalRefiled / totalN) * 100).toFixed(0)}% of closures were followed by
+                    another complaint within {boomerang.cohort.windowDays} days
+                  </strong>{" "}
+                  — even closures marked fixed ({(resolvedRate * 100).toFixed(0)}%). The unit of
+                  failure isn&apos;t the ticket; it&apos;s the building.
+                </p>
+                <p className="mt-1.5 font-mono text-[11px] text-ink-3">
+                  {totalN.toLocaleString()} closures at chronic-complaint buildings,{" "}
+                  {new Date(boomerang.cohort.start).toLocaleDateString("en-US", { month: "short", year: "numeric" })}–
+                  {new Date(boomerang.cohort.end).toLocaleDateString("en-US", { month: "short", year: "numeric" })}. We
+                  also tested whether cosmetic closures get re-filed more than verified fixes —
+                  they don&apos;t (12% vs 12% at small buildings) — so we don&apos;t claim it.
+                </p>
+                <div className="mt-2">
+                  <ReceiptLink url={boomerang.receiptUrl} />
+                </div>
+              </div>
+            );
+          })()}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/ask"

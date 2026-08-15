@@ -34,3 +34,50 @@ export function loadBoroughs(): BoroughsRawFile | null {
     return null;
   }
 }
+
+export interface BoomerangFile {
+  builtAt: string;
+  complaint_type: string;
+  cohort: { start: string; end: string; windowDays: number };
+  receiptUrl: string;
+  buckets: Record<string, { n: number; refiled: number; rate: number; medianDaysToClose: number | null }>;
+}
+
+export function loadBoomerang(): BoomerangFile | null {
+  try {
+    return load<BoomerangFile>("boomerang.json");
+  } catch {
+    return null;
+  }
+}
+
+export interface AgenciesRawFile {
+  pulledAt: string;
+  since: string;
+  receiptUrl: string;
+  rows: { agency: string; text: string; n: number }[];
+}
+
+export function loadAgencies(): AgenciesRawFile | null {
+  try {
+    return load<AgenciesRawFile>("agencies-raw.json");
+  } catch {
+    return null;
+  }
+}
+
+export interface WorstBuildingsFile {
+  builtAt: string;
+  since: string;
+  types: string[];
+  receiptUrl: string;
+  buildings: { address: string; borough: string; noAccess: number }[];
+}
+
+export function loadWorstBuildings(): WorstBuildingsFile | null {
+  try {
+    return load<WorstBuildingsFile>("worst-buildings.json");
+  } catch {
+    return null;
+  }
+}

@@ -58,7 +58,17 @@ const RESPONSE_SCHEMA = {
 
 async function main() {
   const raw = JSON.parse(fs.readFileSync(IN, "utf8")) as RawTemplatesFile;
-  const unique = [...new Set(raw.types.flatMap((t) => t.templates.map((x) => x.text)))];
+  const texts = raw.types.flatMap((t) => t.templates.map((x) => x.text));
+
+  // Sweep in templates surfaced by the agency league pull, if it has run.
+  try {
+    const agencies = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "data", "agencies-raw.json"), "utf8"),
+    ) as { rows: { text: string; n: number }[] };
+    texts.push(...agencies.rows.filter((r) => r.n >= 100).map((r) => r.text));
+  } catch {}
+
+  const unique = [...new Set(texts)];
   console.log(`${unique.length} unique templates to classify (batches of ${BATCH})...`);
 
   // Resume support: keep labels from a previous partial run.

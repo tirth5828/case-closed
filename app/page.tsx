@@ -1,10 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
-import { loadBoroughs, loadHonesty, loadLabels, loadRawTemplates } from "@/lib/data";
-import { breakdown, cosmeticShare, regroup } from "@/lib/honesty";
+import {
+  loadAgencies,
+  loadBoomerang,
+  loadBoroughs,
+  loadHonesty,
+  loadLabels,
+  loadRawTemplates,
+  loadWorstBuildings,
+} from "@/lib/data";
+import { breakdown, cosmeticShare, regroup, resolvedShare } from "@/lib/honesty";
 import HonestyIndex, { type IndexRow } from "@/components/HonestyIndex";
-import { OutcomeLegend } from "@/components/OutcomeBar";
+import OutcomeBar, { OutcomeLegend } from "@/components/OutcomeBar";
+import ReceiptLink from "@/components/ReceiptLink";
 
 export const dynamic = "force-dynamic";
 
@@ -71,6 +80,32 @@ export default function Home() {
   const grandCosmetic = rows.reduce((s, r) => s + r.grouped.cosmetic, 0);
   const heroRow = rows.find((r) => r.complaint_type === honesty.hero) ?? rows[0];
 
+  const boomerang = loadBoomerang();
+  const worst = loadWorstBuildings();
+  const agenciesRaw = loadAgencies();
+  const agencies = agenciesRaw
+    ? (() => {
+        const byAgency = new Map<string, { text: string; n: number }[]>();
+        for (const r of agenciesRaw.rows) {
+          if (!byAgency.has(r.agency)) byAgency.set(r.agency, []);
+          byAgency.get(r.agency)!.push({ text: r.text, n: r.n });
+        }
+        return [...byAgency.entries()]
+          .map(([agency, templates]) => {
+            const b = breakdown(templates, labels);
+            return {
+              agency,
+              total: b.total,
+              grouped: regroup(b),
+              cosmeticShare: cosmeticShare(b),
+              resolvedShare: resolvedShare(b),
+            };
+          })
+          .filter((a) => a.total >= 20000)
+          .sort((a, b) => b.cosmeticShare - a.cosmeticShare);
+      })()
+    : null;
+
   return (
     <main className="mx-auto w-full max-w-4xl px-6 pb-24">
       {/* ACT 1 — the reveal */}
@@ -95,6 +130,29 @@ export default function Home() {
           were closed without the problem being verified fixed: nobody got inside, the condition was
           gone on arrival, or it was somebody else&apos;s desk.
         </p>
+        {boomerang && boomerang.buckets["cosmetic"] && boomerang.buckets["resolved"] && (
+          <div className="mt-6 max-w-2xl rounded border-l-4 bg-card p-4" style={{ borderColor: "var(--cosmetic)" }}>
+            <p className="text-[15px] leading-relaxed">
+              And the closures don&apos;t stick.{" "}
+              <strong className="text-cosmetic">
+                {(boomerang.buckets["cosmetic"].rate * 100).toFixed(0)}% of cosmetically-closed
+                heat complaints were re-filed from the same address within{" "}
+                {boomerang.cohort.windowDays} days
+              </strong>{" "}
+              — versus {(boomerang.buckets["resolved"].rate * 100).toFixed(0)}% after a verified
+              fix. A cosmetic closure isn&apos;t a resolved problem; it&apos;s a postponed one.
+            </p>
+            <p className="mt-1.5 font-mono text-[11px] text-ink-3">
+              {(boomerang.buckets["cosmetic"].n + boomerang.buckets["resolved"].n + (boomerang.buckets["neutral"]?.n ?? 0)).toLocaleString()}{" "}
+              heat complaints, {new Date(boomerang.cohort.start).toLocaleDateString("en-US", { month: "short", year: "numeric" })}–{new Date(boomerang.cohort.end).toLocaleDateString("en-US", { month: "short", year: "numeric" })} · median days to close:{" "}
+              {boomerang.buckets["cosmetic"].medianDaysToClose?.toFixed(0)} (cosmetic) vs{" "}
+              {boomerang.buckets["resolved"].medianDaysToClose?.toFixed(0)} (fixed)
+            </p>
+            <div className="mt-2">
+              <ReceiptLink url={boomerang.receiptUrl} />
+            </div>
+          </div>
+        )}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/ask"
@@ -102,9 +160,12 @@ export default function Home() {
           >
             Check your complaint →
           </Link>
-          <span className="text-[13px] text-ink-2">
-            What really happens to complaints like yours, on your block.
-          </span>
+          <Link
+            href="/building"
+            className="rounded border border-ink px-5 py-2.5 font-display font-bold uppercase tracking-wide hover:bg-card"
+          >
+            Open your building&apos;s file
+          </Link>
         </div>
       </header>
 
@@ -127,6 +188,69 @@ export default function Home() {
           </Link>
         </p>
       </section>
+
+      {agencies && agencies.length > 0 && (
+        <section className="pt-14">
+          <h2 className="font-display text-2xl font-black uppercase">Who actually writes &ldquo;fixed&rdquo;?</h2>
+          <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
+            The same honesty math, by responding agency. Different agencies end complaints in very
+            different ways — a structural fact about how each one works, not a report card on the
+            people in the field.
+          </p>
+          <ul className="mt-5 space-y-2.5">
+            {agencies.slice(0, 8).map((a) => (
+              <li
+                key={a.agency}
+                className="grid grid-cols-[minmax(6rem,8rem)_1fr_4rem] items-center gap-4"
+              >
+                <div>
+                  <p className="font-mono text-[13px] font-semibold">{a.agency}</p>
+                  <p className="font-mono text-[11px] text-ink-3">{a.total.toLocaleString()}</p>
+                </div>
+                <OutcomeBar grouped={a.grouped} height={16} showLabels={false} />
+                <p className="text-right font-mono text-[13px] font-semibold text-cosmetic">
+                  {(a.cosmeticShare * 100).toFixed(0)}%
+                </p>
+              </li>
+            ))}
+          </ul>
+          {agenciesRaw && (
+            <div className="mt-3">
+              <ReceiptLink url={agenciesRaw.receiptUrl} />
+            </div>
+          )}
+        </section>
+      )}
+
+      {worst && worst.buildings.length > 0 && (
+        <section className="pt-14">
+          <h2 className="font-display text-2xl font-black uppercase">Where complaints go to die</h2>
+          <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
+            The buildings with the most housing complaints closed for <em>no access</em> in the
+            last year — addresses where inspections keep not happening, complaint after complaint.
+          </p>
+          <ol className="mt-5 space-y-1.5">
+            {worst.buildings.slice(0, 5).map((b, i) => (
+              <li key={b.address} className="flex items-baseline gap-3">
+                <span className="font-mono text-[13px] text-ink-3">{i + 1}.</span>
+                <span className="font-mono text-[14px] font-semibold">{b.address}</span>
+                <span className="text-[12px] text-ink-3">{b.borough}</span>
+                <span className="ml-auto font-mono text-[13px] font-semibold text-cosmetic">
+                  ×{b.noAccess.toLocaleString()} no-access closures
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 text-[13px]">
+            <Link href="/building" className="font-mono text-receipt hover:underline">
+              Open any building&apos;s file — including the one you&apos;re about to sign a lease in →
+            </Link>
+          </p>
+          <div className="mt-3">
+            <ReceiptLink url={worst.receiptUrl} />
+          </div>
+        </section>
+      )}
 
       <footer className="mt-16 border-t border-hairline pt-6 text-[13px] leading-relaxed text-ink-2">
         <p>

@@ -37,27 +37,49 @@ function writeCache(url: string, rows: unknown): void {
   fs.writeFileSync(cachePath(url), JSON.stringify(rows));
 }
 
+/** Trips after the first token-bearing failure so a broken token costs one
+    slow request per process, not one per query. */
+let tokenBroken = false;
+
+async function fetchRows<T>(url: string, token: string | undefined, timeoutMs: number): Promise<T[]> {
+  const headers: Record<string, string> = {};
+  if (token) headers["X-App-Token"] = token;
+  const res = await fetch(url, { headers, signal: AbortSignal.timeout(timeoutMs) });
+  if (!res.ok) throw new Error(`Socrata ${res.status}: ${await res.text()}`);
+  return (await res.json()) as T[];
+}
+
 /**
- * Query Socrata. Every successful response is cached to disk; on network
- * failure the cache serves as fallback so the demo survives dead wifi.
+ * Query Socrata. The app token is strictly additive: if a token-bearing
+ * request fails or times out, we retry anonymously before falling back to
+ * the disk cache — so a bad/unpropagated token can never take the app down.
  */
 export async function query<T = Record<string, string>>(
   params: Record<string, string>,
 ): Promise<SocrataResult<T>> {
   const url = buildUrl(params);
-  const headers: Record<string, string> = {};
-  const token = process.env.SOCRATA_APP_TOKEN;
-  if (token) headers["X-App-Token"] = token;
+  const token = tokenBroken ? undefined : process.env.SOCRATA_APP_TOKEN?.trim() || undefined;
 
   try {
-    const res = await fetch(url, { headers });
-    if (!res.ok) throw new Error(`Socrata ${res.status}: ${await res.text()}`);
-    const rows = (await res.json()) as T[];
+    const rows = await fetchRows<T>(url, token, token ? 12_000 : 25_000);
     writeCache(url, rows);
     return { rows, url, fromCache: false };
-  } catch (err) {
+  } catch {
+    // Token-bearing request failed — the token may be stale or unpropagated.
+    if (token) {
+      tokenBroken = true;
+      try {
+        const rows = await fetchRows<T>(url, undefined, 25_000);
+        writeCache(url, rows);
+        return { rows, url, fromCache: false };
+      } catch (err2) {
+        const cached = readCache<T>(url);
+        if (cached) return { rows: cached, url, fromCache: true };
+        throw err2;
+      }
+    }
     const cached = readCache<T>(url);
     if (cached) return { rows: cached, url, fromCache: true };
-    throw err;
+    throw new Error(`Socrata unreachable for ${url}`);
   }
 }

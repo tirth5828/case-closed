@@ -35,7 +35,7 @@ function BuildingLookup() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<BuildingResult | null>(null);
-  const [suggestions, setSuggestions] = useState<{ address: string; n: number }[]>([]);
+  const [suggestions, setSuggestions] = useState<{ address: string; borough?: string; n?: number }[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [highlight, setHighlight] = useState(-1);
   const searchParams = useSearchParams();
@@ -89,7 +89,9 @@ function BuildingLookup() {
     const t = setTimeout(async () => {
       try {
         const res = await fetch(`/api/building/suggest?q=${encodeURIComponent(q)}`);
-        const data = (await res.json()) as { suggestions?: { address: string; n: number }[] };
+        const data = (await res.json()) as {
+          suggestions?: { address: string; borough?: string; n?: number }[];
+        };
         if (suggestSeq.current !== id) return; // a newer keystroke owns the dropdown
         setSuggestions(data.suggestions ?? []);
         setShowSuggestions((data.suggestions ?? []).length > 0);
@@ -97,7 +99,7 @@ function BuildingLookup() {
       } catch {
         /* typeahead is best-effort; plain lookup still works */
       }
-    }, 300);
+    }, 200);
     return () => clearTimeout(t);
   }, [address]);
 
@@ -158,7 +160,7 @@ function BuildingLookup() {
             {showSuggestions && (
               <ul className="absolute left-0 right-0 top-full z-10 mt-1 overflow-hidden rounded border border-hairline bg-card shadow-lg">
                 {suggestions.map((s, i) => (
-                  <li key={s.address}>
+                  <li key={`${s.address}|${s.borough ?? ""}`}>
                     <button
                       type="button"
                       onMouseDown={(e) => {
@@ -172,7 +174,7 @@ function BuildingLookup() {
                     >
                       <span className="truncate">{s.address}</span>
                       <span className="shrink-0 text-[11px] text-ink-3">
-                        ×{s.n.toLocaleString()}
+                        {s.n != null ? `×${s.n.toLocaleString()}` : (s.borough ?? "")}
                       </span>
                     </button>
                   </li>

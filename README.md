@@ -11,6 +11,8 @@ In the last 12 months, New Yorkers filed 2.56 million complaints across the city
 
 Built at the NYPL **Built for NYC: AI Hackathon**, Aug 15–16 2026.
 
+**Live: https://case-closed-dun.vercel.app**
+
 ## The three acts
 
 1. **The Honesty Index** (`/`) — complaint types ranked by what "closed" really meant: verified fixed vs. cosmetic closure (no access, gone on arrival, wrong desk, no action) vs. duplicates/pending. Click any row to read the city's actual closure language, stamped and translated. A chart that has never existed, because the data for it was locked in free text.

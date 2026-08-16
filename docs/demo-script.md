@@ -1,4 +1,38 @@
-# Demo script (~2:30) + submission draft
+# Demo script (2:00, science-fair, timing-tested) + submission draft
+
+> Timings below were measured live on localhost Sunday: taxonomy map 2.1s, odds 3.1s,
+> ending+playbook ~8–10s, letter 12.4s after clicking DRAFT, dossier <1s, index instant.
+> `/inquire` measured 8s–45s+ depending on the query the model writes — NEVER in the
+> timed demo; it's the Q&A encore. Run `npm run build && npm run start` for the fair
+> (dev mode has a first-click hydration race). Park the browser on `/` between judges.
+
+## The 2:00 script — lead with the verdict, end on their own complaint
+
+**Beat 1 — the stamp (0:00–0:20).** Already on `/`.
+> "New Yorkers filed 2.5 million 311 complaints last year in the top 15 categories. Almost every one is marked *closed*. But closed is a status code, not an outcome. The city writes what actually happened in free text nobody can search — we read all of it. **51 percent — 1.3 million complaints — closed without the problem being verified fixed.**"
+
+**Beat 2 — the integrity flex (0:20–0:35).** Point at the red callout.
+> "We also audit ourselves: we hypothesized cosmetic closures get re-filed more — measured it, it's false, so we don't claim it. What is true: at chronic buildings, **95% of closures are followed by another complaint within 30 days — even the ones marked fixed.**"
+
+**Beat 3 — the receipt (0:35–0:52).** Click **Illegal Parking** open.
+> "No query can tell 'fixed' from 'nobody got inside' — so the AI classified the few hundred sentences the city reuses, once each, and the labels annotate millions of rows. *'No criminal violation observed upon arrival'* — **116,653 times.** Every number expands to the exact Open Data query. Nothing is invented."
+
+**Beat 4 — where complaints go to die (0:52–1:10).** Scroll to leaderboard, click **2081 MADISON AVENUE** (loads in ~1s).
+> "The buildings where inspections keep not happening. Number one: **1,147 complaints in five years, 12 percent verifiably fixed.** The sentence this building has heard 374 times: 'the inspector left a card.' Anyone can pull this file for any address — including the one on the lease you're about to sign. Type it sloppy; it autocompletes from the city's own records."
+
+**Beat 5 — Before You Call, live (1:10–1:55).** Go to `/ask`, click the **mold chip**, ZIP **10458**, run.
+> (odds land in ~3s) "Your words, filed the city's way: Unsanitary Condition — Mold. In this ZIP, 1,072 identical complaints: **24% fixed, 69% cosmetic** — and this is the exact sentence yours will most likely receive."
+> **The moment the playbook appears, click DRAFT MY COMPLAINT TEXT, then talk over the ~12s generation:**
+> "Because we know precisely how complaints like yours die — no access, no callback — the playbook counters each failure mode… and here's your complaint text, engineered against them. Copy, paste, file."
+
+**Beat 6 — close (1:55–2:00).**
+> "The city's own data, finally telling the truth about itself — rebuilt fresh this morning, every number receipted."
+
+**Encore if the judge lingers — Ask the Record (`/inquire`).** Warn it's a live agent writing SoQL (can take 30s+): "it writes the city's query language and shows you the query as its receipt — even when its first attempt gets rejected and it self-corrects."
+
+---
+
+# Original long version (~2:30) below for reference
 
 ## Sunday-morning checklist (before anything else)
 

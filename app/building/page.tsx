@@ -40,7 +40,7 @@ function BuildingLookup() {
   const [highlight, setHighlight] = useState(-1);
   const searchParams = useSearchParams();
   const autoRan = useRef(false);
-  const suppressSuggest = useRef(false);
+  const lastPicked = useRef<string | null>(null);
   const suggestSeq = useRef(0);
 
   const run = useCallback(async (addr: string) => {
@@ -69,7 +69,7 @@ function BuildingLookup() {
     const fromUrl = searchParams.get("address");
     if (fromUrl && !autoRan.current) {
       autoRan.current = true;
-      suppressSuggest.current = true;
+      lastPicked.current = fromUrl;
       setAddress(fromUrl);
       void run(fromUrl);
     }
@@ -78,10 +78,7 @@ function BuildingLookup() {
   // Typeahead against the addresses the city actually writes, so "125 110 st"
   // still finds "125 WEST 110 STREET".
   useEffect(() => {
-    if (suppressSuggest.current) {
-      suppressSuggest.current = false;
-      return;
-    }
+    if (address === lastPicked.current) return; // picked/auto-set, not typed
     const q = address.trim();
     if (q.length < 3) {
       setSuggestions([]);
@@ -106,7 +103,7 @@ function BuildingLookup() {
 
   const pick = useCallback(
     (addr: string) => {
-      suppressSuggest.current = true;
+      lastPicked.current = addr;
       setAddress(addr);
       setShowSuggestions(false);
       void run(addr);

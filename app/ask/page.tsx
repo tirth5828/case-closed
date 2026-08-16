@@ -132,7 +132,7 @@ export default function AskPage() {
   function dictate() {
     const rec = getSpeechRecognition();
     if (!rec) {
-      setError("Voice input isn't supported in this browser — Chrome works.");
+      setError("Voice input isn't supported in this browser - Chrome works.");
       return;
     }
     rec.lang = "en-US";
@@ -230,7 +230,7 @@ export default function AskPage() {
           Before you call 311
         </h1>
         <p className="mt-3 max-w-xl text-ink-2">
-          Describe the problem in your own words. We&apos;ll file it the way the city would — then
+          Describe the problem in your own words. We&apos;ll file it the way the city would - then
           show you what actually happened to identical complaints, and how to beat the odds.
         </p>
       </header>
@@ -244,7 +244,7 @@ export default function AskPage() {
           id="problem"
           value={problem}
           onChange={(e) => setProblem(e.target.value)}
-          placeholder="Say it like you'd say it to a neighbor — we'll turn it into the city's language."
+          placeholder="Say it like you'd say it to a neighbor - we'll turn it into the city's language."
           rows={3}
           className="mt-2 w-full resize-none rounded border border-hairline bg-paper p-3 text-[15px] outline-none focus:border-ink-3"
         />
@@ -295,7 +295,7 @@ export default function AskPage() {
               try {
                 setPhoto(await fileToPhoto(f));
               } catch {
-                setError("Couldn't read that image — try a JPEG or PNG.");
+                setError("Couldn't read that image - try a JPEG or PNG.");
               }
               e.target.value = "";
             }}
@@ -320,7 +320,7 @@ export default function AskPage() {
             <button
               onClick={() => fileRef.current?.click()}
               disabled={busy}
-              title="Attach a photo — the AI reads it for evidence"
+              title="Attach a photo - the AI reads it for evidence"
               aria-label="Attach a photo of the problem"
               className="rounded border border-hairline bg-paper px-3 py-2 text-[15px] hover:border-ink-3 disabled:opacity-40"
             >
@@ -358,7 +358,7 @@ export default function AskPage() {
           {ask.complaint_type === "OTHER" ? (
             <p className="mt-2 text-[14px] text-ink-2">
               This doesn&apos;t map to one of the 15 highest-volume complaint types we&apos;ve
-              indexed. It may still be reportable — try{" "}
+              indexed. It may still be reportable - try{" "}
               <a href="https://portal.311.nyc.gov" target="_blank" rel="noopener noreferrer" className="text-receipt hover:underline">
                 311 directly
               </a>
@@ -368,7 +368,7 @@ export default function AskPage() {
             <>
               <p className="mt-2 text-xl font-bold">
                 {ask.complaint_type}
-                {ask.descriptor && <span className="font-normal text-ink-2"> — {ask.descriptor}</span>}
+                {ask.descriptor && <span className="font-normal text-ink-2"> - {ask.descriptor}</span>}
               </p>
               <p className="mt-1 text-[13px] text-ink-2">{ask.reasoning}</p>
               {ask.photo_details && (
@@ -403,7 +403,7 @@ export default function AskPage() {
                 {(nearby.cosmeticShare * 100).toFixed(0)}%
               </p>
               <p className="mt-0.5 text-[13px] text-ink-2">
-                closed cosmetically — the ticket ended,
+                closed cosmetically - the ticket ended,
                 <br />
                 the problem wasn&apos;t verified to
               </p>
@@ -423,7 +423,7 @@ export default function AskPage() {
                 {Math.round(((nearby.breakdown.counts["duplicate"] ?? 0) / nearby.total) * 100)}%
                 never counted at all
               </strong>{" "}
-              — closed as duplicates of a neighbor&apos;s report, so the file shows one complaint
+              - closed as duplicates of a neighbor&apos;s report, so the file shows one complaint
               where a whole building was cold.
             </p>
           )}
@@ -459,7 +459,7 @@ export default function AskPage() {
             Your most likely ending
           </p>
           <p className="mt-1 text-[13px] text-ink-2">
-            The sentence the city sends most often to complaints like yours —{" "}
+            The sentence the city sends most often to complaints like yours -{" "}
             {Math.round((nearby.templates[0].n / nearby.total) * 100)}% of them got exactly this:
           </p>
           <blockquote className="mt-3 border-l-2 pl-3" style={{ borderColor: "var(--stamp)" }}>
@@ -470,7 +470,7 @@ export default function AskPage() {
           <div className="mt-3 flex items-center gap-3">
             <Stamp outcome={nearby.templates[0].outcome} />
             <span className="text-[13px] text-ink-2">
-              {nearby.templates[0].gloss} — unless you change the script. That&apos;s what the
+              {nearby.templates[0].gloss} - unless you change the script. That&apos;s what the
               playbook below is for.
             </span>
           </div>
@@ -481,7 +481,7 @@ export default function AskPage() {
       {playbook && (
         <section className="reveal mt-6 rounded border-2 border-ink bg-card p-4">
           <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
-            Your playbook — beat the closure codes
+            Your playbook - beat the closure codes
           </p>
           <p className="mt-2 text-[15px] leading-relaxed">{playbook.odds}</p>
           <ol className="mt-3 space-y-2">
@@ -520,7 +520,7 @@ export default function AskPage() {
           </span>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="font-mono text-[12px] uppercase tracking-widest text-ink-3">
-              Edit the [brackets] right here, then copy — ready for 311
+              Edit the [brackets] right here, then copy - ready for 311
             </p>
             <button
               onClick={copyLetter}
@@ -534,7 +534,7 @@ export default function AskPage() {
             value={letterText}
             onChange={(e) => setLetterText(e.target.value)}
             spellCheck={false}
-            aria-label="Your complaint text — edit before copying"
+            aria-label="Your complaint text - edit before copying"
             className="mt-3 w-full resize-none overflow-hidden rounded border border-dashed border-transparent bg-transparent font-mono text-[13px] leading-relaxed outline-none hover:border-[#d8c68f] focus:border-[#b39c55]"
           />
           <ul className="mt-3 space-y-1">

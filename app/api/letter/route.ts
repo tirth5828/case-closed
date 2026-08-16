@@ -49,7 +49,7 @@ export async function POST(request: Request) {
   const prompt = `Write the text a New Yorker should paste into a NYC 311 complaint form.
 
 Their problem, in their words: "${problem.slice(0, 400)}"
-Official filing: ${complaint_type}${descriptor ? ` — ${descriptor}` : ""}.
+Official filing: ${complaint_type}${descriptor ? ` - ${descriptor}` : ""}.
 ${photo_details ? `Evidence visible in their photo (weave these specifics into the letter, and mention a photo is attached to the complaint): ${photo_details.slice(0, 400)}` : ""}
 
 These are the ways complaints like theirs actually die (from the city's own closure records):

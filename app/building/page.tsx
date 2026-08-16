@@ -121,7 +121,7 @@ function BuildingLookup() {
         </h1>
         <p className="mt-3 max-w-xl text-ink-2">
           Every 311 complaint filed from one address in the last five years, and how each one
-          really ended. Check where you live — or where you&apos;re about to sign a lease.
+          really ended. Check where you live - or where you&apos;re about to sign a lease.
         </p>
       </header>
 

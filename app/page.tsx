@@ -134,7 +134,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 pb-24">
-      {/* ACT 1 — the reveal */}
+      {/* ACT 1 - the reveal */}
       <header className="relative border-b border-hairline pt-12 pb-10">
         <span className="watermark print:hidden" aria-hidden="true">
           Public record
@@ -157,12 +157,12 @@ export default function Home() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2">
           But <em>closed</em> is a status code, not an outcome. We read the closure text the city
-          attaches to every ticket — {grandTotal.toLocaleString()} complaints collapse into a few
-          hundred templates — and asked an AI what each one actually means.
+          attaches to every ticket - {grandTotal.toLocaleString()} complaints collapse into a few
+          hundred templates - and asked an AI what each one actually means.
         </p>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed">
           <strong className="text-cosmetic">
-            {((grandCosmetic / grandTotal) * 100).toFixed(0)}% —{" "}
+            {((grandCosmetic / grandTotal) * 100).toFixed(0)}% -{" "}
             {grandCosmetic.toLocaleString()} complaints
           </strong>{" "}
           were closed without the problem being verified fixed: nobody got inside, the condition was
@@ -184,15 +184,15 @@ export default function Home() {
                     {((totalRefiled / totalN) * 100).toFixed(0)}% of closures were followed by
                     another complaint within {boomerang.cohort.windowDays} days
                   </strong>{" "}
-                  — even closures marked fixed ({(resolvedRate * 100).toFixed(0)}%). The unit of
+                  - even closures marked fixed ({(resolvedRate * 100).toFixed(0)}%). The unit of
                   failure isn&apos;t the ticket; it&apos;s the building.
                 </p>
                 <p className="mt-1.5 font-mono text-[11px] text-ink-3">
                   {totalN.toLocaleString()} closures at chronic-complaint buildings,{" "}
-                  {new Date(boomerang.cohort.start).toLocaleDateString("en-US", { month: "short", year: "numeric" })}–
+                  {new Date(boomerang.cohort.start).toLocaleDateString("en-US", { month: "short", year: "numeric" })}-
                   {new Date(boomerang.cohort.end).toLocaleDateString("en-US", { month: "short", year: "numeric" })}. We
-                  also tested whether cosmetic closures get re-filed more than verified fixes —
-                  they don&apos;t (12% vs 12% at small buildings) — so we don&apos;t claim it.
+                  also tested whether cosmetic closures get re-filed more than verified fixes -
+                  they don&apos;t (12% vs 12% at small buildings) - so we don&apos;t claim it.
                 </p>
                 <div className="mt-2">
                   <ReceiptLink url={boomerang.receiptUrl} />
@@ -230,7 +230,7 @@ export default function Home() {
             <h2 className="font-display text-2xl font-black uppercase">The Honesty Index</h2>
             <p className="mt-1 text-[14px] text-ink-2">
               What &ldquo;closed&rdquo; really meant, by complaint type. Click a row for the actual
-              closure language{heroRow ? ` — start with ${heroRow.complaint_type}` : ""}.
+              closure language{heroRow ? ` - start with ${heroRow.complaint_type}` : ""}.
             </p>
           </div>
           <OutcomeLegend />
@@ -238,7 +238,7 @@ export default function Home() {
         <HonestyIndex rows={rows} />
         <p className="mt-4 text-[13px]">
           <Link href="/atlas" className="font-mono text-receipt hover:underline">
-            Browse the full Template Atlas — every sentence the city closes with →
+            Browse the full Template Atlas - every sentence the city closes with →
           </Link>
         </p>
       </section>
@@ -249,7 +249,7 @@ export default function Home() {
           <h2 className="font-display text-2xl font-black uppercase">Who actually writes &ldquo;fixed&rdquo;?</h2>
           <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
             The same honesty math, by responding agency. Different agencies end complaints in very
-            different ways — a structural fact about how each one works, not a report card on the
+            different ways - a structural fact about how each one works, not a report card on the
             people in the field.
           </p>
           <AgencyLeague rows={agencies} />
@@ -267,7 +267,7 @@ export default function Home() {
           <h2 className="font-display text-2xl font-black uppercase">Where complaints go to die</h2>
           <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
             The buildings with the most housing complaints closed for <em>no access</em> in the
-            last year — addresses where inspections keep not happening, complaint after complaint.
+            last year - addresses where inspections keep not happening, complaint after complaint.
           </p>
           <ol className="mt-5 space-y-1.5">
             {worst.buildings.slice(0, 5).map((b, i) => (
@@ -288,7 +288,7 @@ export default function Home() {
           </ol>
           <p className="mt-4 text-[13px]">
             <Link href="/building" className="font-mono text-receipt hover:underline">
-              Open any building&apos;s file — including the one you&apos;re about to sign a lease in →
+              Open any building&apos;s file - including the one you&apos;re about to sign a lease in →
             </Link>
           </p>
           <div className="mt-3">
@@ -302,8 +302,8 @@ export default function Home() {
           <div className="form-sec mb-4">sec. 04 · the record over time</div>
           <h2 className="font-display text-2xl font-black uppercase">The Time Machine</h2>
           <p className="mt-1 max-w-2xl text-[14px] text-ink-2">
-            Every 311 closure since {years[0].year} — {years.reduce((s, y) => s + y.total, 0).toLocaleString()} of
-            them — run through the same honesty math.{" "}
+            Every 311 closure since {years[0].year} - {years.reduce((s, y) => s + y.total, 0).toLocaleString()} of
+            them - run through the same honesty math.{" "}
             {(() => {
               const first = years[0];
               const last = years[years.length - 1];
@@ -313,7 +313,7 @@ export default function Home() {
                   Cosmetic closure went from{" "}
                   <strong>{(first.cosmeticShare * 100).toFixed(0)}% in {first.year}</strong> to{" "}
                   <strong className="text-cosmetic">{(last.cosmeticShare * 100).toFixed(0)}% in {last.year}</strong>
-                  {Math.abs(d) >= 1 ? ` — ${d > 0 ? "up" : "down"} ${Math.abs(d).toFixed(0)} points.` : " — essentially unchanged."}
+                  {Math.abs(d) >= 1 ? ` - ${d > 0 ? "up" : "down"} ${Math.abs(d).toFixed(0)} points.` : " - essentially unchanged."}
                 </>
               );
             })()}

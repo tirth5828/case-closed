@@ -47,7 +47,7 @@ export default function Translator() {
       </p>
       <p className="mt-1 text-[13px] text-ink-2">
         Paste the closure text from the email or status page the city sent you. We&apos;ll tell you
-        what it actually means — and what to do next.
+        what it actually means - and what to do next.
       </p>
       <textarea
         value={text}
@@ -82,7 +82,7 @@ export default function Translator() {
           )}
           {!result.matched && (
             <p className="mt-2 font-mono text-[12px] text-ink-3">
-              Not one of the standard templates — classified live.
+              Not one of the standard templates - classified live.
             </p>
           )}
           <p className="mt-3 text-[14px] leading-relaxed">{result.next}</p>

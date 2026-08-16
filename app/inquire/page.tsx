@@ -65,7 +65,7 @@ export default function InquirePage() {
         <h1 className="font-display text-4xl font-black uppercase leading-tight">Ask the record</h1>
         <p className="mt-3 max-w-xl text-ink-2">
           Ask anything about NYC&apos;s 40 million 311 complaints. The AI doesn&apos;t answer from
-          memory — it writes the database query itself, runs it against NYC Open Data live, and
+          memory - it writes the database query itself, runs it against NYC Open Data live, and
           shows you the query as its receipt.
         </p>
       </header>
@@ -123,7 +123,7 @@ export default function InquirePage() {
 
           <div className="mt-4 rounded border border-dashed border-hairline bg-paper p-3">
             <p className="font-mono text-[11px] uppercase tracking-widest text-ink-3">
-              The query the model wrote — {result.plan.explanation}
+              The query the model wrote - {result.plan.explanation}
               {result.attempts > 1 && " · self-corrected after a rejection"}
             </p>
             <pre className="mt-2 overflow-x-auto font-mono text-[12px] leading-relaxed text-ink">

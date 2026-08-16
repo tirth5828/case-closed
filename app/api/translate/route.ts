@@ -3,22 +3,22 @@ import { loadLabels, loadRawTemplates } from "@/lib/data";
 import { OUTCOME_CLASSES } from "@/lib/types";
 import type { OutcomeClass } from "@/lib/types";
 
-/** Static, tone-checked next steps per outcome class — instant for dictionary hits. */
+/** Static, tone-checked next steps per outcome class - instant for dictionary hits. */
 const NEXT_STEPS: Record<string, string> = {
   resolved:
     "If the problem is actually fixed, you're done. If it isn't, file again and say the prior complaint was closed as resolved while the condition continued.",
   no_access:
-    "The case died at your door. Refile, and this time include availability windows, a buzzer or unit number, and a phone number you'll answer — then respond fast to any card or letter.",
+    "The case died at your door. Refile, and this time include availability windows, a buzzer or unit number, and a phone number you'll answer - then respond fast to any card or letter.",
   no_jurisdiction:
     "It went to the wrong desk. Refile through our Ask page so it maps to the right agency and complaint type the first time.",
   condition_gone:
-    "It was gone when they looked. If it recurs, refile and say it's recurring, with the times it happens — that changes how it's handled.",
+    "It was gone when they looked. If it recurs, refile and say it's recurring, with the times it happens - that changes how it's handled.",
   referred:
     "It was handed off, and handoffs are where complaints vanish. Note the agency it went to, and follow up with that agency directly, citing your complaint number.",
   no_action:
-    "It was received and closed with no action. Refile with more specifics — exact location, dates, photos if the portal allows — so 'no action necessary' is harder to write.",
+    "It was received and closed with no action. Refile with more specifics - exact location, dates, photos if the portal allows - so 'no action necessary' is harder to write.",
   duplicate:
-    "Someone else's complaint absorbed yours — the underlying case may still be open. Keep your complaint number and check the original's status; refile if the condition persists.",
+    "Someone else's complaint absorbed yours - the underlying case may still be open. Keep your complaint number and check the original's status; refile if the condition persists.",
   in_progress:
     "This one isn't over: work is still pending. Keep the complaint number and check back; escalate if nothing changes in the stated timeframe.",
   other:
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   const { text } = (await request.json()) as { text?: string };
   const clean = text?.trim().replace(/\s+/g, " ");
   if (!clean || clean.length < 20) {
-    return Response.json({ error: "Paste the full closure text — the whole paragraph." }, { status: 400 });
+    return Response.json({ error: "Paste the full closure text - the whole paragraph." }, { status: 400 });
   }
 
   const { labels } = loadLabels();

@@ -27,7 +27,7 @@ export interface IndexRow {
   cosmeticShare: number;
   receiptUrl: string;
   templates: IndexTemplate[];
-  /** Optional — present once the borough pipeline has run. */
+  /** Optional - present once the borough pipeline has run. */
   boroughs?: IndexBorough[];
 }
 
@@ -132,7 +132,7 @@ export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
             {open && (
               <div className="border-t border-dashed border-hairline bg-card px-2 py-4 sm:px-4">
                 <p className="mb-3 text-[13px] text-ink-2">
-                  The closure language behind the bar — what the city actually wrote, and what it
+                  The closure language behind the bar - what the city actually wrote, and what it
                   means:
                 </p>
                 <ul className="space-y-2.5">
@@ -156,7 +156,7 @@ export default function HonestyIndex({ rows }: { rows: IndexRow[] }) {
                 {row.boroughs && row.boroughs.length > 0 && (
                   <div className="mt-5 border-t border-dashed border-hairline pt-4">
                     <p className="mb-3 text-[13px] text-ink-2">
-                      The gap isn&apos;t evenly distributed — same complaint, five different
+                      The gap isn&apos;t evenly distributed - same complaint, five different
                       cities:
                     </p>
                     <ul className="space-y-2">

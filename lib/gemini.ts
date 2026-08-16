@@ -51,7 +51,8 @@ export async function generate(prompt: string, opts: GeminiOptions = {}): Promis
   };
   const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("");
   if (!text) throw new Error(`Gemini returned no text: ${JSON.stringify(data).slice(0, 500)}`);
-  return text;
+  // House style: no em/en dashes anywhere on the site, including generated text.
+  return text.replace(/—|–/g, "-");
 }
 
 export async function generateJson<T>(

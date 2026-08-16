@@ -70,8 +70,8 @@ export default function BoardPage() {
         </h1>
         <p className="mt-3 max-w-xl text-ink-2">
           Community board meetings are where 311 patterns get discussed with city officials in the
-          room. Pick your district, see how closures really end there, and print a one-page brief —
-          with questions — for the next public session.
+          room. Pick your district, see how closures really end there, and print a one-page brief -
+          with questions - for the next public session.
         </p>
       </header>
 
@@ -92,7 +92,7 @@ export default function BoardPage() {
             <option value="">Choose your district…</option>
             {boards.map((b) => (
               <option key={b.board} value={b.board}>
-                {b.board} — {b.total.toLocaleString()} complaints
+                {b.board} - {b.total.toLocaleString()} complaints
               </option>
             ))}
           </select>
@@ -129,7 +129,7 @@ export default function BoardPage() {
               <p className="mt-0.5 text-[13px] text-ink-2">
                 closed cosmetically
                 <br />
-                (citywide: {(stats.cityCosmeticShare * 100).toFixed(0)}% —{" "}
+                (citywide: {(stats.cityCosmeticShare * 100).toFixed(0)}% -{" "}
                 {delta >= 0 ? `${(delta * 100).toFixed(0)} pts worse` : `${(-delta * 100).toFixed(0)} pts better`})
               </p>
             </div>

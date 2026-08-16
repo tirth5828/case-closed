@@ -90,7 +90,7 @@ This district, last 12 months: ${boardStats.total.toLocaleString()} complaints c
 The district's largest non-resolved closure categories:
 ${failures.map((f) => `- ${f.n.toLocaleString()} closed as [${f.outcome}]: ${f.gloss}`).join("\n")}
 
-Rules: ground every claim in these numbers only; never invent statistics. Tone: neutral, constructive, respectful of agency staff — the issue is closure codes that hide outcomes, not workers. Say "closed without site access", never "ignored". Questions should be answerable by an agency representative and aimed at improving outcomes, not assigning blame.`;
+Rules: ground every claim in these numbers only; never invent statistics. Tone: neutral, constructive, respectful of agency staff - the issue is closure codes that hide outcomes, not workers. Say "closed without site access", never "ignored". Questions should be answerable by an agency representative and aimed at improving outcomes, not assigning blame.`;
 
   try {
     const result = await generateJson<{ headline: string; summary: string; questions: string[] }>(prompt, schema);

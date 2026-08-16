@@ -1,5 +1,5 @@
 /**
- * The project's own records-division seal (deliberately NOT the city seal —
+ * The project's own records-division seal (deliberately NOT the city seal -
  * it says CASE CLOSED? RECORDS DIVISION so it can't be mistaken for an
  * official mark).
  */

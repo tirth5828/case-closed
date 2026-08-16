@@ -21,10 +21,10 @@ const SECTION_ORDER: OutcomeClass[] = [
 const SECTION_INTRO: Record<string, string> = {
   no_access: "The ticket ended because nobody could get in.",
   condition_gone: "By the time anyone looked, there was nothing to see.",
-  no_jurisdiction: "Filed with the wrong agency — the complaint dies at the desk.",
+  no_jurisdiction: "Filed with the wrong agency - the complaint dies at the desk.",
   referred: "Handed to someone else. The trail usually ends here.",
   no_action: "Received, reviewed, and closed with explicitly no action.",
-  duplicate: "Someone else already reported it — this copy is discarded.",
+  duplicate: "Someone else already reported it - this copy is discarded.",
   in_progress: "Not actually an outcome: the text says work is still pending.",
   other: "Closures too ambiguous to call either way.",
   resolved: "The ones where the text says the problem was actually addressed.",
@@ -83,7 +83,7 @@ export default function Atlas() {
         </h1>
         <p className="mt-3 max-w-xl text-ink-2">
           {grand.toLocaleString()} complaint outcomes, written in {entries.length} sentences. This
-          is the complete vocabulary NYC uses to close a 311 ticket — every template, what it
+          is the complete vocabulary NYC uses to close a 311 ticket - every template, what it
           really means, and how many New Yorkers received it this year.
         </p>
         {(() => {

@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Case Closed?",
   description:
-    "NYC closes almost every 311 complaint. Closed is a status code, not an outcome — we read the city's own closure text to find out what really happened.",
+    "NYC closes almost every 311 complaint. Closed is a status code, not an outcome - we read the city's own closure text to find out what really happened.",
 };
 
 import FileTabs from "@/components/FileTabs";

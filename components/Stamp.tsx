@@ -26,7 +26,7 @@ const STAMP_COLOR: Record<string, string> = {
   unknown: "var(--ink-3)",
 };
 
-/** A clerk's stamp for an outcome class — the app's recurring signature. */
+/** A clerk's stamp for an outcome class - the app's recurring signature. */
 export default function Stamp({
   outcome,
   flat = false,

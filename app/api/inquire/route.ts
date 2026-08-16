@@ -64,7 +64,7 @@ export async function POST(request: Request) {
 ${SCHEMA_DOC}
 
 Question: "${q}"
-${feedback ? `\nYour previous attempt failed with this Socrata error — fix the query:\n${feedback}` : ""}
+${feedback ? `\nYour previous attempt failed with this Socrata error - fix the query:\n${feedback}` : ""}
 Prefer aggregations over raw rows. Never select resolution_description unless asked about closure language. Keep limit small.`;
 
   let plan: Plan | null = null;
@@ -112,7 +112,7 @@ Answer the question in 1-2 plain sentences using ONLY these rows. Format big num
       { temperature: 0.2 },
     );
   } catch {
-    answer = "The query ran — read the rows below.";
+    answer = "The query ran - read the rows below.";
   }
 
   return Response.json({

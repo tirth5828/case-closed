@@ -26,13 +26,13 @@ function AuditMark({ audit }: { audit?: TemplateAudit }) {
   if (audit.verdict === "corrected") {
     return (
       <span className="font-mono text-[10px] uppercase tracking-wider text-ink-3">
-        corrected on review{audit.original ? ` — was ${audit.original}` : ""}
+        corrected on review{audit.original ? ` - was ${audit.original}` : ""}
       </span>
     );
   }
   return (
     <span className="font-mono text-[10px] uppercase tracking-wider text-cosmetic" title={audit.note}>
-      contested — auditor read: {audit.dissent}
+      contested - auditor read: {audit.dissent}
     </span>
   );
 }
@@ -83,7 +83,7 @@ export default function AtlasSections({ sections, grand }: { sections: AtlasSect
         {matchCount !== null && (
           <p className="mt-2 font-mono text-[12px] text-ink-3">
             {matchCount === 0
-              ? "No templates match — try a shorter word."
+              ? "No templates match - try a shorter word."
               : `${matchCount} template${matchCount === 1 ? "" : "s"} match.`}
           </p>
         )}

@@ -55,7 +55,7 @@ ${templateLines}
 
 Write the honest odds and concrete steps to land in the resolved group. Each step must counter a SPECIFIC failure mode visible in the closure texts above (e.g. if many closures say the inspector couldn't get in, the step is about being reachable/present for the inspection). Never invent statistics not given here.
 
-Tone rules: neutral and factual about the city — say "closed without site access", never "ignored". The villain is a closure code that hides outcomes, not city workers. Be direct and practical with the reader.`;
+Tone rules: neutral and factual about the city - say "closed without site access", never "ignored". The villain is a closure code that hides outcomes, not city workers. Be direct and practical with the reader.`;
 
   try {
     const result = await generateJson<{ odds: string; steps: string[] }>(prompt, schema);

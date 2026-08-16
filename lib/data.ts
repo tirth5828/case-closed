@@ -26,7 +26,7 @@ export interface BoroughsRawFile {
   types: { complaint_type: string; rows: { borough: string; text: string; n: number }[]; receiptUrl: string }[];
 }
 
-/** Borough drill-down data is optional — null until `npm run boroughs` has run. */
+/** Borough drill-down data is optional - null until `npm run boroughs` has run. */
 export function loadBoroughs(): BoroughsRawFile | null {
   try {
     return load<BoroughsRawFile>("boroughs-raw.json");

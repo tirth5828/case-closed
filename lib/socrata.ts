@@ -11,7 +11,7 @@ const CACHE_DIR = process.env.VERCEL
 
 export interface SocrataResult<T> {
   rows: T[];
-  /** The literal URL queried — shown to users as the receipt. */
+  /** The literal URL queried - shown to users as the receipt. */
   url: string;
   fromCache: boolean;
 }
@@ -37,7 +37,7 @@ function readCache<T>(url: string): T[] | null {
 }
 
 function writeCache(url: string, rows: unknown): void {
-  // Cache writes are best-effort — never let a full disk or read-only fs
+  // Cache writes are best-effort - never let a full disk or read-only fs
   // turn a successful query into a failure.
   try {
     fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -60,7 +60,7 @@ async function fetchRows<T>(url: string, token: string | undefined, timeoutMs: n
 /**
  * Query Socrata. The app token is strictly additive: if a token-bearing
  * request fails or times out, we retry anonymously before falling back to
- * the disk cache — so a bad/unpropagated token can never take the app down.
+ * the disk cache - so a bad/unpropagated token can never take the app down.
  */
 export async function query<T = Record<string, string>>(
   params: Record<string, string>,
@@ -73,7 +73,7 @@ export async function query<T = Record<string, string>>(
     writeCache(url, rows);
     return { rows, url, fromCache: false };
   } catch {
-    // Token-bearing request failed — the token may be stale or unpropagated.
+    // Token-bearing request failed - the token may be stale or unpropagated.
     if (token) {
       tokenBroken = true;
       try {

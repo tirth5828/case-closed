@@ -19,7 +19,7 @@ interface Suggestion {
 }
 
 /**
- * Primary: NYC Planning's GeoSearch autocomplete — an indexed service built for
+ * Primary: NYC Planning's GeoSearch autocomplete - an indexed service built for
  * exactly this, returning addresses in the same canonical form 311 writes
  * ("125 WEST 110 STREET"), in a few hundred ms.
  */

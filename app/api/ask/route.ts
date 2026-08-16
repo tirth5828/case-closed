@@ -49,7 +49,7 @@ ${taxonomy.map((t) => `- ${t.complaint_type}: [${t.descriptors.join(" | ")}]`).j
 
 If nothing fits, use complaint_type "OTHER" with empty descriptor.
 Only choose a descriptor from the chosen type's own list; use "" if unsure.
-${image ? "From the photo, extract concrete evidence that would strengthen the complaint: identifying details (vehicle type/plate, signage, extent of damage or mold, exact placement). Describe conditions and objects only — never people." : ""}
+${image ? "From the photo, extract concrete evidence that would strengthen the complaint: identifying details (vehicle type/plate, signage, extent of damage or mold, exact placement). Describe conditions and objects only - never people." : ""}
 
 Their problem: "${problem.trim().slice(0, 500)}"`;
 

@@ -3,7 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 const BASE = "https://data.cityofnewyork.us/resource/erm2-nwe9.json";
-const CACHE_DIR = path.join(process.cwd(), ".cache", "socrata");
+// Serverless filesystems are read-only outside /tmp; locally we keep the
+// cache in the repo so it survives restarts and ships nothing.
+const CACHE_DIR = process.env.VERCEL
+  ? path.join("/tmp", "socrata-cache")
+  : path.join(process.cwd(), ".cache", "socrata");
 
 export interface SocrataResult<T> {
   rows: T[];
@@ -33,8 +37,12 @@ function readCache<T>(url: string): T[] | null {
 }
 
 function writeCache(url: string, rows: unknown): void {
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
-  fs.writeFileSync(cachePath(url), JSON.stringify(rows));
+  // Cache writes are best-effort — never let a full disk or read-only fs
+  // turn a successful query into a failure.
+  try {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+    fs.writeFileSync(cachePath(url), JSON.stringify(rows));
+  } catch {}
 }
 
 /** Trips after the first token-bearing failure so a broken token costs one

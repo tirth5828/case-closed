@@ -17,7 +17,8 @@ interface GeminiOptions {
 }
 
 export async function generate(prompt: string, opts: GeminiOptions = {}): Promise<string> {
-  const key = process.env.GEMINI_API_KEY;
+  // trim() also strips a stray BOM (U+FEFF) that Windows tooling can prepend.
+  const key = process.env.GEMINI_API_KEY?.trim();
   if (!key) throw new Error("GEMINI_API_KEY is not set (put it in .env.local)");
   const model = opts.model ?? DEFAULT_MODEL;
 

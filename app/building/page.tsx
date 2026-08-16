@@ -35,8 +35,13 @@ function BuildingLookup() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<BuildingResult | null>(null);
+  const [suggestions, setSuggestions] = useState<{ address: string; n: number }[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [highlight, setHighlight] = useState(-1);
   const searchParams = useSearchParams();
   const autoRan = useRef(false);
+  const suppressSuggest = useRef(false);
+  const suggestSeq = useRef(0);
 
   const run = useCallback(async (addr: string) => {
     if (!addr.trim()) return;
@@ -64,10 +69,50 @@ function BuildingLookup() {
     const fromUrl = searchParams.get("address");
     if (fromUrl && !autoRan.current) {
       autoRan.current = true;
+      suppressSuggest.current = true;
       setAddress(fromUrl);
       void run(fromUrl);
     }
   }, [searchParams, run]);
+
+  // Typeahead against the addresses the city actually writes, so "125 110 st"
+  // still finds "125 WEST 110 STREET".
+  useEffect(() => {
+    if (suppressSuggest.current) {
+      suppressSuggest.current = false;
+      return;
+    }
+    const q = address.trim();
+    if (q.length < 3) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+    const id = ++suggestSeq.current;
+    const t = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/building/suggest?q=${encodeURIComponent(q)}`);
+        const data = (await res.json()) as { suggestions?: { address: string; n: number }[] };
+        if (suggestSeq.current !== id) return; // a newer keystroke owns the dropdown
+        setSuggestions(data.suggestions ?? []);
+        setShowSuggestions((data.suggestions ?? []).length > 0);
+        setHighlight(-1);
+      } catch {
+        /* typeahead is best-effort; plain lookup still works */
+      }
+    }, 300);
+    return () => clearTimeout(t);
+  }, [address]);
+
+  const pick = useCallback(
+    (addr: string) => {
+      suppressSuggest.current = true;
+      setAddress(addr);
+      setShowSuggestions(false);
+      void run(addr);
+    },
+    [run],
+  );
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pb-24">
@@ -86,14 +131,58 @@ function BuildingLookup() {
           Street address
         </label>
         <div className="mt-2 flex flex-wrap gap-3">
-          <input
-            id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && run(address)}
-            placeholder="100 GOLD STREET"
-            className="min-w-64 flex-1 rounded border border-hairline bg-paper px-3 py-2 font-mono text-[15px] uppercase outline-none focus:border-ink-3"
-          />
+          <div className="relative min-w-64 flex-1">
+            <input
+              id="address"
+              value={address}
+              autoComplete="off"
+              onChange={(e) => setAddress(e.target.value)}
+              onBlur={() => setShowSuggestions(false)}
+              onKeyDown={(e) => {
+                if (showSuggestions && e.key === "ArrowDown") {
+                  e.preventDefault();
+                  setHighlight((h) => (h + 1) % suggestions.length);
+                } else if (showSuggestions && e.key === "ArrowUp") {
+                  e.preventDefault();
+                  setHighlight((h) => (h <= 0 ? suggestions.length - 1 : h - 1));
+                } else if (e.key === "Escape") {
+                  setShowSuggestions(false);
+                } else if (e.key === "Enter") {
+                  if (showSuggestions && highlight >= 0) pick(suggestions[highlight].address);
+                  else {
+                    setShowSuggestions(false);
+                    void run(address);
+                  }
+                }
+              }}
+              placeholder="100 GOLD STREET"
+              className="w-full rounded border border-hairline bg-paper px-3 py-2 font-mono text-[15px] uppercase outline-none focus:border-ink-3"
+            />
+            {showSuggestions && (
+              <ul className="absolute left-0 right-0 top-full z-10 mt-1 overflow-hidden rounded border border-hairline bg-card shadow-lg">
+                {suggestions.map((s, i) => (
+                  <li key={s.address}>
+                    <button
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault(); // fire before the input's blur closes the list
+                        pick(s.address);
+                      }}
+                      onMouseEnter={() => setHighlight(i)}
+                      className={`flex w-full items-baseline justify-between gap-3 px-3 py-2 text-left font-mono text-[13px] uppercase ${
+                        i === highlight ? "bg-paper" : ""
+                      }`}
+                    >
+                      <span className="truncate">{s.address}</span>
+                      <span className="shrink-0 text-[11px] text-ink-3">
+                        ×{s.n.toLocaleString()}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <button
             onClick={() => run(address)}
             disabled={busy || !address.trim()}

@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-15T20:05:48.080Z",
+  "builtAt": "2026-08-16T15:25:17.055Z",
   "since": "2025-08-15T00:00:00",
   "types": [
     "HEAT/HOT WATER",
@@ -7,7 +7,7 @@
     "PLUMBING",
     "PAINT/PLASTER"
   ],
-  "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=incident_address%2C%20borough%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20IN%20('HEAT%2FHOT%20WATER'%2C'UNSANITARY%20CONDITION'%2C'PLUMBING'%2C'PAINT%2FPLASTER')%20AND%20resolution_description%20IN%20('The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20your%20apartment%20or%20others%20in%20the%20building%20to%20inspect%20for%20a%20lack%20of%20heat%20or%20hot%20water.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20following%20conditions.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20827%20-%201955%20(BROOKLYN).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20579%20-%206777%20(BRONX).'%2C'More%20than%20one%20complaint%20was%20received%20for%20this%20building-wide%20condition.This%20complaint%20status%20is%20for%20the%20initial%20complaint.The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20your%20apartment%20or%20others%20in%20the%20building%20to%20inspect%20for%20a%20lack%20of%20heat%20or%20hot%20water.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint.%20The%20Inspector%20left%20a%20card%20at%20the%20time%20of%20the%20inspection%20and%20a%20letter%20was%20sent%20from%20HPD%20after%20the%20inspection%20attempt%20to%20encourage%20you%20to%20call%20to%20schedule%20an%20inspection.%20HPD%20did%20not%20receive%20a%20timely%20response%20from%20you%20and%20the%20complaint%20has%20been%20closed.%20Please%20submit%20a%20new%20service%20request%20with%20311%20if%20the%20condition%20still%20exists.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20unable%20to%20access%20the%20rooms%20where%20the%20following%20%20conditions%20were%20reported.%20No%20violations%20were%20issued.%20The%20complaint%20has%20been%20closed.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20unable%20to%20access%20the%20rooms%20where%20the%20following%20conditions%20were%20reported.%20No%20violations%20were%20issued.%20The%20complaint%20has%20been%20closed.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20286%20-%200823%20(QUEENS).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20212%20234%20-%207485%20(MANHATTAN).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20579%20-%206777%20(BRONX).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20827%20-%201955%20(BROOKLYN).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20579-6777%20(BRONX).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20816%20-%202340%20(STATEN%20ISLAND).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20286%20-%200823%20(QUEENS).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20212%20234%20-%207485%20(MANHATTAN).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20816%20-%202340%20(STATEN%20ISLAND).')&%24group=incident_address%2C%20borough&%24order=n%20DESC&%24limit=100",
+  "receiptUrl": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=incident_address%2C%20borough%2C%20count(unique_key)%20as%20n&%24where=created_date%20%3E%20'2025-08-15T00%3A00%3A00'%20AND%20complaint_type%20IN%20('HEAT%2FHOT%20WATER'%2C'UNSANITARY%20CONDITION'%2C'PLUMBING'%2C'PAINT%2FPLASTER')%20AND%20resolution_description%20IN%20('The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20your%20apartment%20or%20others%20in%20the%20building%20to%20inspect%20for%20a%20lack%20of%20heat%20or%20hot%20water.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20following%20conditions.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20827%20-%201955%20(BROOKLYN).'%2C'More%20than%20one%20complaint%20was%20received%20for%20this%20building-wide%20condition.This%20complaint%20status%20is%20for%20the%20initial%20complaint.The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20your%20apartment%20or%20others%20in%20the%20building%20to%20inspect%20for%20a%20lack%20of%20heat%20or%20hot%20water.%20The%20complaint%20has%20been%20closed.%20If%20the%20condition%20still%20exists%2C%20please%20file%20a%20new%20complaint.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20579%20-%206777%20(BRONX).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint.%20The%20Inspector%20left%20a%20card%20at%20the%20time%20of%20the%20inspection%20and%20a%20letter%20was%20sent%20from%20HPD%20after%20the%20inspection%20attempt%20to%20encourage%20you%20to%20call%20to%20schedule%20an%20inspection.%20HPD%20did%20not%20receive%20a%20timely%20response%20from%20you%20and%20the%20complaint%20has%20been%20closed.%20Please%20submit%20a%20new%20service%20request%20with%20311%20if%20the%20condition%20still%20exists.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20unable%20to%20access%20the%20rooms%20where%20the%20following%20%20conditions%20were%20reported.%20No%20violations%20were%20issued.%20The%20complaint%20has%20been%20closed.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20unable%20to%20access%20the%20rooms%20where%20the%20following%20conditions%20were%20reported.%20No%20violations%20were%20issued.%20The%20complaint%20has%20been%20closed.'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20286%20-%200823%20(QUEENS).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20212%20234%20-%207485%20(MANHATTAN).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20579%20-%206777%20(BRONX).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20827%20-%201955%20(BROOKLYN).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20212%20234%20-%207485%20(MANHATTAN).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20579-6777%20(BRONX).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20286%20-%200823%20(QUEENS).'%2C'An%20HPD%20Inspector%20was%20not%20able%20to%20gain%20access%20to%20inspect%20this%20complaint%20sometime%20within%20the%20last%2010%20days.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20HPD%20with%20your%20complaint%20number%20to%20schedule%20an%20appointment%20at%20%20718%20816%20-%202340%20(STATEN%20ISLAND).'%2C'The%20Department%20of%20Housing%20Preservation%20and%20Development%20was%20not%20able%20to%20gain%20access%20to%20inspect%20the%20conditions.%20If%20the%20conditions%20still%20exist%20and%20an%20inspection%20is%20required%2C%20please%20contact%20the%20borough%20office%20with%20your%20complaint%20number%20at%20718%20816%20-%202340%20(STATEN%20ISLAND).')&%24group=incident_address%2C%20borough&%24order=n%20DESC&%24limit=100",
   "buildings": [
     {
       "address": "2081 MADISON AVENUE",
@@ -70,14 +70,14 @@
       "noAccess": 62
     },
     {
-      "address": "55 NAGLE AVENUE",
-      "borough": "MANHATTAN",
-      "noAccess": 60
-    },
-    {
       "address": "110 EAST  177 STREET",
       "borough": "BRONX",
       "noAccess": 58
+    },
+    {
+      "address": "55 NAGLE AVENUE",
+      "borough": "MANHATTAN",
+      "noAccess": 57
     },
     {
       "address": "470 OCEAN AVENUE",
@@ -100,8 +100,8 @@
       "noAccess": 55
     },
     {
-      "address": "390 HANCOCK STREET",
-      "borough": "BROOKLYN",
+      "address": "306 EAST  116 STREET",
+      "borough": "MANHATTAN",
       "noAccess": 54
     },
     {
@@ -110,18 +110,18 @@
       "noAccess": 54
     },
     {
-      "address": "306 EAST  116 STREET",
-      "borough": "MANHATTAN",
+      "address": "390 HANCOCK STREET",
+      "borough": "BROOKLYN",
       "noAccess": 54
-    },
-    {
-      "address": "238 YORK AVENUE",
-      "borough": "STATEN ISLAND",
-      "noAccess": 53
     },
     {
       "address": "3013 BARKER AVENUE",
       "borough": "BRONX",
+      "noAccess": 53
+    },
+    {
+      "address": "238 YORK AVENUE",
+      "borough": "STATEN ISLAND",
       "noAccess": 53
     },
     {
@@ -130,14 +130,14 @@
       "noAccess": 52
     },
     {
+      "address": "228 WEST  147 STREET",
+      "borough": "MANHATTAN",
+      "noAccess": 51
+    },
+    {
       "address": "1040B EAST  217 STREET",
       "borough": "BRONX",
       "noAccess": 50
-    },
-    {
-      "address": "228 WEST  147 STREET",
-      "borough": "MANHATTAN",
-      "noAccess": 47
     },
     {
       "address": "30 RICHMAN PLAZA",
@@ -145,12 +145,12 @@
       "noAccess": 46
     },
     {
-      "address": "4511 3 AVENUE",
+      "address": "2265 OLINVILLE AVENUE",
       "borough": "BRONX",
       "noAccess": 45
     },
     {
-      "address": "2265 OLINVILLE AVENUE",
+      "address": "4511 3 AVENUE",
       "borough": "BRONX",
       "noAccess": 45
     },
@@ -205,18 +205,13 @@
       "noAccess": 40
     },
     {
-      "address": "220 EAST   34 STREET",
-      "borough": "BROOKLYN",
+      "address": "34 SEAMAN AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 38
     },
     {
       "address": "941 HOE AVENUE",
       "borough": "BRONX",
-      "noAccess": 38
-    },
-    {
-      "address": "34 SEAMAN AVENUE",
-      "borough": "MANHATTAN",
       "noAccess": 38
     },
     {
@@ -240,6 +235,11 @@
       "noAccess": 36
     },
     {
+      "address": "220 EAST   34 STREET",
+      "borough": "BROOKLYN",
+      "noAccess": 36
+    },
+    {
       "address": "160 WEST   97 STREET",
       "borough": "MANHATTAN",
       "noAccess": 36
@@ -255,12 +255,12 @@
       "noAccess": 35
     },
     {
-      "address": "2723 BARNES AVENUE",
+      "address": "1600 SEDGWICK AVENUE",
       "borough": "BRONX",
       "noAccess": 35
     },
     {
-      "address": "1600 SEDGWICK AVENUE",
+      "address": "2723 BARNES AVENUE",
       "borough": "BRONX",
       "noAccess": 35
     },
@@ -280,13 +280,13 @@
       "noAccess": 34
     },
     {
-      "address": "494 SHEFFIELD AVENUE",
-      "borough": "BROOKLYN",
+      "address": "554 TRINITY AVENUE",
+      "borough": "BRONX",
       "noAccess": 34
     },
     {
-      "address": "554 TRINITY AVENUE",
-      "borough": "BRONX",
+      "address": "494 SHEFFIELD AVENUE",
+      "borough": "BROOKLYN",
       "noAccess": 34
     },
     {
@@ -295,18 +295,8 @@
       "noAccess": 33
     },
     {
-      "address": "2929 WEST   31 STREET",
-      "borough": "BROOKLYN",
-      "noAccess": 33
-    },
-    {
       "address": "155 LINDEN BOULEVARD",
       "borough": "BROOKLYN",
-      "noAccess": 33
-    },
-    {
-      "address": "4222 BOYD AVENUE",
-      "borough": "BRONX",
       "noAccess": 33
     },
     {
@@ -315,14 +305,14 @@
       "noAccess": 33
     },
     {
-      "address": "206 WEST  148 STREET",
-      "borough": "MANHATTAN",
-      "noAccess": 32
+      "address": "2929 WEST   31 STREET",
+      "borough": "BROOKLYN",
+      "noAccess": 33
     },
     {
-      "address": "225 PARKSIDE AVENUE",
-      "borough": "BROOKLYN",
-      "noAccess": 32
+      "address": "4222 BOYD AVENUE",
+      "borough": "BRONX",
+      "noAccess": 33
     },
     {
       "address": "154 EAST  124 STREET",
@@ -335,12 +325,17 @@
       "noAccess": 32
     },
     {
-      "address": "76 ST NICHOLAS PLACE",
+      "address": "225 PARKSIDE AVENUE",
+      "borough": "BROOKLYN",
+      "noAccess": 32
+    },
+    {
+      "address": "206 WEST  148 STREET",
       "borough": "MANHATTAN",
       "noAccess": 32
     },
     {
-      "address": "3427 BROADWAY",
+      "address": "76 ST NICHOLAS PLACE",
       "borough": "MANHATTAN",
       "noAccess": 32
     },
@@ -350,12 +345,12 @@
       "noAccess": 32
     },
     {
-      "address": "1550 JESUP AVENUE",
-      "borough": "BRONX",
-      "noAccess": 31
+      "address": "3427 BROADWAY",
+      "borough": "MANHATTAN",
+      "noAccess": 32
     },
     {
-      "address": "1390 PROSPECT AVENUE",
+      "address": "1550 JESUP AVENUE",
       "borough": "BRONX",
       "noAccess": 31
     },
@@ -375,7 +370,27 @@
       "noAccess": 31
     },
     {
+      "address": "1390 PROSPECT AVENUE",
+      "borough": "BRONX",
+      "noAccess": 31
+    },
+    {
+      "address": "1711 FULTON STREET",
+      "borough": "BROOKLYN",
+      "noAccess": 31
+    },
+    {
+      "address": "8772 20 AVENUE",
+      "borough": "BROOKLYN",
+      "noAccess": 31
+    },
+    {
       "address": "950 JENNINGS STREET",
+      "borough": "BRONX",
+      "noAccess": 31
+    },
+    {
+      "address": "2700 GRAND CONCOURSE",
       "borough": "BRONX",
       "noAccess": 31
     },
@@ -385,23 +400,8 @@
       "noAccess": 31
     },
     {
-      "address": "8772 20 AVENUE",
+      "address": "2960 WEST   24 STREET",
       "borough": "BROOKLYN",
-      "noAccess": 31
-    },
-    {
-      "address": "1711 FULTON STREET",
-      "borough": "BROOKLYN",
-      "noAccess": 31
-    },
-    {
-      "address": "2700 GRAND CONCOURSE",
-      "borough": "BRONX",
-      "noAccess": 31
-    },
-    {
-      "address": "128 CLARKE PLACE EAST",
-      "borough": "BRONX",
       "noAccess": 30
     },
     {
@@ -410,13 +410,8 @@
       "noAccess": 30
     },
     {
-      "address": "2960 WEST   24 STREET",
-      "borough": "BROOKLYN",
-      "noAccess": 30
-    },
-    {
-      "address": "620 LENOX AVENUE",
-      "borough": "MANHATTAN",
+      "address": "128 CLARKE PLACE EAST",
+      "borough": "BRONX",
       "noAccess": 30
     },
     {
@@ -428,6 +423,16 @@
       "address": "254 WEST  154 STREET",
       "borough": "MANHATTAN",
       "noAccess": 30
+    },
+    {
+      "address": "620 LENOX AVENUE",
+      "borough": "MANHATTAN",
+      "noAccess": 30
+    },
+    {
+      "address": "600 CONCORD AVENUE",
+      "borough": "BRONX",
+      "noAccess": 29
     },
     {
       "address": "245 60 STREET",
@@ -445,17 +450,12 @@
       "noAccess": 29
     },
     {
-      "address": "600 CONCORD AVENUE",
-      "borough": "BRONX",
-      "noAccess": 29
-    },
-    {
-      "address": "305 EAST  108 STREET",
+      "address": "107 EAST  126 STREET",
       "borough": "MANHATTAN",
       "noAccess": 29
     },
     {
-      "address": "107 EAST  126 STREET",
+      "address": "305 EAST  108 STREET",
       "borough": "MANHATTAN",
       "noAccess": 29
     },
@@ -470,16 +470,6 @@
       "noAccess": 28
     },
     {
-      "address": "2010 POWELL AVENUE",
-      "borough": "BRONX",
-      "noAccess": 28
-    },
-    {
-      "address": "1465 PARK AVENUE",
-      "borough": "MANHATTAN",
-      "noAccess": 28
-    },
-    {
       "address": "538 EAST   99 STREET",
       "borough": "BROOKLYN",
       "noAccess": 28
@@ -490,13 +480,23 @@
       "noAccess": 28
     },
     {
+      "address": "647 PRESIDENT STREET",
+      "borough": "BROOKLYN",
+      "noAccess": 28
+    },
+    {
       "address": "3136 GODWIN TERRACE",
       "borough": "BRONX",
       "noAccess": 28
     },
     {
-      "address": "647 PRESIDENT STREET",
-      "borough": "BROOKLYN",
+      "address": "2010 POWELL AVENUE",
+      "borough": "BRONX",
+      "noAccess": 28
+    },
+    {
+      "address": "1465 PARK AVENUE",
+      "borough": "MANHATTAN",
       "noAccess": 28
     },
     {
@@ -505,7 +505,7 @@
       "noAccess": 27
     },
     {
-      "address": "230 ST JOHNS PLACE",
+      "address": "123 LINDEN BOULEVARD",
       "borough": "BROOKLYN",
       "noAccess": 27
     }
